@@ -155,13 +155,13 @@ function Cursor() {
 function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
   const [open, setOpen] = useState(false);
   const items = [
-    { id: 'top',     n: '00', l: 'Accueil' },
-    { id: 'feu',     n: '01', l: 'Feu' },
-    { id: 'eau',     n: '02', l: 'Eau' },
-    { id: 'terre',   n: '03', l: 'Terre' },
-    { id: 'souffle', n: '04', l: 'Souffle' },
-    { id: 'luc',     n: '—',  l: 'Luc' },
-    { id: 'contact', n: '—',  l: 'Contact' },
+    { id: 'top',     n: '00', l: 'Accueil',                       sub: '' },
+    { id: 'feu',     n: '01', l: 'Coupeur de feu',                sub: 'Le feu' },
+    { id: 'eau',     n: '02', l: 'Énergéticien · Magnétiseur',    sub: 'L’eau' },
+    { id: 'terre',   n: '03', l: 'Rebouteux',                     sub: 'La terre' },
+    { id: 'souffle', n: '04', l: 'Accompagnement',                sub: 'Le souffle' },
+    { id: 'luc',     n: '—',  l: 'Luc Dacquin',                   sub: 'Alchimiste du vivant' },
+    { id: 'contact', n: '—',  l: 'Prendre rendez-vous',           sub: 'Contact' },
   ];
   return (
     <>
@@ -192,7 +192,10 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
               <li key={it.id} style={{ '--i': i }}>
                 <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); onNav(it.id); setOpen(false); }} className={activeSection === it.id ? 'a' : ''} data-hover>
                   <span className="num mono">{it.n}</span>
-                  <span className="l serif">{it.l}</span>
+                  <span className="labels">
+                    <span className="l serif">{it.l}</span>
+                    {it.sub && <span className="sub mono">{it.sub}</span>}
+                  </span>
                 </a>
               </li>
             ))}
@@ -248,11 +251,14 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
         .drawer ul { list-style: none; padding: 0; margin: 0; }
         .drawer li { opacity: 0; transform: translateX(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); transition-delay: calc(var(--i) * .06s + .15s); }
         .drawer.open li { opacity: 1; transform: translateX(0); }
-        .drawer li a { display: grid; grid-template-columns: 50px 1fr; gap: 18px; align-items: baseline; padding: 16px 0; color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--hairline); transition: color .3s, padding .4s var(--ease); }
+        .drawer li a { display: grid; grid-template-columns: 50px 1fr; gap: 18px; align-items: start; padding: 18px 0; color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--hairline); transition: color .3s, padding .4s var(--ease); }
         .drawer li a:hover { color: var(--ink); padding-left: 8px; }
         .drawer li a.a { color: var(--hue); }
-        .drawer .num { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); }
-        .drawer .l { font-family: var(--serif); font-size: 32px; font-weight: 300; letter-spacing: -0.01em; }
+        .drawer .num { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); padding-top: 10px; }
+        .drawer .labels { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+        .drawer .l { font-family: var(--serif); font-size: clamp(20px, 2.4vw, 26px); font-weight: 300; letter-spacing: -0.01em; line-height: 1.15; font-style: italic; }
+        .drawer .sub { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); }
+        .drawer li a.a .sub { color: color-mix(in oklab, var(--hue) 70%, var(--ink-3)); }
         .drawer-foot { margin-top: 64px; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); line-height: 1.9; }
       `}</style>
     </>
