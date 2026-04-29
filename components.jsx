@@ -155,13 +155,14 @@ function Cursor() {
 function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
   const [open, setOpen] = useState(false);
   const items = [
-    { id: 'top',     n: '00', l: 'Accueil',                       sub: '' },
-    { id: 'feu',     n: '01', l: 'Coupeur de feu',                sub: 'Le feu' },
-    { id: 'eau',     n: '02', l: 'Énergéticien · Magnétiseur',    sub: 'L’eau' },
-    { id: 'terre',   n: '03', l: 'Rebouteux',                     sub: 'La terre' },
-    { id: 'souffle', n: '04', l: 'Accompagnement',                sub: 'Le souffle' },
-    { id: 'luc',     n: '—',  l: 'Luc Dacquin',                   sub: 'Alchimiste du vivant' },
-    { id: 'contact', n: '—',  l: 'Prendre rendez-vous',           sub: 'Contact' },
+    { id: 'top',      n: '00', l: 'Accueil',                       sub: '',                       href: 'index.html' },
+    { id: 'feu',      n: '01', l: 'Coupeur de feu',                sub: 'Le feu',                 href: 'index.html#feu' },
+    { id: 'eau',      n: '02', l: 'Énergéticien · Magnétiseur',    sub: 'L’eau',                  href: 'index.html#eau' },
+    { id: 'terre',    n: '03', l: 'Rebouteux',                     sub: 'La terre',               href: 'index.html#terre' },
+    { id: 'souffle',  n: '04', l: 'Accompagnement',                sub: 'Le souffle',             href: 'index.html#souffle' },
+    { id: 'luc',      n: '—',  l: 'Luc Dacquin',                   sub: 'Alchimiste du vivant',   href: 'index.html#luc' },
+    { id: 'pratique', n: '—',  l: 'Tarifs et FAQ',                 sub: 'Cadre pratique',         href: 'pratique.html' },
+    { id: 'contact',  n: '—',  l: 'Prendre rendez-vous',           sub: 'Contact',                href: 'index.html#contact' },
   ];
   return (
     <>
@@ -190,7 +191,20 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
           <ul>
             {items.map((it, i) => (
               <li key={it.id} style={{ '--i': i }}>
-                <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); onNav(it.id); setOpen(false); }} className={activeSection === it.id ? 'a' : ''} data-hover>
+                <a href={it.href || `#${it.id}`} onClick={(e) => {
+                  // Si l'ancre cible est sur la page courante, on intercepte pour faire un smooth-scroll
+                  const samePageHash = it.href && it.href.includes('#') && it.href.split('#')[0] && location.pathname.endsWith('/' + it.href.split('#')[0]);
+                  const isHomePage = location.pathname.endsWith('/') || location.pathname.endsWith('/index.html');
+                  const targetIsHome = (it.href === 'index.html' || (it.href && it.href.startsWith('index.html#'))) && isHomePage;
+                  if (targetIsHome || samePageHash) {
+                    e.preventDefault();
+                    onNav(it.id);
+                    setOpen(false);
+                  } else {
+                    setOpen(false);
+                    // sinon on laisse le navigateur gérer la navigation cross-page
+                  }
+                }} className={activeSection === it.id ? 'a' : ''} data-hover>
                   <span className="num mono">{it.n}</span>
                   <span className="labels">
                     <span className="l serif">{it.l}</span>
