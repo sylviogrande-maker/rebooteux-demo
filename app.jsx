@@ -433,11 +433,11 @@ function Footer() {
         </div>
         <div className="f-grid">
           <div className="f-col">
-            <div className="f-h mono">Le voyage</div>
-            <a className="link" href="#feu">Feu — Coupeur de feu</a>
-            <a className="link" href="#eau">Eau — Énergéticien</a>
-            <a className="link" href="#terre">Terre — Rebouteux</a>
-            <a className="link" href="#souffle">Souffle — Accompagnement</a>
+            <div className="f-h mono">Les soins</div>
+            <a className="link" href="#feu">Coupeur de feu</a>
+            <a className="link" href="#eau">Énergéticien · Magnétiseur</a>
+            <a className="link" href="#terre">Rebouteux</a>
+            <a className="link" href="#souffle">Accompagnement</a>
           </div>
           <div className="f-col">
             <div className="f-h mono">Contact</div>
