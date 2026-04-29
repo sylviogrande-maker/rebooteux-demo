@@ -183,17 +183,28 @@ function Tarifs() {
 }
 
 /* ============================================================
-   ZONE — carte SVG simple
+   ZONE — radar animé avec balayage tournant
    ============================================================ */
+const SWEEP_DURATION = 8; // seconds
+
+// Each city has a position + an angle (relative to center) used to time its ping
+// Center is at (300, 220). Radius 30km = 160px.
+// angle in degrees: 0 = east, 90 = south, 180 = west, 270 = north
+const RADAR_CITIES = [
+  // North group (well-spaced)
+  { nom: 'Versoix',     d: '24 km', cx: 280, cy: 90,  angle: 257, anchor: 'start',  dx: 12,  dy: 4 },
+  { nom: 'Genève',      d: '12 km', cx: 320, cy: 130, angle: 297, anchor: 'start',  dx: 12,  dy: 4 },
+  { nom: 'Carouge',     d: '9 km',  cx: 290, cy: 145, angle: 257, anchor: 'end',    dx: -12, dy: 4 },
+  { nom: 'Annemasse',   d: '15 km', cx: 380, cy: 195, angle: 332, anchor: 'start',  dx: 12,  dy: 4 },
+  // East
+  { nom: 'Bonneville',  d: '28 km', cx: 430, cy: 270, angle: 26,  anchor: 'start',  dx: 12,  dy: 4 },
+  // South
+  { nom: 'Annecy',      d: '32 km', cx: 280, cy: 380, angle: 95,  anchor: 'start',  dx: 12,  dy: 4 },
+  { nom: 'Cluses',      d: '34 km', cx: 410, cy: 340, angle: 47,  anchor: 'start',  dx: 12,  dy: 4 },
+];
+const RADAR_CENTER = { cx: 300, cy: 220 };
+
 function Zone() {
-  const villes = [
-    { nom: 'St-Julien-en-Genevois', d: '0', cx: 260, cy: 200, label: 'left', center: true },
-    { nom: 'Genève', d: '12 km', cx: 295, cy: 165 },
-    { nom: 'Annemasse', d: '15 km', cx: 320, cy: 175 },
-    { nom: 'Carouge', d: '10 km', cx: 285, cy: 175 },
-    { nom: 'Annecy', d: '32 km', cx: 245, cy: 270 },
-    { nom: 'Bonneville', d: '28 km', cx: 340, cy: 230 },
-  ];
   return (
     <section id="zone" className="zone">
       <div className="wrap">
@@ -205,27 +216,109 @@ function Zone() {
         </h2>
         <div className="zone-grid">
           <Reveal className="zone-map">
-            <svg viewBox="0 0 520 400" xmlns="http://www.w3.org/2000/svg" aria-label="Zone d'intervention de Reboot'eux">
+            <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" aria-label="Zone d'intervention de Reboot'eux" className="radar">
               <defs>
-                <radialGradient id="circGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="var(--feu)" stopOpacity="0.18"/>
-                  <stop offset="60%" stopColor="var(--feu)" stopOpacity="0.06"/>
+                {/* Sweep gradient (fades from full to nothing along the arc) */}
+                <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"  stopColor="var(--feu)" stopOpacity="0.10"/>
+                  <stop offset="60%" stopColor="var(--feu)" stopOpacity="0.04"/>
                   <stop offset="100%" stopColor="var(--feu)" stopOpacity="0"/>
                 </radialGradient>
+                <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%"   stopColor="var(--feu)" stopOpacity="0.55"/>
+                  <stop offset="60%"  stopColor="var(--feu)" stopOpacity="0.18"/>
+                  <stop offset="100%" stopColor="var(--feu)" stopOpacity="0"/>
+                </linearGradient>
               </defs>
-              <circle cx="260" cy="200" r="160" fill="url(#circGrad)"/>
-              <circle cx="260" cy="200" r="160" fill="none" stroke="var(--hue)" strokeOpacity="0.4" strokeWidth="1" strokeDasharray="3 5"/>
-              <circle cx="260" cy="200" r="80" fill="none" stroke="var(--hue)" strokeOpacity="0.18" strokeWidth="1" strokeDasharray="2 6"/>
-              {villes.map((v, i) => (
-                <g key={v.nom}>
-                  <circle cx={v.cx} cy={v.cy} r={v.center ? 6 : 3} fill={v.center ? 'var(--hue)' : 'var(--ink)'} opacity={v.center ? 1 : 0.7}/>
-                  {v.center && <circle cx={v.cx} cy={v.cy} r="14" fill="none" stroke="var(--hue)" strokeOpacity="0.4" strokeWidth="1"/>}
-                  <text x={v.cx + 12} y={v.cy + 4} fill="var(--ink-2)" fontSize="11" fontFamily="var(--mono)" letterSpacing="0.1em" style={{ textTransform: 'uppercase' }}>
-                    {v.nom}{v.d !== '0' ? ` · ${v.d}` : ''}
-                  </text>
-                </g>
-              ))}
+
+              {/* Halo (subtle radial glow) */}
+              <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="160" fill="url(#haloGrad)"/>
+
+              {/* Concentric rings */}
+              <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="160" fill="none" stroke="var(--hue)" strokeOpacity="0.30" strokeWidth="1" strokeDasharray="3 5"/>
+              <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="106" fill="none" stroke="var(--hue)" strokeOpacity="0.16" strokeWidth="1" strokeDasharray="2 6"/>
+              <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="53"  fill="none" stroke="var(--hue)" strokeOpacity="0.10" strokeWidth="1" strokeDasharray="2 6"/>
+
+              {/* Cross hairs */}
+              <line x1={RADAR_CENTER.cx - 170} y1={RADAR_CENTER.cy} x2={RADAR_CENTER.cx + 170} y2={RADAR_CENTER.cy} stroke="var(--hue)" strokeOpacity="0.08" strokeWidth="1"/>
+              <line x1={RADAR_CENTER.cx} y1={RADAR_CENTER.cy - 170} x2={RADAR_CENTER.cx} y2={RADAR_CENTER.cy + 170} stroke="var(--hue)" strokeOpacity="0.08" strokeWidth="1"/>
+
+              {/* Sweep beam — rotating cone */}
+              <g className="radar-sweep" style={{ transformOrigin: `${RADAR_CENTER.cx}px ${RADAR_CENTER.cy}px` }}>
+                <path
+                  d={`M ${RADAR_CENTER.cx} ${RADAR_CENTER.cy}
+                      L ${RADAR_CENTER.cx + 160} ${RADAR_CENTER.cy - 30}
+                      A 160 160 0 0 0 ${RADAR_CENTER.cx + 160} ${RADAR_CENTER.cy + 30}
+                      Z`}
+                  fill="url(#sweepGrad)"
+                />
+                <line x1={RADAR_CENTER.cx} y1={RADAR_CENTER.cy} x2={RADAR_CENTER.cx + 160} y2={RADAR_CENTER.cy} stroke="var(--feu)" strokeOpacity="0.7" strokeWidth="1"/>
+              </g>
+
+              {/* Center point — St-Julien (always visible) */}
+              <g>
+                <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="14" fill="none" stroke="var(--hue)" strokeOpacity="0.4" strokeWidth="1" className="center-ring"/>
+                <circle cx={RADAR_CENTER.cx} cy={RADAR_CENTER.cy} r="5" fill="var(--hue)"/>
+                <text x={RADAR_CENTER.cx + 18} y={RADAR_CENTER.cy + 4} fill="var(--ink)" fontSize="11" fontFamily="var(--mono)" letterSpacing="0.1em" style={{ textTransform: 'uppercase' }}>
+                  St-Julien-en-Genevois
+                </text>
+              </g>
+
+              {/* Cities — each pings when the sweep passes over its angle */}
+              {RADAR_CITIES.map((v) => {
+                // Calculate when the sweep reaches this city's angle.
+                // Sweep goes 0° → 360° in SWEEP_DURATION seconds. Use negative delay to anchor.
+                const delay = -((v.angle / 360) * SWEEP_DURATION).toFixed(2);
+                return (
+                  <g key={v.nom} className="city" style={{ animationDelay: `${delay}s` }}>
+                    <circle cx={v.cx} cy={v.cy} r="8" fill="none" stroke="var(--hue)" strokeWidth="1" className="city-ping"/>
+                    <circle cx={v.cx} cy={v.cy} r="3" fill="var(--ink)" className="city-dot"/>
+                    <text
+                      x={v.cx + v.dx} y={v.cy + v.dy}
+                      textAnchor={v.anchor}
+                      fill="var(--ink-2)" fontSize="10" fontFamily="var(--mono)" letterSpacing="0.12em"
+                      style={{ textTransform: 'uppercase' }}
+                      className="city-label"
+                    >
+                      {v.nom} · {v.d}
+                    </text>
+                  </g>
+                );
+              })}
             </svg>
+            <style>{`
+              .radar { width: 100%; height: auto; max-width: 600px; display: block; }
+              @keyframes radarSpin {
+                from { transform: rotate(0deg); }
+                to   { transform: rotate(360deg); }
+              }
+              @keyframes cityPing {
+                0%   { opacity: 0; r: 3; }
+                3%   { opacity: 1; r: 14; }
+                12%  { opacity: 0.6; r: 18; }
+                25%  { opacity: 0; r: 22; }
+                100% { opacity: 0; r: 3; }
+              }
+              @keyframes cityDot {
+                0%, 1%   { opacity: 0.15; }
+                3%, 25%  { opacity: 1; }
+                40%, 100%{ opacity: 0.15; }
+              }
+              @keyframes cityLabel {
+                0%, 1%   { opacity: 0; }
+                4%, 25%  { opacity: 1; }
+                40%, 100%{ opacity: 0; }
+              }
+              .radar-sweep { animation: radarSpin ${SWEEP_DURATION}s linear infinite; }
+              .city .city-ping  { animation: cityPing  ${SWEEP_DURATION}s linear infinite; transform-box: fill-box; transform-origin: center; }
+              .city .city-dot   { animation: cityDot   ${SWEEP_DURATION}s linear infinite; }
+              .city .city-label { animation: cityLabel ${SWEEP_DURATION}s linear infinite; }
+              .center-ring { animation: radarSpin 12s linear infinite reverse; transform-origin: ${RADAR_CENTER.cx}px ${RADAR_CENTER.cy}px; }
+              @media (prefers-reduced-motion: reduce) {
+                .radar-sweep, .city .city-ping, .city .city-dot, .city .city-label, .center-ring { animation: none !important; }
+                .city .city-dot, .city .city-label { opacity: 0.85; }
+              }
+            `}</style>
           </Reveal>
           <div className="zone-text">
             <Reveal delay={1}>
