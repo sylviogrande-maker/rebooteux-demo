@@ -443,29 +443,29 @@ function Footer() {
             <div className="f-h mono">Contact</div>
             <a className="link" href="tel:+33685757863">FR · +33 6 85 75 78 63</a>
             <a className="link" href="tel:+41795950938">CH · +41 79 595 09 38</a>
-            <a className="link" href="#">WhatsApp</a>
-            <a className="link" href="#">contact@reboot-eux.com</a>
+            <a className="link" href="https://wa.me/33685757863" target="_blank" rel="noopener">WhatsApp</a>
+            <a className="link" href="#contact">Formulaire</a>
           </div>
           <div className="f-col">
             <div className="f-h mono">Pratique</div>
-            <a className="link" href="#">Tarifs</a>
-            <a className="link" href="#">Zone d’intervention</a>
-            <a className="link" href="#">Foire aux questions</a>
-            <a className="link" href="#">À propos de Luc</a>
+            <a className="link" href="pratique.html#tarifs">Tarifs</a>
+            <a className="link" href="pratique.html#zone">Zone d’intervention</a>
+            <a className="link" href="pratique.html#faq">Foire aux questions</a>
+            <a className="link" href="#luc">À propos de Luc</a>
           </div>
           <div className="f-col">
             <div className="f-h mono">Cabinet</div>
             <span>St-Julien-en-Genevois</span>
             <span>France · Suisse romande</span>
             <span>30 km autour de Genève</span>
+            <span>Sur rendez-vous</span>
           </div>
         </div>
         <div className="f-bot">
           <span className="mono">© 2026 Reboot’eux · Luc Dacquin</span>
           <div className="f-legal">
-            <a className="link" href="#">Mentions légales</a>
-            <a className="link" href="#">RGPD</a>
-            <a className="link" href="#">Cookies</a>
+            <a className="link" href="mentions-legales.html">Mentions légales</a>
+            <a className="link" href="confidentialite.html">Confidentialité · RGPD</a>
           </div>
         </div>
       </div>
