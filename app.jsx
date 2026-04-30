@@ -106,7 +106,7 @@ const ACTS = [
   {
     id: 'eau', n: '02 / L’eau', el: 'Énergéticien · Magnétiseur', soin: 'Libérer les blocages, faire circuler l’énergie',
     poetic: <>Faire circuler<br/><em>les flux qui dorment.</em></>,
-    quote: '« L’eau ne combat pas la pierre. Elle finit par la traverser. »',
+    quote: '« Sous la main qui passe, le courant se souvient d’être courant. »',
     body: 'Magnétisme et travail énergétique pour les blocages chroniques, la fatigue persistante, les états où "rien ne passe". Une séance de 60 minutes pour rétablir la circulation des flux.',
     list: ['Céphalées', 'Fatigue chronique', 'Insomnie', 'Stress, anxiété', 'Sciatique', 'Convalescence'],
     video: 'videos/eau.mp4',
@@ -115,7 +115,7 @@ const ACTS = [
   {
     id: 'terre', n: '03 / La terre', el: 'Rebouteux', soin: 'Remettre le corps en place, soulager les tensions',
     poetic: <>Remettre les os<br/><em>à leur juste place.</em></>,
-    quote: '« Les racines ne demandent rien. Elles tiennent. »',
+    quote: '« Chaque os connaît sa place. Le geste lui en redonne le souvenir. »',
     body: 'Travail manuel ostéo-articulaire ancestral pour les blocages mécaniques — nuque, dos, épaules, articulations. Précis, doux, sans crispation.',
     list: ['Nuque bloquée', 'Lombalgie', 'Tendinites', 'Entorses anciennes', 'Articulations raides', 'Contractures'],
     video: 'videos/terre.mp4',
@@ -124,7 +124,7 @@ const ACTS = [
   {
     id: 'souffle', n: '04 / Le souffle', el: 'Accompagnement en traitement lourd', soin: 'Soutenir la traversée — cancer, post-opératoire, maladie chronique',
     poetic: <>Accompagner ceux<br/><em>qui traversent l’épreuve.</em></>,
-    quote: '« Le souffle n’efface pas la nuit. Il l’habite avec toi. »',
+    quote: '« La nuit ne fait pas peur à deux. »',
     body: 'Présence régulière auprès des patients en traitement lourd — cancer, post-opératoire, maladie chronique — en complément du parcours médical. Une alliance de science et de sagesse.',
     list: ['Effets secondaires de chimio', 'Post-opératoire', 'Cancer', 'Maladie chronique', 'Burnout', 'Traversées difficiles'],
     video: 'videos/souffle.mp4',
