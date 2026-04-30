@@ -2,6 +2,56 @@
 const { useEffect, useRef, useState, useMemo } = React;
 
 /* ============================================================
+   i18n — Dictionnaire FR / EN
+   t('key') retourne la traduction selon window.__lang
+   ============================================================ */
+const I18N = {
+  fr: {
+    'nav.home':'Accueil','nav.feu.l':'Coupeur de feu','nav.feu.sub':'Le feu','nav.eau.l':'Énergéticien · Magnétiseur','nav.eau.sub':'L’eau','nav.terre.l':'Rebouteux','nav.terre.sub':'La terre','nav.souffle.l':'Accompagnement','nav.souffle.sub':'Le souffle','nav.luc.l':'Luc Dacquin','nav.luc.sub':'Alchimiste du vivant','nav.pratique.l':'Tarifs et FAQ','nav.pratique.sub':'Cadre pratique','nav.contact.l':'Prendre rendez-vous','nav.contact.sub':'Contact','nav.menu':'menu','nav.close':'fermer','nav.eyebrow':'Le voyage du vivant','nav.foot1':'St-Julien-en-Genevois · 30 km de Genève',
+    'hero.eyebrow':'Cabinet de soins énergétiques · St-Julien-en-Genevois','hero.subA':'retrouver son juste équilibre,','hero.subB':'une','hero.subC':'guérison','hero.subD':'qui honore le corps et l’esprit.','hero.cta1':'Prendre rendez-vous','hero.cta2':'Découvrir le voyage','hero.scroll':'scroller',
+    'man.eyebrow':'Manifeste','man.line1':'Soigner n’est pas changer —','man.line2':'c’est rappeler au corps ce qu’il a toujours su être.','man.signature':'— Luc Dacquin, alchimiste du vivant',
+    'act.cta':'Prendre rendez-vous →',
+    'act.feu.poeticA':'Couper le feu,','act.feu.poeticB':'apaiser la brûlure.','act.feu.quote':'« Sous la main qui sait, la braise se souvient d’avoir été silence. »','act.feu.body':'Imposition des mains à distance ou en présentiel pour soulager les brûlures, le zona, les douleurs aiguës de peau. Une séance de 20 à 60 minutes, sans contact direct.','act.feu.list':['Brûlures du quotidien','Coups de soleil','Zona, herpès','Brûlures post-radiothérapie','Douleurs cutanées aiguës'],
+    'act.eau.poeticA':'Faire circuler','act.eau.poeticB':'les flux qui dorment.','act.eau.quote':'« Sous la main qui passe, le courant se souvient d’être courant. »','act.eau.body':'Magnétisme et travail énergétique pour les blocages chroniques, la fatigue persistante, les états où "rien ne passe". Une séance de 60 minutes pour rétablir la circulation des flux.','act.eau.list':['Céphalées','Fatigue chronique','Insomnie','Stress, anxiété','Sciatique','Convalescence'],
+    'act.terre.poeticA':'Remettre les os','act.terre.poeticB':'à leur juste place.','act.terre.quote':'« Chaque os connaît sa place. Le geste lui en redonne le souvenir. »','act.terre.body':'Travail manuel ostéo-articulaire ancestral pour les blocages mécaniques — nuque, dos, épaules, articulations. Précis, doux, sans crispation.','act.terre.list':['Nuque bloquée','Lombalgie','Tendinites','Entorses anciennes','Articulations raides','Contractures'],
+    'act.souffle.poeticA':'Accompagner ceux','act.souffle.poeticB':'qui traversent l’épreuve.','act.souffle.quote':'« La nuit ne fait pas peur à deux. »','act.souffle.body':'Présence régulière auprès des patients en traitement lourd — cancer, post-opératoire, maladie chronique — en complément du parcours médical. Une alliance de science et de sagesse.','act.souffle.list':['Effets secondaires de chimio','Post-opératoire','Cancer','Maladie chronique','Burnout','Traversées difficiles'],
+    'act.feu.soin':'Coupeur de feu','act.eau.soin':'Énergéticien · Magnétiseur','act.terre.soin':'Rebouteux','act.souffle.soin':'Accompagnement longue durée',
+    'act.feu.subtitle':'Apaiser les brûlures, le zona, les douleurs aiguës de peau','act.eau.subtitle':'Libérer les blocages, faire circuler l’énergie','act.terre.subtitle':'Remettre le corps en place, soulager les tensions','act.souffle.subtitle':'Soutenir la traversée — cancer, post-opératoire, maladie chronique',
+    'act.feu.num':'01 / Le feu','act.eau.num':'02 / L’eau','act.terre.num':'03 / La terre','act.souffle.num':'04 / Le souffle',
+    'luc.eyebrow':'L’alchimiste du vivant','luc.titleA':'Vingt ans d’ingénierie,','luc.titleB':'une vie d’écoute.','luc.body1':'Né dans une famille en harmonie avec la nature, Luc a d’abord choisi la rigueur — l’ingénierie, les lignes droites, les calculs. À 42 ans, il quitte un métier qui ne le quittait plus, et reprend le chemin du druide guérisseur que les hommes de sa lignée pratiquent depuis des générations.','luc.body2':'Aujourd’hui il relie deux mondes : la précision de la science et la sagesse des soins ancestraux. Il ne promet pas. Il accompagne.','luc.quote':'Je cultive l’art de relier mes énergies à celles de la nature, riche en pouvoir de guérison.','luc.cta':'Lire son histoire complète →','luc.portrait1':'Luc Dacquin','luc.portrait2':'né en 1982 · ingénieur 16 ans · énergéticien depuis 2019',
+    'contact.eyebrow':'Prendre rendez-vous','contact.titleA':'Un mot,','contact.titleB':'et nous trouvons','contact.titleC':'le juste moment.','contact.callFR':'appeler →','contact.callCH':'appeler →','contact.write':'écrire →','contact.info1':'St-Julien-en-Genevois','contact.info2':'Présentiel · Distance','contact.info3':'Sur rendez-vous · 30 km de Genève',
+    'form.name':'Nom','form.phone':'Téléphone','form.email':'Email','form.soin':'Soin envisagé','form.msg':'Message libre','form.placeholder':'Décrivez en quelques lignes ce que vous traversez.','form.consent':'J’accepte que mes données (nom, téléphone, email, message) soient utilisées par Luc Dacquin pour me recontacter au sujet de ma demande. Voir la','form.consent.link':'politique de confidentialité','form.submit':'Envoyer la demande','form.foot':'Réponse sous 24h · Données conservées 3 ans max ·','form.sent.t':'Message reçu.','form.sent.b':'Luc vous rappelle dans la journée.',
+    'foot.h.soins':'Les soins','foot.h.contact':'Contact','foot.h.pratique':'Pratique','foot.h.cabinet':'Cabinet','foot.tarifs':'Tarifs','foot.zone':'Zone d’intervention','foot.faq':'Foire aux questions','foot.luc':'À propos de Luc','foot.formulaire':'Formulaire','foot.cabinet1':'St-Julien-en-Genevois','foot.cabinet2':'France · Suisse romande','foot.cabinet3':'30 km autour de Genève','foot.cabinet4':'Sur rendez-vous','foot.copy':'© 2026 Reboot’eux · Luc Dacquin','foot.signature':'— retrouver son juste équilibre.','foot.legal1':'Mentions légales','foot.legal2':'Confidentialité · RGPD',
+    'prat.eyebrow':'Le cadre pratique','prat.titleA':'Tout ce qu’il faut savoir,','prat.titleB':'avant de venir.','prat.sub':'Tarifs, déroulé d’une séance, zone d’intervention, foire aux questions. Pour que vous sachiez exactement ce qui vous attend.','prat.anchor1':'Déroulé','prat.anchor2':'Tarifs','prat.anchor3':'Zone','prat.anchor4':'FAQ',
+  },
+  en: {
+    'nav.home':'Home','nav.feu.l':'Fire cutter','nav.feu.sub':'Fire','nav.eau.l':'Energy healer · Magnetizer','nav.eau.sub':'Water','nav.terre.l':'Bone-setter','nav.terre.sub':'Earth','nav.souffle.l':'Long-term support','nav.souffle.sub':'Breath','nav.luc.l':'Luc Dacquin','nav.luc.sub':'Alchemist of the living','nav.pratique.l':'Pricing & FAQ','nav.pratique.sub':'Practical','nav.contact.l':'Book a session','nav.contact.sub':'Contact','nav.menu':'menu','nav.close':'close','nav.eyebrow':'The journey of the living','nav.foot1':'St-Julien-en-Genevois · 30 km from Geneva',
+    'hero.eyebrow':'Energy healing practice · St-Julien-en-Genevois','hero.subA':'finding your right balance,','hero.subB':'a','hero.subC':'healing','hero.subD':'that honors body and spirit.','hero.cta1':'Book a session','hero.cta2':'Discover the journey','hero.scroll':'scroll',
+    'man.eyebrow':'Manifesto','man.line1':'Healing is not changing —','man.line2':'it is reminding the body of what it has always known how to be.','man.signature':'— Luc Dacquin, alchemist of the living',
+    'act.cta':'Book a session →',
+    'act.feu.poeticA':'Cutting fire,','act.feu.poeticB':'easing the burn.','act.feu.quote':'"Beneath the knowing hand, the ember remembers having been silence."','act.feu.body':'Hands-on healing — remote or in person — for burns, shingles and acute skin pain. A 20- to 60-minute session, without direct contact.','act.feu.list':['Everyday burns','Sunburn','Shingles, herpes','Post-radiotherapy burns','Acute skin pain'],
+    'act.eau.poeticA':'Letting the dormant','act.eau.poeticB':'flows circulate again.','act.eau.quote':'"Beneath the passing hand, the current remembers being current."','act.eau.body':'Magnetism and energy work for chronic blockages, persistent fatigue, and states where "nothing flows anymore". A 60-minute session to restore circulation.','act.eau.list':['Headaches','Chronic fatigue','Insomnia','Stress, anxiety','Sciatica','Recovery'],
+    'act.terre.poeticA':'Returning the bones','act.terre.poeticB':'to their rightful place.','act.terre.quote':'"Every bone knows its place. The gesture only reminds it."','act.terre.body':'Ancestral hands-on osteo-articular work for mechanical blockages — neck, back, shoulders, joints. Precise, gentle, without strain.','act.terre.list':['Stiff neck','Lower back pain','Tendinitis','Old sprains','Stiff joints','Muscle contractions'],
+    'act.souffle.poeticA':'Accompanying those','act.souffle.poeticB':'who go through hardship.','act.souffle.quote':'"The night does not frighten when one is two."','act.souffle.body':'Regular presence alongside patients undergoing heavy treatment — cancer, post-surgery, chronic illness — as a complement to medical care. An alliance of science and ancient wisdom.','act.souffle.list':['Chemo side effects','Post-surgery','Cancer','Chronic illness','Burnout','Difficult passages'],
+    'act.feu.soin':'Fire cutter','act.eau.soin':'Energy healer · Magnetizer','act.terre.soin':'Bone-setter','act.souffle.soin':'Long-term support',
+    'act.feu.subtitle':'Soothing burns, shingles, acute skin pain','act.eau.subtitle':'Releasing blockages, letting energy flow again','act.terre.subtitle':'Realigning the body, easing tensions','act.souffle.subtitle':'Supporting the passage — cancer, post-surgery, chronic illness',
+    'act.feu.num':'01 / Fire','act.eau.num':'02 / Water','act.terre.num':'03 / Earth','act.souffle.num':'04 / Breath',
+    'luc.eyebrow':'The alchemist of the living','luc.titleA':'Twenty years of engineering,','luc.titleB':'a lifetime of listening.','luc.body1':'Born into a family in harmony with nature, Luc first chose rigor — engineering, straight lines, calculations. At 42, he left a profession that no longer left him, and walked back the path of the druid healer that the men of his lineage have practiced for generations.','luc.body2':'Today he bridges two worlds: the precision of science and the wisdom of ancestral care. He does not promise. He accompanies.','luc.quote':'I cultivate the art of connecting my energies with those of nature, rich in healing power.','luc.cta':'Read his full story →','luc.portrait1':'Luc Dacquin','luc.portrait2':'born 1982 · engineer for 16 years · energy healer since 2019',
+    'contact.eyebrow':'Book a session','contact.titleA':'A word,','contact.titleB':'and we find','contact.titleC':'the right moment.','contact.callFR':'call →','contact.callCH':'call →','contact.write':'message →','contact.info1':'St-Julien-en-Genevois','contact.info2':'In person · Remote','contact.info3':'By appointment · 30 km from Geneva',
+    'form.name':'Name','form.phone':'Phone','form.email':'Email','form.soin':'Type of session','form.msg':'Message','form.placeholder':'Tell me in a few lines what you are going through.','form.consent':'I agree that my data (name, phone, email, message) be used by Luc Dacquin to contact me regarding my request. See the','form.consent.link':'privacy policy','form.submit':'Send the request','form.foot':'Reply within 24h · Data kept 3 years max ·','form.sent.t':'Message received.','form.sent.b':'Luc will call you back during the day.',
+    'foot.h.soins':'Sessions','foot.h.contact':'Contact','foot.h.pratique':'Practical','foot.h.cabinet':'Practice','foot.tarifs':'Pricing','foot.zone':'Service area','foot.faq':'Frequently asked','foot.luc':'About Luc','foot.formulaire':'Form','foot.cabinet1':'St-Julien-en-Genevois','foot.cabinet2':'France · French-speaking Switzerland','foot.cabinet3':'30 km around Geneva','foot.cabinet4':'By appointment','foot.copy':'© 2026 Reboot’eux · Luc Dacquin','foot.signature':'— finding your right balance.','foot.legal1':'Legal notice','foot.legal2':'Privacy · GDPR',
+    'prat.eyebrow':'Practical info','prat.titleA':'Everything you need to know,','prat.titleB':'before coming.','prat.sub':'Pricing, how a session unfolds, service area, frequently asked questions. So you know exactly what to expect.','prat.anchor1':'Flow','prat.anchor2':'Pricing','prat.anchor3':'Area','prat.anchor4':'FAQ',
+  },
+};
+window.__lang = window.__lang || (typeof localStorage !== 'undefined' && localStorage.getItem('reb_lang')) || 'fr';
+function t(k) {
+  const lang = window.__lang || 'fr';
+  return (I18N[lang] && I18N[lang][k] !== undefined) ? I18N[lang][k] : (I18N.fr[k] !== undefined ? I18N.fr[k] : k);
+}
+window.t = t;
+window.I18N = I18N;
+
+/* ============================================================
    VideoBg — fond vidéo plein écran avec voile + grain + tint
    ============================================================ */
 function VideoBg({ src, hue, intensity = 0.5, parallax = false, fit = 'cover', scale = 1.1, maskCorner = null }) {
@@ -152,17 +202,17 @@ function Cursor() {
 /* ============================================================
    Nav flottante minimaliste
    ============================================================ */
-function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
+function Nav({ activeSection, onNav, lang, onLang }) {
   const [open, setOpen] = useState(false);
   const items = [
-    { id: 'top',      n: '00', l: 'Accueil',                       sub: '',                       href: 'index.html' },
-    { id: 'feu',      n: '01', l: 'Coupeur de feu',                sub: 'Le feu',                 href: 'index.html#feu' },
-    { id: 'eau',      n: '02', l: 'Énergéticien · Magnétiseur',    sub: 'L’eau',                  href: 'index.html#eau' },
-    { id: 'terre',    n: '03', l: 'Rebouteux',                     sub: 'La terre',               href: 'index.html#terre' },
-    { id: 'souffle',  n: '04', l: 'Accompagnement',                sub: 'Le souffle',             href: 'index.html#souffle' },
-    { id: 'luc',      n: '—',  l: 'Luc Dacquin',                   sub: 'Alchimiste du vivant',   href: 'index.html#luc' },
-    { id: 'pratique', n: '—',  l: 'Tarifs et FAQ',                 sub: 'Cadre pratique',         href: 'pratique.html' },
-    { id: 'contact',  n: '—',  l: 'Prendre rendez-vous',           sub: 'Contact',                href: 'index.html#contact' },
+    { id: 'top',      n: '00', lk: 'nav.home',         sk: '',                href: 'index.html' },
+    { id: 'feu',      n: '01', lk: 'nav.feu.l',        sk: 'nav.feu.sub',     href: 'index.html#feu' },
+    { id: 'eau',      n: '02', lk: 'nav.eau.l',        sk: 'nav.eau.sub',     href: 'index.html#eau' },
+    { id: 'terre',    n: '03', lk: 'nav.terre.l',      sk: 'nav.terre.sub',   href: 'index.html#terre' },
+    { id: 'souffle',  n: '04', lk: 'nav.souffle.l',    sk: 'nav.souffle.sub', href: 'index.html#souffle' },
+    { id: 'luc',      n: '—',  lk: 'nav.luc.l',        sk: 'nav.luc.sub',     href: 'index.html#luc' },
+    { id: 'pratique', n: '—',  lk: 'nav.pratique.l',   sk: 'nav.pratique.sub',href: 'pratique.html' },
+    { id: 'contact',  n: '—',  lk: 'nav.contact.l',    sk: 'nav.contact.sub', href: 'index.html#contact' },
   ];
   return (
     <>
@@ -172,14 +222,10 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
         </a>
         <button className={`menu-trig ${open ? 'on' : ''}`} onClick={() => setOpen(o => !o)} data-hover aria-label="Menu">
           <i></i><i></i><i></i>
-          <span className="mono">{open ? 'fermer' : 'menu'}</span>
+          <span className="mono">{open ? t('nav.close') : t('nav.menu')}</span>
         </button>
         <div className="nav-right">
-          <button className={`pill-btn ${soundOn ? 'on' : ''}`} onClick={onSound} data-hover>
-            <SoundGlyph on={soundOn} />
-            <span className="mono">son</span>
-          </button>
-          <button className="pill-btn" onClick={onLang} data-hover>
+          <button className="pill-btn" onClick={onLang} data-hover aria-label="Changer la langue">
             <span className="mono"><b className={lang==='fr'?'a':''}>fr</b> · <b className={lang==='en'?'a':''}>en</b></span>
           </button>
         </div>
@@ -187,12 +233,11 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
 
       <nav className={`drawer ${open ? 'open' : ''}`} aria-hidden={!open}>
         <div className="drawer-inner">
-          <div className="mono drawer-eb">Le voyage du vivant</div>
+          <div className="mono drawer-eb">{t('nav.eyebrow')}</div>
           <ul>
             {items.map((it, i) => (
               <li key={it.id} style={{ '--i': i }}>
                 <a href={it.href || `#${it.id}`} onClick={(e) => {
-                  // Si l'ancre cible est sur la page courante, on intercepte pour faire un smooth-scroll
                   const samePageHash = it.href && it.href.includes('#') && it.href.split('#')[0] && location.pathname.endsWith('/' + it.href.split('#')[0]);
                   const isHomePage = location.pathname.endsWith('/') || location.pathname.endsWith('/index.html');
                   const targetIsHome = (it.href === 'index.html' || (it.href && it.href.startsWith('index.html#'))) && isHomePage;
@@ -202,20 +247,19 @@ function Nav({ activeSection, onNav, lang, onLang, soundOn, onSound }) {
                     setOpen(false);
                   } else {
                     setOpen(false);
-                    // sinon on laisse le navigateur gérer la navigation cross-page
                   }
                 }} className={activeSection === it.id ? 'a' : ''} data-hover>
                   <span className="num mono">{it.n}</span>
                   <span className="labels">
-                    <span className="l serif">{it.l}</span>
-                    {it.sub && <span className="sub mono">{it.sub}</span>}
+                    <span className="l serif">{t(it.lk)}</span>
+                    {it.sk && <span className="sub mono">{t(it.sk)}</span>}
                   </span>
                 </a>
               </li>
             ))}
           </ul>
           <div className="drawer-foot mono">
-            St-Julien-en-Genevois · 30 km de Genève<br/>
+            {t('nav.foot1')}<br/>
             +33 6 85 75 78 63 · +41 79 595 09 38
           </div>
         </div>
