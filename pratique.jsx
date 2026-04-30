@@ -570,13 +570,17 @@ function Footer() {
    APP
    ============================================================ */
 function App() {
-  const [lang, setLang] = useState('fr');
-  const [soundOn, setSoundOn] = useState(false);
+  const [lang, setLang] = useState(window.__lang || 'fr');
+
+  useEffect(() => {
+    window.__lang = lang;
+    try { localStorage.setItem('reb_lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   function navigate(id) {
-    const homeIds = ['top','feu','eau','terre','souffle','luc','contact'];
-    const pratiqueIds = ['top','deroule','tarifs','zone','faq'];
-    if (homeIds.includes(id) && !pratiqueIds.includes(id)) {
+    const pratiqueIds = ['top','deroule','tarifs','zone','faq','cta'];
+    if (!pratiqueIds.includes(id)) {
       window.location.href = `index.html#${id === 'top' ? '' : id}`;
       return;
     }
@@ -587,7 +591,7 @@ function App() {
   return (
     <>
       <Cursor />
-      <Nav activeSection="" onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} soundOn={soundOn} onSound={() => setSoundOn(s => !s)} />
+      <Nav activeSection="" onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} />
       <main>
         <HeroPratique />
         <Deroule />
