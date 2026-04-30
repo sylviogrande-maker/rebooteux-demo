@@ -230,15 +230,23 @@ img, video, svg { max-width: 100%; }
   /* Tame the giant displays */
   .display { font-size: clamp(36px, 11vw, 64px); line-height: 1.05; }
 
-  /* Force grids to 1 column on the home */
+  /* Force background videos to fill the screen on mobile (no letterbox) */
+  .video-bg video { object-fit: cover !important; transform: scale(1.05) !important; }
+
+  /* Force grids to 1 column on the home — !important to override the inline <style> in Act component */
   .act-grid,
   .act.R .act-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    direction: ltr;
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    direction: ltr !important;
+    max-width: 100% !important;
   }
-  .act.R .act-grid > * { direction: ltr; }
-  .list ul { grid-template-columns: 1fr; gap: 8px 0; }
+  .act.R .act-grid > * { direction: ltr !important; }
+  .list ul { grid-template-columns: 1fr !important; gap: 8px 0 !important; }
+
+  /* More opaque overlay on Acts so the text stays readable over the video */
+  .act .video-bg .veil { background: linear-gradient(180deg, rgba(5,8,16,.78) 0%, rgba(5,8,16,.55) 50%, rgba(5,8,16,.92) 100%) !important; }
+  .hero .video-bg .veil { background: linear-gradient(180deg, rgba(5,8,16,.45) 0%, rgba(5,8,16,.20) 40%, rgba(5,8,16,.85) 100%) !important; }
 
   /* Acts metadata + title sizes */
   .act-meta { padding-top: 0; gap: 8px; }
@@ -247,20 +255,20 @@ img, video, svg { max-width: 100%; }
   .quote { font-size: 16px; padding-left: 14px; }
   .body { font-size: 15px; }
 
-  /* Hero accueil */
-  .hero { min-height: auto; padding: 120px var(--pad) 80px; }
+  /* Hero accueil — full screen avec orbe */
+  .hero { min-height: 100vh !important; min-height: 100svh !important; padding: 100px var(--pad) 60px !important; display: grid; place-items: center; }
   .hero-sub { font-size: 17px; max-width: 100%; }
 
   /* Manifeste */
   .manifeste { padding: 100px var(--pad); }
 
   /* Luc */
-  .luc-grid { grid-template-columns: 1fr; gap: 32px; }
+  .luc-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
   .luc-title { font-size: clamp(28px, 8vw, 48px); }
   .luc-quote { font-size: 18px; padding: 20px 0; margin: 20px 0; }
 
   /* Contact */
-  .c-grid { grid-template-columns: 1fr; }
+  .c-grid { grid-template-columns: 1fr !important; }
   .c-title { font-size: clamp(36px, 10vw, 64px); }
   .c-form { padding: 24px; }
   .row { grid-template-columns: 1fr; gap: 12px; }
@@ -279,16 +287,16 @@ img, video, svg { max-width: 100%; }
   .section-title { font-size: clamp(30px, 9vw, 52px); max-width: 100%; margin-bottom: 40px; }
 
   /* Tarifs */
-  .cards { grid-template-columns: 1fr; gap: 20px; }
+  .cards { grid-template-columns: 1fr !important; gap: 20px !important; }
   .card { padding: 26px; }
   .card-soin { font-size: clamp(20px, 6vw, 26px); }
 
   /* Déroulé */
-  .steps { grid-template-columns: 1fr; gap: 24px; }
+  .steps { grid-template-columns: 1fr !important; gap: 24px !important; }
   .step-t { font-size: 20px; }
 
   /* Zone radar */
-  .zone-grid { grid-template-columns: 1fr; gap: 32px; }
+  .zone-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
 
   /* FAQ */
   .faq-q { grid-template-columns: 36px 1fr 28px; gap: 10px; padding: 22px 0; }
