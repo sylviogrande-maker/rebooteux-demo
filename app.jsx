@@ -314,6 +314,7 @@ function Contact() {
   const [phone, setPhone] = useState('');
   const [soin, setSoin] = useState('feu');
   const [msg, setMsg] = useState('');
+  const [consent, setConsent] = useState(false);
   const [sent, setSent] = useState(false);
   return (
     <section id="contact" className="contact" data-screen-label="08 Contact">
@@ -351,7 +352,7 @@ function Contact() {
               <span>Sur rendez-vous · 30 km de Genève</span>
             </div>
           </div>
-          <form className="c-form" onSubmit={(e) => { e.preventDefault(); if (name && phone) setSent(true); }}>
+          <form className="c-form" onSubmit={(e) => { e.preventDefault(); if (name && phone && consent) setSent(true); }}>
             {sent ? (
               <div className="sent">
                 <Mark size={48} />
@@ -373,8 +374,14 @@ function Contact() {
                   </div>
                 </label>
                 <label className="full"><span className="mono">Message libre</span><textarea rows="4" value={msg} onChange={e=>setMsg(e.target.value)} placeholder="Décrivez en quelques lignes ce que vous traversez."/></label>
-                <button className="btn submit" type="submit" data-hover><span className="stone"></span>Envoyer la demande</button>
-                <div className="form-foot mono">Réponse sous 24h · Aucune donnée partagée</div>
+                <label className="consent">
+                  <input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} required />
+                  <span className="consent-text">
+                    J'accepte que mes données (nom, téléphone, email, message) soient utilisées par Luc Dacquin pour me recontacter au sujet de ma demande. Voir la <a href="confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>.
+                  </span>
+                </label>
+                <button className="btn submit" type="submit" data-hover disabled={!consent}><span className="stone"></span>Envoyer la demande</button>
+                <div className="form-foot mono">Réponse sous 24h · Données conservées 3 ans max · <a href="confidentialite.html" target="_blank" rel="noopener" style={{color:'inherit',borderBottom:'1px solid currentColor'}}>RGPD</a></div>
               </>
             )}
           </form>
@@ -408,7 +415,18 @@ function Contact() {
         .pill:hover { color: var(--ink); border-color: var(--ink-2); }
         .pill.a { background: color-mix(in oklab, var(--hue) 14%, transparent); border-color: var(--hue); color: var(--ink); }
         .submit { width: 100%; justify-content: center; margin-top: 16px; }
+        .submit:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
         .form-foot { text-align: center; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-3); margin-top: 16px; }
+        .form-foot a { color: var(--ink-2); text-decoration: none; }
+        .form-foot a:hover { color: var(--ink); }
+        /* Consent block (RGPD) */
+        .consent { display: flex !important; flex-direction: row !important; align-items: flex-start; gap: 12px; padding: 16px; background: rgba(10,14,26,.4); border: 1px solid var(--hairline); border-radius: 10px; margin-top: 8px; }
+        .consent input[type="checkbox"] { appearance: none; -webkit-appearance: none; width: 18px; height: 18px; min-width: 18px; border-radius: 4px; border: 1px solid var(--hairline); background: var(--bg-0); cursor: pointer; position: relative; margin-top: 2px; transition: border-color .3s, background .3s; }
+        .consent input[type="checkbox"]:checked { background: var(--hue); border-color: var(--hue); }
+        .consent input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 5px; height: 10px; border: solid var(--bg-0); border-width: 0 2px 2px 0; transform: rotate(45deg); }
+        .consent-text { font-size: 12px; line-height: 1.55; color: var(--ink-2); flex: 1; }
+        .consent-text a { color: var(--hue); text-decoration: none; border-bottom: 1px solid color-mix(in oklab, var(--hue) 40%, transparent); transition: border-color .3s; }
+        .consent-text a:hover { border-color: var(--hue); }
         .sent { text-align: center; padding: 60px 0; color: var(--hue); }
         .sent-t { font-size: 32px; font-style: italic; color: var(--ink); margin: 24px 0 12px; font-weight: 300; }
         .sent-b { color: var(--ink-2); }
