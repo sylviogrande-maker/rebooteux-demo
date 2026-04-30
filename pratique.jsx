@@ -588,10 +588,21 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  function toggleLang() {
+    const here = location.pathname.split('/').pop() || 'pratique.html';
+    let target;
+    if (lang === 'en' || here.includes('-en.html')) {
+      target = here.replace('-en.html', '.html');
+    } else {
+      target = here.endsWith('.html') ? here.replace('.html', '-en.html') : here.replace(/\/?$/, '/pratique-en.html');
+    }
+    location.href = target + location.hash;
+  }
+
   return (
     <>
       <Cursor />
-      <Nav activeSection="" onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} />
+      <Nav activeSection="" onNav={navigate} lang={lang} onLang={toggleLang} />
       <main>
         <HeroPratique />
         <Deroule />
