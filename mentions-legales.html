@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mentions légales · Reboot'eux</title>
+  <meta name="description" content="Mentions légales du site Reboot'eux — Luc Dacquin, énergéticien à St-Julien-en-Genevois." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=13" />
+  <style>
+    .legal-page { min-height: 100vh; padding: 140px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
+    .legal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+    .legal-back { color: var(--ink-2); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color .3s, gap .3s var(--ease); display: inline-flex; align-items: center; gap: 10px; }
+    .legal-back:hover { color: var(--ink); gap: 14px; }
+    .legal-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-2); display: inline-flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+    .legal-eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: .6; }
+    .legal-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 96px); font-weight: 300; line-height: 1; letter-spacing: -0.03em; margin: 0 0 80px; font-style: italic; }
+    .legal-section { margin-bottom: 56px; }
+    .legal-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 20px; }
+    .legal-section h2 { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 300; font-style: italic; letter-spacing: -0.01em; margin: 0 0 20px; line-height: 1.2; }
+    .legal-section p, .legal-section li { font-size: 16px; line-height: 1.8; color: var(--ink-2); margin: 0 0 14px; max-width: 680px; }
+    .legal-section a { color: var(--feu); text-decoration: none; border-bottom: 1px solid color-mix(in oklab, var(--feu) 40%, transparent); transition: border-color .3s; }
+    .legal-section a:hover { border-color: var(--feu); }
+    .legal-section ul { padding-left: 24px; margin: 0 0 16px; }
+    .legal-section strong { color: var(--ink); font-weight: 400; }
+    .todo { background: color-mix(in oklab, var(--feu) 14%, transparent); color: var(--feu); padding: 2px 8px; border-radius: 4px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; border: 1px dashed color-mix(in oklab, var(--feu) 40%, transparent); }
+    .legal-foot { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--hairline); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .legal-foot a { color: var(--ink-2); text-decoration: none; }
+    .legal-foot a:hover { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <main class="legal-page">
+    <header class="legal-header">
+      <a href="index.html" class="legal-back">← Retour à l'accueil</a>
+      <span class="legal-eyebrow">Reboot'eux</span>
+    </header>
+
+    <span class="legal-eyebrow">Information légale</span>
+    <h1 class="legal-title">Mentions légales.</h1>
+
+    <section class="legal-section">
+      <div class="legal-h">01 / Éditeur du site</div>
+      <p>
+        Le présent site internet, accessible à l'adresse
+        <a href="https://sylviogrande-maker.github.io/rebooteux-demo/">sylviogrande-maker.github.io/rebooteux-demo</a>,
+        est édité par :
+      </p>
+      <p>
+        <strong>Reboot'eux</strong> — cabinet de soins énergétiques<br/>
+        Responsable : <strong>Luc Dacquin</strong><br/>
+        Statut juridique : <span class="todo">[à compléter par Luc — ex. auto-entrepreneur, SARL, profession libérale]</span><br/>
+        Numéro SIRET : <span class="todo">[à compléter]</span><br/>
+        Code APE : <span class="todo">[à compléter — probablement 8690F « Activités de santé humaine non classées ailleurs »]</span><br/>
+        Adresse : St-Julien-en-Genevois (74160), France · sur rendez-vous<br/>
+        Téléphone (France) : <a href="tel:+33685757863">+33 6 85 75 78 63</a><br/>
+        Téléphone (Suisse) : <a href="tel:+41795950938">+41 79 595 09 38</a><br/>
+        Email : <span class="todo">[à compléter — ex. contact@reboot-eux.com]</span>
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">02 / Directeur de la publication</div>
+      <p>Luc Dacquin, en sa qualité de responsable de l'activité Reboot'eux.</p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">03 / Hébergement</div>
+      <p>
+        Le site est hébergé par :<br/>
+        <strong>GitHub, Inc.</strong><br/>
+        88 Colin P Kelly Jr Street<br/>
+        San Francisco, CA 94107 — États-Unis<br/>
+        Site web : <a href="https://github.com" target="_blank" rel="noopener">github.com</a>
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">04 / Propriété intellectuelle</div>
+      <p>
+        L'ensemble des contenus présents sur ce site (textes, photographies, vidéos, illustrations, logos, marque, mise en page) sont la propriété exclusive de Reboot'eux ou de leurs auteurs respectifs, et sont protégés par les législations française et suisse relatives à la propriété intellectuelle.
+      </p>
+      <p>
+        Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle, des éléments du site, par quelque procédé que ce soit, est interdite sans l'autorisation écrite préalable de l'éditeur.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">05 / Avertissement médical</div>
+      <p>
+        Les soins proposés sur ce site (rebouteux, magnétisme, coupe de feu, accompagnement énergétique) sont des <strong>pratiques complémentaires</strong> qui ne se substituent en aucun cas à un avis, un diagnostic ou un traitement médical.
+      </p>
+      <p>
+        Pour toute pathologie ou symptôme, consultez un professionnel de santé. Reboot'eux ne saurait être tenu responsable d'un éventuel retard de prise en charge médicale dû à une consultation auprès du cabinet.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">06 / Données personnelles</div>
+      <p>
+        Les données personnelles collectées via ce site (formulaire de contact, échanges téléphoniques, prises de rendez-vous) sont traitées conformément au Règlement Général sur la Protection des Données (RGPD) et à la nouvelle Loi suisse sur la Protection des Données (nLPD).
+      </p>
+      <p>
+        Pour le détail des traitements, finalités, durées de conservation et droits, consulter la
+        <a href="confidentialite.html">politique de confidentialité</a>.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">07 / Liens externes</div>
+      <p>
+        Ce site peut contenir des liens hypertextes vers d'autres sites internet. Reboot'eux n'exerce aucun contrôle sur ces sites tiers et ne saurait être tenu responsable de leur contenu, de leurs pratiques ou de leur politique en matière de protection des données.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">08 / Contact</div>
+      <p>
+        Pour toute question relative aux présentes mentions légales, vous pouvez écrire à :<br/>
+        <span class="todo">[email à compléter]</span><br/>
+        ou téléphoner au <a href="tel:+33685757863">+33 6 85 75 78 63</a>.
+      </p>
+    </section>
+
+    <footer class="legal-foot">
+      <span>© 2026 Reboot'eux · Luc Dacquin</span>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="confidentialite.html">Confidentialité · RGPD</a>
+        <a href="index.html">Accueil</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
