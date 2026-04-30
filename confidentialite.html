@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Politique de confidentialité · Reboot'eux</title>
+  <meta name="description" content="Politique de protection des données personnelles du site Reboot'eux — conforme RGPD et nLPD." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=13" />
+  <style>
+    .legal-page { min-height: 100vh; padding: 140px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
+    .legal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
+    .legal-back { color: var(--ink-2); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color .3s, gap .3s var(--ease); display: inline-flex; align-items: center; gap: 10px; }
+    .legal-back:hover { color: var(--ink); gap: 14px; }
+    .legal-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-2); display: inline-flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+    .legal-eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: .6; }
+    .legal-title { font-family: var(--serif); font-size: clamp(48px, 8vw, 96px); font-weight: 300; line-height: 1; letter-spacing: -0.03em; margin: 0 0 24px; font-style: italic; }
+    .legal-subtitle { font-family: var(--serif); font-size: clamp(18px, 2vw, 22px); font-style: italic; color: var(--ink-2); margin: 0 0 80px; max-width: 680px; line-height: 1.5; }
+    .legal-section { margin-bottom: 56px; }
+    .legal-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 20px; }
+    .legal-section h2 { font-family: var(--serif); font-size: clamp(22px, 3vw, 32px); font-weight: 300; font-style: italic; letter-spacing: -0.01em; margin: 0 0 20px; line-height: 1.2; }
+    .legal-section p, .legal-section li { font-size: 16px; line-height: 1.8; color: var(--ink-2); margin: 0 0 14px; max-width: 680px; }
+    .legal-section a { color: var(--feu); text-decoration: none; border-bottom: 1px solid color-mix(in oklab, var(--feu) 40%, transparent); transition: border-color .3s; }
+    .legal-section a:hover { border-color: var(--feu); }
+    .legal-section ul { padding-left: 24px; margin: 0 0 16px; }
+    .legal-section ul li { margin-bottom: 8px; padding-left: 4px; }
+    .legal-section ul li::marker { color: var(--feu); }
+    .legal-section strong { color: var(--ink); font-weight: 400; }
+    .todo { background: color-mix(in oklab, var(--feu) 14%, transparent); color: var(--feu); padding: 2px 8px; border-radius: 4px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; border: 1px dashed color-mix(in oklab, var(--feu) 40%, transparent); }
+    .legal-table { width: 100%; max-width: 680px; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    .legal-table th, .legal-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--hairline); color: var(--ink-2); vertical-align: top; }
+    .legal-table th { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); background: rgba(20,26,42,.4); }
+    .legal-foot { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--hairline); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+    .legal-foot a { color: var(--ink-2); text-decoration: none; }
+    .legal-foot a:hover { color: var(--ink); }
+    .legal-update { display: inline-block; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--hairline); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <main class="legal-page">
+    <header class="legal-header">
+      <a href="index.html" class="legal-back">← Retour à l'accueil</a>
+      <span class="legal-eyebrow">Reboot'eux</span>
+    </header>
+
+    <span class="legal-eyebrow">Protection de vos données</span>
+    <h1 class="legal-title">Confidentialité.</h1>
+    <p class="legal-subtitle">
+      <em>Vos données vous appartiennent. Voici comment Reboot'eux les traite, en conformité avec le RGPD (Union européenne) et la nLPD (Suisse).</em>
+    </p>
+    <span class="legal-update">Dernière mise à jour : 29 avril 2026</span>
+
+    <section class="legal-section">
+      <div class="legal-h">01 / Préambule</div>
+      <p>
+        La présente politique de confidentialité décrit la manière dont <strong>Reboot'eux</strong>, dirigé par <strong>Luc Dacquin</strong>, collecte, utilise et protège vos données personnelles lorsque vous visitez ce site ou prenez contact avec le cabinet.
+      </p>
+      <p>
+        Reboot'eux opère en France et en Suisse romande. Le traitement des données est donc soumis :
+      </p>
+      <ul>
+        <li>Au <strong>Règlement Général sur la Protection des Données (RGPD)</strong> — Règlement (UE) 2016/679 — pour les visiteurs résidant dans l'Union européenne ;</li>
+        <li>À la <strong>nouvelle Loi fédérale sur la Protection des Données (nLPD)</strong> — entrée en vigueur le 1er septembre 2023 — pour les visiteurs résidant en Suisse.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">02 / Responsable de traitement</div>
+      <p>
+        <strong>Luc Dacquin</strong>, responsable du cabinet Reboot'eux, est le responsable du traitement de vos données personnelles.
+      </p>
+      <p>
+        Adresse : St-Julien-en-Genevois (74160), France · sur rendez-vous<br/>
+        Email : <span class="todo">[email à compléter]</span><br/>
+        Téléphone : <a href="tel:+33685757863">+33 6 85 75 78 63</a> (FR) · <a href="tel:+41795950938">+41 79 595 09 38</a> (CH)
+      </p>
+      <p>
+        Reboot'eux ne dispose pas d'un Délégué à la Protection des Données (DPO) au sens du RGPD ; le cabinet n'y est pas tenu compte tenu de la taille et de la nature de son activité. Pour toute question, vous pouvez vous adresser directement à Luc Dacquin.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">03 / Données collectées</div>
+      <p>
+        Reboot'eux collecte uniquement les données strictement nécessaires à la prise de rendez-vous et au suivi des soins. Les données sont collectées via les canaux suivants :
+      </p>
+      <table class="legal-table">
+        <thead>
+          <tr>
+            <th>Canal</th>
+            <th>Données collectées</th>
+            <th>Finalité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Formulaire de contact</strong></td>
+            <td>Nom, email, téléphone, soin envisagé, message libre</td>
+            <td>Répondre à votre demande de prise de rendez-vous ou d'information</td>
+          </tr>
+          <tr>
+            <td><strong>Téléphone / WhatsApp</strong></td>
+            <td>Nom, numéro de téléphone, contenu de l'échange</td>
+            <td>Organiser les soins et assurer un suivi</td>
+          </tr>
+          <tr>
+            <td><strong>Pendant un soin</strong></td>
+            <td>Informations transmises oralement par le client (motif de consultation, antécédents pertinents)</td>
+            <td>Adapter le soin et assurer un accompagnement personnalisé</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Aucune donnée n'est collectée automatiquement</strong> via la simple visite du site : pas de cookies tiers, pas d'outil d'analyse d'audience, pas de pixel publicitaire, pas de bouton de partage social qui suit l'utilisateur.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">04 / Bases légales du traitement</div>
+      <p>Conformément à l'article 6 du RGPD et à l'article 31 de la nLPD, vos données sont traitées sur les bases suivantes :</p>
+      <ul>
+        <li><strong>Consentement</strong> (art. 6.1.a RGPD) : lorsque vous remplissez volontairement le formulaire de contact ;</li>
+        <li><strong>Exécution d'un contrat ou de mesures précontractuelles</strong> (art. 6.1.b RGPD) : lorsque vous prenez rendez-vous ou réservez un soin ;</li>
+        <li><strong>Intérêt légitime</strong> (art. 6.1.f RGPD) : pour la tenue d'un suivi minimal de la relation client.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">05 / Durée de conservation</div>
+      <p>Les données sont conservées pendant des durées limitées et proportionnées :</p>
+      <ul>
+        <li><strong>Prospects</strong> (demande de contact restée sans suite) : 3 ans à compter du dernier contact ;</li>
+        <li><strong>Clients</strong> (séances effectuées) : durée de la relation thérapeutique + 3 ans à compter de la dernière séance ;</li>
+        <li><strong>Données de facturation</strong> (le cas échéant) : 10 ans, conformément aux obligations comptables françaises et suisses.</li>
+      </ul>
+      <p>Au terme de ces durées, vos données sont supprimées de manière sécurisée.</p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">06 / Destinataires</div>
+      <p>Vos données ne sont pas vendues, ni louées, ni transmises à des tiers à des fins commerciales. Les seuls destinataires sont :</p>
+      <ul>
+        <li><strong>Luc Dacquin</strong>, responsable de traitement ;</li>
+        <li><strong>L'hébergeur du site</strong> (GitHub, Inc.) — uniquement pour le contenu publié sur le site, qui ne contient aucune donnée personnelle de visiteurs ;</li>
+        <li><strong>Les autorités compétentes</strong>, sur réquisition légale uniquement.</li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">07 / Transferts hors Union européenne</div>
+      <p>
+        Le site est hébergé par <strong>GitHub, Inc.</strong>, société américaine. Cependant, les pages du site étant statiques et publiques, aucune donnée personnelle d'un visiteur n'est transmise au serveur d'hébergement (les formulaires sont traités directement par email vers Luc Dacquin).
+      </p>
+      <p>
+        Pour information, GitHub, Inc. adhère au cadre <strong>Data Privacy Framework UE-USA</strong>, qui offre un niveau de protection adéquat reconnu par la Commission européenne.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">08 / Cookies et traceurs</div>
+      <p>
+        <strong>Ce site n'utilise aucun cookie tiers et aucun traceur publicitaire.</strong> Aucun outil d'analyse (Google Analytics, Matomo, etc.) n'est installé. Aucun pixel publicitaire (Meta, TikTok, etc.) n'est présent.
+      </p>
+      <p>
+        Seuls peuvent être stockés des cookies techniques strictement nécessaires au fonctionnement du site (préférence de langue, par exemple), exemptés du recueil de consentement par la CNIL.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">09 / Vos droits</div>
+      <p>Conformément au RGPD et à la nLPD, vous disposez des droits suivants sur vos données personnelles :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> : obtenir la confirmation que vos données sont traitées et en obtenir une copie ;</li>
+        <li><strong>Droit de rectification</strong> : corriger des données inexactes ou incomplètes ;</li>
+        <li><strong>Droit à l'effacement</strong> (« droit à l'oubli ») : demander la suppression de vos données dans les cas prévus par la loi ;</li>
+        <li><strong>Droit à la limitation du traitement</strong> : demander que le traitement de vos données soit suspendu ;</li>
+        <li><strong>Droit d'opposition</strong> : vous opposer au traitement pour des motifs légitimes ;</li>
+        <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré, pour les transmettre à un autre responsable de traitement ;</li>
+        <li><strong>Droit de retirer votre consentement</strong> à tout moment, sans que cela n'affecte la licéité des traitements antérieurs.</li>
+      </ul>
+      <p>
+        Pour exercer ces droits, écrivez à <span class="todo">[email à compléter]</span> ou téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a>. Une réponse vous sera apportée dans un délai maximum d'un mois (RGPD) ou de 30 jours (nLPD).
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">10 / Sécurité</div>
+      <p>
+        Les données collectées sont stockées de manière sécurisée. Les échanges électroniques (formulaire, email) sont protégés par le chiffrement HTTPS. Aucun fichier client centralisé contenant des données sensibles n'est stocké sur des serveurs en ligne.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">11 / Réclamations</div>
+      <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de l'autorité de contrôle compétente :</p>
+      <ul>
+        <li>
+          <strong>En France et dans l'UE</strong> :
+          <a href="https://www.cnil.fr/" target="_blank" rel="noopener">Commission Nationale de l'Informatique et des Libertés (CNIL)</a> · 3 Place de Fontenoy, 75007 Paris
+        </li>
+        <li>
+          <strong>En Suisse</strong> :
+          <a href="https://www.edoeb.admin.ch/" target="_blank" rel="noopener">Préposé fédéral à la protection des données et à la transparence (PFPDT)</a> · Feldeggweg 1, 3003 Berne
+        </li>
+      </ul>
+    </section>
+
+    <section class="legal-section">
+      <div class="legal-h">12 / Modifications</div>
+      <p>
+        La présente politique de confidentialité peut être mise à jour à tout moment pour refléter les évolutions légales ou les pratiques du cabinet. La date de la dernière mise à jour est indiquée en haut du document. Nous vous invitons à la consulter régulièrement.
+      </p>
+    </section>
+
+    <footer class="legal-foot">
+      <span>© 2026 Reboot'eux · Luc Dacquin</span>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="index.html">Accueil</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
