@@ -520,8 +520,11 @@ function Footer() {
    ============================================================ */
 function App() {
   const [active, setActive] = useState('feu');
-  const [lang, setLang] = useState(window.__lang || 'fr');
+  const [lang, setLang] = useState(() => (window.getLang ? window.getLang() : (window.__lang || 'fr')));
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  // Sync window.__lang at every render (cheap, defensive)
+  window.__lang = lang;
 
   const themeKey = (tweaks.element && tweaks.element !== 'auto') ? tweaks.element : active;
   const theme = HUES[themeKey] || HUES.feu;
@@ -542,10 +545,22 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  // Toggle language : redirect to the other version of the page (URL-based, robust)
+  function toggleLang() {
+    const here = location.pathname.split('/').pop() || 'index.html';
+    let target;
+    if (lang === 'en' || here.includes('-en.html')) {
+      target = here.replace('-en.html', '.html');
+    } else {
+      target = here.endsWith('.html') ? here.replace('.html', '-en.html') : here.replace(/\/?$/, '/index-en.html');
+    }
+    location.href = target + location.hash;
+  }
+
   return (
     <>
       <Cursor />
-      <Nav activeSection={active} onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} />
+      <Nav activeSection={active} onNav={navigate} lang={lang} onLang={toggleLang} />
       <ProgressRail active={active} />
       <main>
         <Hero />
