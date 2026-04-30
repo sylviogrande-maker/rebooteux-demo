@@ -153,13 +153,12 @@ function VideoBg({ src, hue, intensity = 0.5, parallax = false, fit = 'cover', s
     return () => window.removeEventListener('scroll', onScroll);
   }, [parallax]);
 
-  const preloadAttr = priority === 'high' ? 'auto' : 'metadata';
   return (
     <div ref={wrapRef} className="video-bg" style={hue ? { '--hue': hue.h, '--hue-glow': hue.g } : null}>
-      <video ref={refA} className={ready ? 'ready' : ''} autoPlay muted loop playsInline preload={preloadAttr} style={{ objectFit: fit, transform: `scale(${scale})` }}>
+      <video ref={refA} className={ready ? 'ready' : ''} autoPlay muted loop playsInline preload="auto" style={{ objectFit: fit, transform: `scale(${scale})` }}>
         <source src={src} type="video/mp4" />
       </video>
-      <video ref={refB} className={ready ? 'ready' : ''} autoPlay muted loop playsInline preload={preloadAttr} aria-hidden style={{ objectFit: fit, transform: `scale(${scale})` }}>
+      <video ref={refB} className={ready ? 'ready' : ''} autoPlay muted loop playsInline preload="auto" aria-hidden style={{ objectFit: fit, transform: `scale(${scale})` }}>
         <source src={src} type="video/mp4" />
       </video>
       <div className="veil" style={{ opacity: intensity + 0.3 }} />
