@@ -97,7 +97,7 @@ const ACTS = [
   {
     id: 'feu', n: '01 / Le feu', el: 'Coupeur de feu', soin: 'Apaiser les brûlures, le zona, les douleurs aiguës de peau',
     poetic: <>Couper le feu,<br/><em>apaiser la brûlure.</em></>,
-    quote: '« La flamme reconnaît la main qui sait l’éteindre. »',
+    quote: '« Sous la main qui sait, la braise se souvient d’avoir été silence. »',
     body: 'Imposition des mains à distance ou en présentiel pour soulager les brûlures, le zona, les douleurs aiguës de peau. Une séance de 20 à 60 minutes, sans contact direct.',
     list: ['Brûlures du quotidien', 'Coups de soleil', 'Zona, herpès', 'Brûlures post-radiothérapie', 'Douleurs cutanées aiguës'],
     video: 'videos/feu.mp4',
