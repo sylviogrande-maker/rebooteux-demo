@@ -19,7 +19,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 function Hero() {
   return (
     <section id="top" className="hero" data-screen-label="01 Hero">
-      <VideoBg src="videos/hero.mp4" hue={HUES.feu} intensity={0.4} fit="contain" scale={1} />
+      <VideoBg src="videos/hero.mp4" hue={HUES.feu} intensity={0.4} fit="contain" scale={1} priority="high" />
       <div className="hero-content">
         <Reveal className="eyebrow-row"><span className="eyebrow">{t('hero.eyebrow')}</span></Reveal>
         <h1 className="display hero-title">
