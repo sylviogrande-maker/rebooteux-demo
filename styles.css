@@ -233,15 +233,21 @@ img, video, svg { max-width: 100%; }
   /* Force background videos to fill the screen on mobile (no letterbox) */
   .video-bg video { object-fit: cover !important; transform: scale(1.05) !important; }
 
-  /* Force grids to 1 column on the home — !important to override the inline <style> in Act component */
+  /* HARD FIX : forcer le 1 colonne avec display:flex (le grid était batail perdu vs styles JSX) */
+  .act, .luc, .contact { overflow-x: hidden !important; }
   .act-grid,
   .act.R .act-grid {
+    display: flex !important;
+    flex-direction: column !important;
     grid-template-columns: 1fr !important;
     gap: 24px !important;
     direction: ltr !important;
     max-width: 100% !important;
+    width: 100% !important;
   }
   .act.R .act-grid > * { direction: ltr !important; }
+  .act-meta, .act-text { width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+  .act-title, .act-meta .el, .body, .quote { word-wrap: break-word !important; overflow-wrap: break-word !important; max-width: 100% !important; }
   .list ul { grid-template-columns: 1fr !important; gap: 8px 0 !important; }
 
   /* More opaque overlay on Acts so the text stays readable over the video */
