@@ -21,23 +21,23 @@ function Hero() {
     <section id="top" className="hero" data-screen-label="01 Hero">
       <VideoBg src="videos/hero.mp4" hue={HUES.feu} intensity={0.4} fit="contain" scale={1} />
       <div className="hero-content">
-        <Reveal className="eyebrow-row"><span className="eyebrow">Cabinet de soins énergétiques · St-Julien-en-Genevois</span></Reveal>
+        <Reveal className="eyebrow-row"><span className="eyebrow">{t('hero.eyebrow')}</span></Reveal>
         <h1 className="display hero-title">
           <SplitText tag="span">Reboot’eux</SplitText>
         </h1>
         <Reveal delay={2}>
           <p className="hero-sub serif">
-            <em>retrouver son juste équilibre,</em><br/>
-            une <i>guérison</i> qui honore le corps et l’esprit.
+            <em>{t('hero.subA')}</em><br/>
+            {t('hero.subB')} <i>{t('hero.subC')}</i> {t('hero.subD')}
           </p>
         </Reveal>
         <Reveal delay={3} className="hero-ctas">
-          <a className="btn" href="#contact" data-hover><span className="stone"></span>Prendre rendez-vous</a>
-          <a className="btn btn-ghost" href="#manifeste" data-hover>Découvrir le voyage <ArrowDown /></a>
+          <a className="btn" href="#contact" data-hover><span className="stone"></span>{t('hero.cta1')}</a>
+          <a className="btn btn-ghost" href="#manifeste" data-hover>{t('hero.cta2')} <ArrowDown /></a>
         </Reveal>
       </div>
       <div className="scroll-cue ornament">
-        <span className="mono">scroller</span>
+        <span className="mono">{t('hero.scroll')}</span>
         <span className="line"><i></i></span>
       </div>
       <style>{`
@@ -70,13 +70,13 @@ function Manifeste() {
     <section id="manifeste" className="manifeste" data-screen-label="02 Manifeste">
       <div className="man-glow ornament"></div>
       <div className="wrap">
-        <Reveal className="eb"><span className="eyebrow">Manifeste</span></Reveal>
+        <Reveal className="eb"><span className="eyebrow">{t('man.eyebrow')}</span></Reveal>
         <h2 className="display man-line">
-          <SplitText>Soigner n’est pas changer —</SplitText>
+          <SplitText>{t('man.line1')}</SplitText>
           <br/>
-          <span className="ital"><SplitText>c’est rappeler au corps ce qu’il a toujours su être.</SplitText></span>
+          <span className="ital"><SplitText>{t('man.line2')}</SplitText></span>
         </h2>
-        <Reveal delay={2} className="man-foot mono">— Luc Dacquin, alchimiste du vivant</Reveal>
+        <Reveal delay={2} className="man-foot mono">{t('man.signature')}</Reveal>
       </div>
       <style>{`
         .manifeste { position: relative; padding: 240px var(--pad); text-align: center; overflow: hidden; background: var(--bg-0); }
@@ -183,21 +183,21 @@ function Act({ act, idx, innerRef }) {
       <div className="wrap act-wrap">
         <div className="act-grid">
           <div className="act-meta">
-            <Reveal className="num mono">{act.n}</Reveal>
-            <Reveal delay={1} className="el serif" style={{ fontSize: '32px', lineHeight: 1.15 }}>{act.el}</Reveal>
-            <Reveal delay={2} className="soin mono">{act.soin}</Reveal>
+            <Reveal className="num mono">{t('act.' + act.id + '.num')}</Reveal>
+            <Reveal delay={1} className="el serif" style={{ fontSize: '32px', lineHeight: 1.15 }}>{t('act.' + act.id + '.soin')}</Reveal>
+            <Reveal delay={2} className="soin mono">{t('act.' + act.id + '.subtitle')}</Reveal>
           </div>
           <div className="act-text">
-            <h2 className="display act-title"><SplitText>{textFromPoetic(act.poetic)}</SplitText></h2>
-            <Reveal delay={2} className="quote serif">{act.quote}</Reveal>
-            <Reveal delay={3} className="body">{act.body}</Reveal>
+            <h2 className="display act-title"><SplitText>{t('act.' + act.id + '.poeticA') + ' ' + t('act.' + act.id + '.poeticB')}</SplitText></h2>
+            <Reveal delay={2} className="quote serif">{t('act.' + act.id + '.quote')}</Reveal>
+            <Reveal delay={3} className="body">{t('act.' + act.id + '.body')}</Reveal>
             <Reveal delay={3} className="list">
               <ul>
-                {act.list.map(x => <li key={x}><i></i>{x}</li>)}
+                {(t('act.' + act.id + '.list') || []).map(x => <li key={x}><i></i>{x}</li>)}
               </ul>
             </Reveal>
             <Reveal delay={4} className="cta">
-              <a href="#contact" className="link" data-hover>Prendre rendez-vous →</a>
+              <a href="#contact" className="link" data-hover>{t('act.cta')}</a>
             </Reveal>
           </div>
         </div>
@@ -256,26 +256,26 @@ function LucSection() {
                 <div className="ph-photo" style={{ backgroundImage: 'url(assets/luc-portrait.jpg)' }} aria-label="Luc Dacquin"></div>
               </div>
               <div className="portrait-caption mono">
-                <span>Luc Dacquin</span>
-                <span>ingénieur 42 ans · énergéticien depuis 2019</span>
+                <span>{t('luc.portrait1')}</span>
+                <span>{t('luc.portrait2')}</span>
               </div>
             </div>
           </Reveal>
           <div className="luc-text">
-            <Reveal className="eyebrow">L’alchimiste du vivant</Reveal>
+            <Reveal className="eyebrow">{t('luc.eyebrow')}</Reveal>
             <h2 className="display luc-title">
-              <SplitText>Vingt ans d’ingénierie,</SplitText><br/>
-              <span className="ital"><SplitText>une vie d’écoute.</SplitText></span>
+              <SplitText>{t('luc.titleA')}</SplitText><br/>
+              <span className="ital"><SplitText>{t('luc.titleB')}</SplitText></span>
             </h2>
             <Reveal delay={2} className="luc-body">
-              <p>Né dans une famille en harmonie avec la nature, Luc a d’abord choisi la rigueur — l’ingénierie, les lignes droites, les calculs. Il y consacre quarante-deux années. Puis il quitte un métier qui ne le quittait plus, et reprend le chemin du druide guérisseur que les hommes de sa lignée pratiquent depuis des générations.</p>
-              <p>Aujourd’hui il relie deux mondes : la précision de la science et la sagesse des soins ancestraux. Il ne promet pas. Il accompagne.</p>
+              <p>{t('luc.body1')}</p>
+              <p>{t('luc.body2')}</p>
             </Reveal>
             <Reveal delay={3} className="luc-quote serif">
-              <span className="q">«</span> Je cultive l’art de relier mes énergies à celles de la nature, riche en pouvoir de guérison. <span className="q">»</span>
+              <span className="q">«</span> {t('luc.quote')} <span className="q">»</span>
             </Reveal>
             <Reveal delay={4}>
-              <a href="#contact" className="link" data-hover>Le rencontrer →</a>
+              <a href="#contact" className="link" data-hover>{t('luc.cta')}</a>
             </Reveal>
           </div>
         </div>
@@ -323,10 +323,10 @@ function Contact() {
       </div>
       <div className="wrap c-wrap">
         <div className="c-head">
-          <Reveal className="eyebrow">Prendre rendez-vous</Reveal>
+          <Reveal className="eyebrow">{t('contact.eyebrow')}</Reveal>
           <h2 className="display c-title">
-            <SplitText>Un mot,</SplitText> <span className="ital"><SplitText>et nous trouvons</SplitText></span><br/>
-            <SplitText>le juste moment.</SplitText>
+            <SplitText>{t('contact.titleA')}</SplitText> <span className="ital"><SplitText>{t('contact.titleB')}</SplitText></span><br/>
+            <SplitText>{t('contact.titleC')}</SplitText>
           </h2>
         </div>
         <div className="c-grid">
@@ -334,54 +334,54 @@ function Contact() {
             <a href="tel:+33685757863" className="ch" data-hover>
               <span className="ch-flag mono">FR</span>
               <span className="ch-num serif">+33 6 85 75 78 63</span>
-              <span className="ch-act mono">appeler →</span>
+              <span className="ch-act mono">{t('contact.callFR')}</span>
             </a>
             <a href="tel:+41795950938" className="ch" data-hover>
               <span className="ch-flag mono">CH</span>
               <span className="ch-num serif">+41 79 595 09 38</span>
-              <span className="ch-act mono">appeler →</span>
+              <span className="ch-act mono">{t('contact.callCH')}</span>
             </a>
             <a href="https://wa.me/33685757863" className="ch" data-hover>
               <span className="ch-flag mono">WA</span>
               <span className="ch-num serif">WhatsApp</span>
-              <span className="ch-act mono">écrire →</span>
+              <span className="ch-act mono">{t('contact.write')}</span>
             </a>
             <div className="ch-info mono">
-              <span>St-Julien-en-Genevois</span>
-              <span>Présentiel · Distance</span>
-              <span>Sur rendez-vous · 30 km de Genève</span>
+              <span>{t('contact.info1')}</span>
+              <span>{t('contact.info2')}</span>
+              <span>{t('contact.info3')}</span>
             </div>
           </div>
           <form className="c-form" onSubmit={(e) => { e.preventDefault(); if (name && phone && consent) setSent(true); }}>
             {sent ? (
               <div className="sent">
                 <Mark size={48} />
-                <div className="serif sent-t">Message reçu.</div>
-                <div className="sent-b">Luc vous rappelle dans la journée.</div>
+                <div className="serif sent-t">{t('form.sent.t')}</div>
+                <div className="sent-b">{t('form.sent.b')}</div>
               </div>
             ) : (
               <>
                 <div className="row">
-                  <label><span className="mono">Nom</span><input value={name} onChange={e=>setName(e.target.value)} required /></label>
-                  <label><span className="mono">Téléphone</span><input value={phone} onChange={e=>setPhone(e.target.value)} required type="tel" /></label>
+                  <label><span className="mono">{t('form.name')}</span><input value={name} onChange={e=>setName(e.target.value)} required /></label>
+                  <label><span className="mono">{t('form.phone')}</span><input value={phone} onChange={e=>setPhone(e.target.value)} required type="tel" /></label>
                 </div>
-                <label className="full"><span className="mono">Email</span><input value={email} onChange={e=>setEmail(e.target.value)} type="email" /></label>
-                <label className="full"><span className="mono">Soin envisagé</span>
+                <label className="full"><span className="mono">{t('form.email')}</span><input value={email} onChange={e=>setEmail(e.target.value)} type="email" /></label>
+                <label className="full"><span className="mono">{t('form.soin')}</span>
                   <div className="pills">
                     {ACTS.map(a => (
-                      <button type="button" key={a.id} className={`pill ${soin===a.id?'a':''}`} onClick={()=>setSoin(a.id)} data-hover>{a.el} · {a.soin}</button>
+                      <button type="button" key={a.id} className={`pill ${soin===a.id?'a':''}`} onClick={()=>setSoin(a.id)} data-hover>{t('act.' + a.id + '.soin')}</button>
                     ))}
                   </div>
                 </label>
-                <label className="full"><span className="mono">Message libre</span><textarea rows="4" value={msg} onChange={e=>setMsg(e.target.value)} placeholder="Décrivez en quelques lignes ce que vous traversez."/></label>
+                <label className="full"><span className="mono">{t('form.msg')}</span><textarea rows="4" value={msg} onChange={e=>setMsg(e.target.value)} placeholder={t('form.placeholder')}/></label>
                 <label className="consent">
                   <input type="checkbox" checked={consent} onChange={e=>setConsent(e.target.checked)} required />
                   <span className="consent-text">
-                    J'accepte que mes données (nom, téléphone, email, message) soient utilisées par Luc Dacquin pour me recontacter au sujet de ma demande. Voir la <a href="confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a>.
+                    {t('form.consent')} <a href="confidentialite.html" target="_blank" rel="noopener">{t('form.consent.link')}</a>.
                   </span>
                 </label>
-                <button className="btn submit" type="submit" data-hover disabled={!consent}><span className="stone"></span>Envoyer la demande</button>
-                <div className="form-foot mono">Réponse sous 24h · Données conservées 3 ans max · <a href="confidentialite.html" target="_blank" rel="noopener" style={{color:'inherit',borderBottom:'1px solid currentColor'}}>RGPD</a></div>
+                <button className="btn submit" type="submit" data-hover disabled={!consent}><span className="stone"></span>{t('form.submit')}</button>
+                <div className="form-foot mono">{t('form.foot')} <a href="confidentialite.html" target="_blank" rel="noopener" style={{color:'inherit',borderBottom:'1px solid currentColor'}}>RGPD</a></div>
               </>
             )}
           </form>
@@ -447,43 +447,43 @@ function Footer() {
         <div className="f-mark">
           <Mark size={64} />
           <div className="serif f-name">Reboot’eux</div>
-          <div className="serif f-cite">— retrouver son juste équilibre.</div>
+          <div className="serif f-cite">{t('foot.signature')}</div>
         </div>
         <div className="f-grid">
           <div className="f-col">
-            <div className="f-h mono">Les soins</div>
-            <a className="link" href="#feu">Coupeur de feu</a>
-            <a className="link" href="#eau">Énergéticien · Magnétiseur</a>
-            <a className="link" href="#terre">Rebouteux</a>
-            <a className="link" href="#souffle">Accompagnement</a>
+            <div className="f-h mono">{t('foot.h.soins')}</div>
+            <a className="link" href="#feu">{t('act.feu.soin')}</a>
+            <a className="link" href="#eau">{t('act.eau.soin')}</a>
+            <a className="link" href="#terre">{t('act.terre.soin')}</a>
+            <a className="link" href="#souffle">{t('act.souffle.soin')}</a>
           </div>
           <div className="f-col">
-            <div className="f-h mono">Contact</div>
+            <div className="f-h mono">{t('foot.h.contact')}</div>
             <a className="link" href="tel:+33685757863">FR · +33 6 85 75 78 63</a>
             <a className="link" href="tel:+41795950938">CH · +41 79 595 09 38</a>
             <a className="link" href="https://wa.me/33685757863" target="_blank" rel="noopener">WhatsApp</a>
-            <a className="link" href="#contact">Formulaire</a>
+            <a className="link" href="#contact">{t('foot.formulaire')}</a>
           </div>
           <div className="f-col">
-            <div className="f-h mono">Pratique</div>
-            <a className="link" href="pratique.html#tarifs">Tarifs</a>
-            <a className="link" href="pratique.html#zone">Zone d’intervention</a>
-            <a className="link" href="pratique.html#faq">Foire aux questions</a>
-            <a className="link" href="#luc">À propos de Luc</a>
+            <div className="f-h mono">{t('foot.h.pratique')}</div>
+            <a className="link" href="pratique.html#tarifs">{t('foot.tarifs')}</a>
+            <a className="link" href="pratique.html#zone">{t('foot.zone')}</a>
+            <a className="link" href="pratique.html#faq">{t('foot.faq')}</a>
+            <a className="link" href="#luc">{t('foot.luc')}</a>
           </div>
           <div className="f-col">
-            <div className="f-h mono">Cabinet</div>
-            <span>St-Julien-en-Genevois</span>
-            <span>France · Suisse romande</span>
-            <span>30 km autour de Genève</span>
-            <span>Sur rendez-vous</span>
+            <div className="f-h mono">{t('foot.h.cabinet')}</div>
+            <span>{t('foot.cabinet1')}</span>
+            <span>{t('foot.cabinet2')}</span>
+            <span>{t('foot.cabinet3')}</span>
+            <span>{t('foot.cabinet4')}</span>
           </div>
         </div>
         <div className="f-bot">
-          <span className="mono">© 2026 Reboot’eux · Luc Dacquin</span>
+          <span className="mono">{t('foot.copy')}</span>
           <div className="f-legal">
-            <a className="link" href="mentions-legales.html">Mentions légales</a>
-            <a className="link" href="confidentialite.html">Confidentialité · RGPD</a>
+            <a className="link" href="mentions-legales.html">{t('foot.legal1')}</a>
+            <a className="link" href="confidentialite.html">{t('foot.legal2')}</a>
           </div>
         </div>
       </div>
@@ -520,8 +520,7 @@ function Footer() {
    ============================================================ */
 function App() {
   const [active, setActive] = useState('feu');
-  const [lang, setLang] = useState('fr');
-  const [soundOn, setSoundOn] = useState(false);
+  const [lang, setLang] = useState(window.__lang || 'fr');
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
 
   const themeKey = (tweaks.element && tweaks.element !== 'auto') ? tweaks.element : active;
@@ -532,6 +531,12 @@ function App() {
     document.documentElement.style.setProperty('--hue-glow', theme.g);
   }, [theme.h, theme.g]);
 
+  useEffect(() => {
+    window.__lang = lang;
+    try { localStorage.setItem('reb_lang', lang); } catch (e) {}
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   function navigate(id) {
     if (id === 'top') { scrollTo({ top: 0, behavior: 'smooth' }); return; }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -540,7 +545,7 @@ function App() {
   return (
     <>
       <Cursor />
-      <Nav activeSection={active} onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} soundOn={soundOn} onSound={() => setSoundOn(s => !s)} />
+      <Nav activeSection={active} onNav={navigate} lang={lang} onLang={() => setLang(l => l==='fr'?'en':'fr')} />
       <ProgressRail active={active} />
       <main>
         <Hero />
