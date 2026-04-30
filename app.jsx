@@ -72,9 +72,9 @@ function Manifeste() {
       <div className="wrap">
         <Reveal className="eb"><span className="eyebrow">Manifeste</span></Reveal>
         <h2 className="display man-line">
-          <SplitText>Là où la flamme s’éteint,</SplitText>
+          <SplitText>Soigner n’est pas changer —</SplitText>
           <br/>
-          <span className="ital"><SplitText>le vivant respire.</SplitText></span>
+          <span className="ital"><SplitText>c’est rappeler au corps ce qu’il a toujours su être.</SplitText></span>
         </h2>
         <Reveal delay={2} className="man-foot mono">— Luc Dacquin, alchimiste du vivant</Reveal>
       </div>
