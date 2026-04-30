@@ -43,13 +43,32 @@ const I18N = {
     'prat.eyebrow':'Practical info','prat.titleA':'Everything you need to know,','prat.titleB':'before coming.','prat.sub':'Pricing, how a session unfolds, service area, frequently asked questions. So you know exactly what to expect.','prat.anchor1':'Flow','prat.anchor2':'Pricing','prat.anchor3':'Area','prat.anchor4':'FAQ',
   },
 };
-window.__lang = window.__lang || (typeof localStorage !== 'undefined' && localStorage.getItem('reb_lang')) || 'fr';
+// Resolve current language — based on URL filename (most reliable)
+function getLang() {
+  if (typeof window === 'undefined') return 'fr';
+  // Trust the URL pattern -en.html as the source of truth
+  if (location.pathname.includes('-en.html')) { window.__lang = 'en'; return 'en'; }
+  if (window.__lang === 'en') return 'en';
+  return 'fr';
+}
+// Helper: build a link to a page in the current language (e.g. pageHref('pratique') → 'pratique.html' or 'pratique-en.html')
+function pageHref(page, hash) {
+  const lang = getLang();
+  const suffix = lang === 'en' ? '-en.html' : '.html';
+  const h = hash ? '#' + hash : '';
+  if (page === 'index' || page === '' || page === 'home') return 'index' + suffix + h;
+  return page + suffix + h;
+}
+window.pageHref = pageHref;
 function t(k) {
-  const lang = window.__lang || 'fr';
+  const lang = getLang();
   return (I18N[lang] && I18N[lang][k] !== undefined) ? I18N[lang][k] : (I18N.fr[k] !== undefined ? I18N.fr[k] : k);
 }
 window.t = t;
+window.getLang = getLang;
 window.I18N = I18N;
+// Initialize language on script load
+getLang();
 
 /* ============================================================
    VideoBg — fond vidéo plein écran avec voile + grain + tint
@@ -205,14 +224,14 @@ function Cursor() {
 function Nav({ activeSection, onNav, lang, onLang }) {
   const [open, setOpen] = useState(false);
   const items = [
-    { id: 'top',      n: '00', lk: 'nav.home',         sk: '',                href: 'index.html' },
-    { id: 'feu',      n: '01', lk: 'nav.feu.l',        sk: 'nav.feu.sub',     href: 'index.html#feu' },
-    { id: 'eau',      n: '02', lk: 'nav.eau.l',        sk: 'nav.eau.sub',     href: 'index.html#eau' },
-    { id: 'terre',    n: '03', lk: 'nav.terre.l',      sk: 'nav.terre.sub',   href: 'index.html#terre' },
-    { id: 'souffle',  n: '04', lk: 'nav.souffle.l',    sk: 'nav.souffle.sub', href: 'index.html#souffle' },
-    { id: 'luc',      n: '—',  lk: 'nav.luc.l',        sk: 'nav.luc.sub',     href: 'index.html#luc' },
-    { id: 'pratique', n: '—',  lk: 'nav.pratique.l',   sk: 'nav.pratique.sub',href: 'pratique.html' },
-    { id: 'contact',  n: '—',  lk: 'nav.contact.l',    sk: 'nav.contact.sub', href: 'index.html#contact' },
+    { id: 'top',      n: '00', lk: 'nav.home',         sk: '',                href: pageHref('index') },
+    { id: 'feu',      n: '01', lk: 'nav.feu.l',        sk: 'nav.feu.sub',     href: pageHref('index','feu') },
+    { id: 'eau',      n: '02', lk: 'nav.eau.l',        sk: 'nav.eau.sub',     href: pageHref('index','eau') },
+    { id: 'terre',    n: '03', lk: 'nav.terre.l',      sk: 'nav.terre.sub',   href: pageHref('index','terre') },
+    { id: 'souffle',  n: '04', lk: 'nav.souffle.l',    sk: 'nav.souffle.sub', href: pageHref('index','souffle') },
+    { id: 'luc',      n: '—',  lk: 'nav.luc.l',        sk: 'nav.luc.sub',     href: pageHref('index','luc') },
+    { id: 'pratique', n: '—',  lk: 'nav.pratique.l',   sk: 'nav.pratique.sub',href: pageHref('pratique') },
+    { id: 'contact',  n: '—',  lk: 'nav.contact.l',    sk: 'nav.contact.sub', href: pageHref('index','contact') },
   ];
   return (
     <>
