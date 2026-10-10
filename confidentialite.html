@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Politique de confidentialité · Reboot'eux</title>
   <meta name="description" content="Politique de protection des données personnelles du site Reboot'eux — conforme RGPD et nLPD." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    .legal-page { min-height: 100vh; padding: 140px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
+    .legal-page { min-height: 100vh; padding: 48px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
     .legal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
     .legal-back { color: var(--ink-2); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color .3s, gap .3s var(--ease); display: inline-flex; align-items: center; gap: 10px; }
     .legal-back:hover { color: var(--ink); gap: 14px; }
@@ -31,7 +29,7 @@
     .todo { background: color-mix(in oklab, var(--feu) 14%, transparent); color: var(--feu); padding: 2px 8px; border-radius: 4px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; border: 1px dashed color-mix(in oklab, var(--feu) 40%, transparent); }
     .legal-table { width: 100%; max-width: 680px; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
     .legal-table th, .legal-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--hairline); color: var(--ink-2); vertical-align: top; }
-    .legal-table th { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); background: rgba(20,26,42,.4); }
+    .legal-table th { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); background: rgba(30, 52, 48, 0.05); }
     .legal-foot { margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--hairline); font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .legal-foot a { color: var(--ink-2); text-decoration: none; }
     .legal-foot a:hover { color: var(--ink); }
@@ -73,7 +71,8 @@
       </p>
       <p>
         Adresse : St-Julien-en-Genevois (74160), France · sur rendez-vous<br/>
-        Email : <span class="todo">[email à compléter]</span><br/>
+        <!-- TODO email du responsable : réafficher quand une adresse est publiable. Ne pas en inventer. -->
+        <span hidden>Email : <span class="todo">[email à compléter]</span><br/></span>
         Téléphone : <a href="tel:+33685757863">+33 6 85 75 78 63</a> (FR) · <a href="tel:+41795950938">+41 79 595 09 38</a> (CH)
       </p>
       <p>
@@ -98,7 +97,7 @@
           <tr>
             <td><strong>Formulaire de contact</strong></td>
             <td>Nom, email, téléphone, soin envisagé, message libre</td>
-            <td>Répondre à votre demande de prise de rendez-vous ou d'information</td>
+            <td>Préparer un message que vous envoyez vous-même par WhatsApp, afin que Luc Dacquin puisse répondre</td>
           </tr>
           <tr>
             <td><strong>Téléphone / WhatsApp</strong></td>
@@ -151,7 +150,7 @@
     <section class="legal-section">
       <div class="legal-h">07 / Transferts hors Union européenne</div>
       <p>
-        Le site est hébergé par <strong>GitHub, Inc.</strong>, société américaine. Cependant, les pages du site étant statiques et publiques, aucune donnée personnelle d'un visiteur n'est transmise au serveur d'hébergement (les formulaires sont traités directement par email vers Luc Dacquin).
+        Le site est hébergé par <strong>GitHub, Inc.</strong>, société américaine. Les pages sont statiques : le formulaire de contact ne transmet aucune donnée au serveur. Il prépare un message WhatsApp que vous envoyez vous-même, ou vous invite à appeler. Aucune donnée personnelle de visiteur n'est stockée par l'hébergeur du site.
       </p>
       <p>
         Pour information, GitHub, Inc. adhère au cadre <strong>Data Privacy Framework UE-USA</strong>, qui offre un niveau de protection adéquat reconnu par la Commission européenne.
@@ -164,7 +163,7 @@
         <strong>Ce site n'utilise aucun cookie tiers et aucun traceur publicitaire.</strong> Aucun outil d'analyse (Google Analytics, Matomo, etc.) n'est installé. Aucun pixel publicitaire (Meta, TikTok, etc.) n'est présent.
       </p>
       <p>
-        Seuls peuvent être stockés des cookies techniques strictement nécessaires au fonctionnement du site (préférence de langue, par exemple), exemptés du recueil de consentement par la CNIL.
+        Le site n'enregistre pas de cookie de préférence. Le choix de la langue se fait par l'adresse de la page (version française ou anglaise). Aucun stockage local n'est utilisé pour cela.
       </p>
     </section>
 
@@ -181,14 +180,15 @@
         <li><strong>Droit de retirer votre consentement</strong> à tout moment, sans que cela n'affecte la licéité des traitements antérieurs.</li>
       </ul>
       <p>
-        Pour exercer ces droits, écrivez à <span class="todo">[email à compléter]</span> ou téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a>. Une réponse vous sera apportée dans un délai maximum d'un mois (RGPD) ou de 30 jours (nLPD).
+        Pour exercer ces droits, téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a> ou au <a href="tel:+41795950938">+41 79 595 09 38</a>. Une réponse vous sera apportée dans un délai maximum d'un mois (RGPD) ou de 30 jours (nLPD).
+        <!-- TODO email : réafficher « écrivez à [email] » quand une adresse de cabinet est publiable. -->
       </p>
     </section>
 
     <section class="legal-section">
       <div class="legal-h">10 / Sécurité</div>
       <p>
-        Les données collectées sont stockées de manière sécurisée. Les échanges électroniques (formulaire, email) sont protégés par le chiffrement HTTPS. Aucun fichier client centralisé contenant des données sensibles n'est stocké sur des serveurs en ligne.
+        Le site est servi en HTTPS. Le formulaire n'enregistre rien sur le serveur : le message part par WhatsApp ou par téléphone, selon votre choix. Aucun fichier client centralisé contenant des données sensibles n'est stocké sur des serveurs en ligne.
       </p>
     </section>
 

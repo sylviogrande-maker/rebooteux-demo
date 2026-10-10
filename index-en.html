@@ -3,27 +3,562 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reboot'eux — finding your right balance</title>
-  <meta name="description" content="Energy healing practice with Luc Dacquin — fire cutter, energy healer, bone-setter. Near Geneva, France & French-speaking Switzerland." />
-  <link rel="alternate" hreflang="fr" href="index.html" />
-  <link rel="alternate" hreflang="en" href="index-en.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
-
-  <!-- Force English language BEFORE loading any scripts -->
-  <script>window.__lang = 'en'; try { localStorage.setItem('reb_lang', 'en'); } catch (e) {}</script>
-
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <title>Luc Dacquin — energy healer, bone-setter, fire cutter | Saint-Julien-en-Genevois</title>
+  <meta name="description" content="Luc Dacquin, energy healer, bone-setter and fire cutter near Geneva. Sessions in person or at a distance, clear fees, alongside medical care." />
+  <link rel="canonical" href="https://sylviogrande-maker.github.io/rebooteux-demo/index-en.html" />
+  <link rel="alternate" hreflang="fr" href="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <link rel="alternate" hreflang="en" href="https://sylviogrande-maker.github.io/rebooteux-demo/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Luc Dacquin" />
+  <meta property="og:title" content="Luc Dacquin — energy healer, bone-setter, fire cutter" />
+  <meta property="og:description" content="Calm, plainly explained sessions in Saint-Julien-en-Genevois or at a distance. Alongside medical care, never instead of it." />
+  <meta property="og:url" content="https://sylviogrande-maker.github.io/rebooteux-demo/index-en.html" />
+  <meta property="og:image" content="https://sylviogrande-maker.github.io/rebooteux-demo/assets/band-1200.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="670" />
+  <meta property="og:image:alt" content="Morning light in a Genevois forest, a trail and ferns, the Salève in the distance." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#F4EFE6" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="assets/hero-1200.webp" type="image/webp" imagesrcset="assets/hero-800.webp 800w, assets/hero-1200.webp 1200w, assets/hero-1792.webp 1792w" imagesizes="(max-width: 980px) 92vw, 38vw" fetchpriority="high" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reduce");
+    }
+  </script>
 </head>
 <body>
-  <div id="root"></div>
+  <a class="skip" href="#contenu">Skip to content</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">LD</span>
+      <span>
+        <span class="brand-name">Luc Dacquin</span>
+        <span class="brand-meta">Energy healer · Bone-setter</span>
+      </span>
+    </a>
+    <nav class="nav-desk" aria-label="Primary" data-nav>
+      <a href="#soins" data-spy>Sessions</a>
+      <a href="#luc" data-spy>Luc</a>
+      <a href="#seance" data-spy>A session</a>
+      <a href="#tarifs" data-spy>Fees</a>
+      <a href="#faq" data-spy>FAQ</a>
+      <a href="#contact" data-spy>Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="lang" href="index.html" hreflang="fr" lang="fr" data-lang-switch>FR</a>
+      <a class="btn btn-small header-cta" href="#contact">Book</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile">Menu</button>
+    </div>
+  </header>
+  <nav id="nav-mobile" class="nav-panel" data-nav-panel data-lenis-prevent hidden>
+    <a href="#soins" data-spy>Sessions</a>
+    <a href="#luc" data-spy>Luc</a>
+    <a href="#seance" data-spy>A session</a>
+    <a href="#tarifs" data-spy>Fees</a>
+    <a href="#faq" data-spy>FAQ</a>
+    <a href="#contact" data-spy>Book</a>
+    <a href="index.html" hreflang="fr" lang="fr" data-lang-switch>Français</a>
+  </nav>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=22"></script>
-  <script type="text/babel" src="components.jsx?v=22"></script>
-  <script type="text/babel" src="app.jsx?v=22"></script>
+  <main id="contenu">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-rise>Saint-Julien-en-Genevois · 30 km from Geneva</p>
+          <h1 data-split>Finding comfort, with clarity.</h1>
+          <p class="lede" data-rise>Luc Dacquin, energy healer, bone-setter and fire cutter. Sessions at the practice or at a distance, explained plainly — alongside medical care, never instead of it.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Book a session</a>
+            <a class="btn btn-ghost" href="#soins">See the sessions</a>
+          </div>
+          <p class="fine">In person or remote · 20 to 60 minutes · reply within 24 hours on weekdays.</p>
+        </div>
+        <figure class="hero-figure" data-hero-figure>
+          <div class="hero-photo" data-hero-photo>
+            <div class="frame">
+              <div class="hero-mask" data-hero-mask>
+                <picture>
+                  <source type="image/webp" srcset="assets/hero-800.webp 800w, assets/hero-1200.webp 1200w, assets/hero-1792.webp 1792w" sizes="(max-width: 980px) 92vw, 38vw" />
+                  <img data-hero-img src="assets/hero-1200.jpg" srcset="assets/hero-800.jpg 800w, assets/hero-1200.jpg 1200w, assets/hero-1792.jpg 1792w" sizes="(max-width: 980px) 92vw, 38vw" width="1792" height="2400" alt="Bright treatment room in a stone house: oak armchair, folded linen, ceramic jug, view of the Genevois hills." fetchpriority="high" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
+      <div class="container">
+        <ul class="facts">
+          <li><span>Place</span> Saint-Julien-en-Genevois, France and French-speaking Switzerland</li>
+          <li><span>Length</span> 20 to 60 minutes, depending on the session</li>
+          <li><span>Format</span> At the practice, or at a distance</li>
+          <li><span>Frame</span> A complement to medical care</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section about story" id="luc">
+      <div class="story-pin" data-pin="story">
+        <div class="container story-layout">
+          <figure class="portrait-wrap">
+            <div class="frame">
+              <div class="hero-mask" data-story-mask>
+                <picture>
+                  <source srcset="assets/luc-portrait.webp" type="image/webp" />
+                  <img data-story-img src="assets/luc-portrait.jpg" width="1200" height="1622" alt="Portrait of Luc Dacquin, in a light shirt, in a bright interior." />
+                </picture>
+              </div>
+            </div>
+            <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
+          </figure>
+          <div class="story-stage">
+            <div class="beat" data-beat>
+              <p class="eyebrow">The practitioner</p>
+              <h2>Forty-two years of a profession, then this work.</h2>
+            </div>
+            <div class="beat" data-beat>
+              <div class="prose">
+                <p>Born into a family living close to nature, and an accomplished sportsman, Luc first spent forty-two years in engineering and project management. He then turned to the knowledge passed down by his great-grandmother and his grandfathers.</p>
+                <p>He practises magnetism and bone-setting. That path also includes training as a druid healer, stated here as a fact, without ceremony. He does not promise a result. He accompanies.</p>
+              </div>
+            </div>
+            <div class="beat" data-beat>
+              <blockquote class="quote">
+                “I cultivate the art of connecting my energies with those of nature, rich in healing power.”
+                <cite>Luc Dacquin</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </section>
+
+    <section class="band" id="manifeste" aria-label="The practice">
+      <div class="band-media" data-band>
+        <picture>
+          <source type="image/webp" srcset="assets/band-800.webp 800w, assets/band-1200.webp 1200w, assets/band-1800.webp 1800w" sizes="100vw" />
+          <img data-parallax src="assets/band-1200.jpg" srcset="assets/band-800.jpg 800w, assets/band-1200.jpg 1200w, assets/band-1800.jpg 1800w" sizes="100vw" width="2560" height="1429" alt="Morning light in a Genevois forest, a trail and ferns, the Salève in the distance." loading="lazy" />
+        </picture>
+      </div>
+      <div class="band-card" data-reveal>
+        <p>A quiet hour, at the practice or at home. Clear, calm, and always beside medical care.</p>
+      </div>
+    </section>
+
+    <section class="section services" id="soins">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Sessions</p>
+          <h2 data-split-in>Four kinds of care, in plain words.</h2>
+          <p class="lede" style="margin-top:18px">Each session has a frame, a duration and a fee. None of this is presented as a diagnosis or a medical treatment.</p>
+        </div>
+        <div class="care-list">
+          <article class="care" id="feu" data-reveal>
+            <div class="care-n">01</div>
+            <div>
+              <h3>Fire cutter</h3>
+              <p>Hands held over the area, in person or at a distance, without direct contact. For burns, shingles and acute skin pain. A session lasts 20 to 60 minutes.</p>
+              <ul class="chips">
+                <li>Everyday burns</li>
+                <li>Sunburn</li>
+                <li>Shingles, herpes</li>
+                <li>Post-radiotherapy burns</li>
+                <li>Acute skin pain</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">20 to 60 min</p>
+              <p class="price-mini">In person <strong>€70</strong><br />Remote <strong>€50</strong><br />Student <strong>€60 / €40</strong></p>
+            </div>
+          </article>
+          <article class="care" id="eau" data-reveal>
+            <div class="care-n">02</div>
+            <div>
+              <h3>Energy healer · magnetizer</h3>
+              <p>Magnetism for long-standing blockages, persistent fatigue, and states where “nothing flows anymore”. A 60-minute session, in person or at a distance.</p>
+              <ul class="chips">
+                <li>Headaches</li>
+                <li>Chronic fatigue</li>
+                <li>Insomnia</li>
+                <li>Stress, anxiety</li>
+                <li>Sciatica</li>
+                <li>Recovery</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">60 min</p>
+              <p class="price-mini">In person <strong>€80</strong><br />Remote <strong>€50</strong><br />Student <strong>€60 / €40</strong></p>
+            </div>
+          </article>
+          <article class="care" id="terre" data-reveal>
+            <div class="care-n">03</div>
+            <div>
+              <h3>Bone-setter</h3>
+              <p>Hands-on osteo-articular work for mechanical blockages — neck, back, shoulders, joints. Precise, gentle, without strain. A session lasts 30 to 60 minutes. A remote fee is also offered.</p>
+              <ul class="chips">
+                <li>Stiff neck</li>
+                <li>Lower back pain</li>
+                <li>Tendinitis</li>
+                <li>Old sprains</li>
+                <li>Stiff joints</li>
+                <li>Muscle contractions</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">30 to 60 min</p>
+              <p class="price-mini">In person <strong>€80</strong><br />Remote <strong>€50</strong><br />Student <strong>€60 / €40</strong></p>
+            </div>
+          </article>
+          <article class="care" id="souffle" data-reveal>
+            <div class="care-n">04</div>
+            <div>
+              <h3>Longer support</h3>
+              <p>A regular presence alongside people in heavy treatment — cancer, after surgery, chronic illness — as a complement to medical care. The rhythm is decided together, often once a week.</p>
+              <ul class="chips">
+                <li>Chemo side effects</li>
+                <li>Post-surgery</li>
+                <li>Cancer</li>
+                <li>Chronic illness</li>
+                <li>Burnout</li>
+                <li>Difficult passages</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">Over time</p>
+              <p class="price-mini">Weekly package <strong>€50</strong><br />Student <strong>on request</strong></p>
+            </div>
+          </article>
+        </div>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Book a session</a>
+          <a class="btn btn-ghost" href="tel:+33685757863">Call</a>
+        </div>
+      </div>
+      <div class="container">
+        <aside class="split-note" data-hands>
+          <picture>
+            <source type="image/webp" srcset="assets/hands-800.webp 800w, assets/hands-1200.webp 1200w, assets/hands-1800.webp 1800w" sizes="(max-width: 980px) 100vw, 50vw" />
+            <img src="assets/hands-1200.jpg" srcset="assets/hands-800.jpg 800w, assets/hands-1200.jpg 1200w, assets/hands-1800.jpg 1800w" sizes="(max-width: 980px) 100vw, 50vw" width="2400" height="1792" alt="The practitioner’s hands above a clothed person’s shoulder, without touching." loading="lazy" />
+          </picture>
+          <div>
+            <p class="eyebrow">During a session</p>
+            <h2 data-split-in>You stay dressed.</h2>
+            <p>Luc speaks little and listens a great deal. Hands are held above the area, without direct contact. Bone-setting is manual, gentle, without strain. You may close your eyes.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section visit" id="seance">
+      <div class="visit-pin" data-pin="visit">
+        <div class="container visit-head">
+          <p class="eyebrow" id="deroule">How it unfolds</p>
+          <h2 data-split-in>A session, in four steps.</h2>
+        </div>
+        <div class="container visit-stage">
+          <div class="visit-visual">
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source type="image/webp" srcset="assets/visit-1-800.webp 800w, assets/visit-1-1200.webp 1200w, assets/visit-1-1800.webp 1800w" sizes="(max-width: 980px) 92vw, 52vw" />
+                <img src="assets/visit-1-1200.jpg" srcset="assets/visit-1-800.jpg 800w, assets/visit-1-1200.jpg 1200w, assets/visit-1-1800.jpg 1800w" sizes="(max-width: 980px) 92vw, 52vw" width="2528" height="1696" alt="A phone, an open notebook and herbal tea on an oak table, with a mountain village outside." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source type="image/webp" srcset="assets/visit-2-800.webp 800w, assets/visit-2-1200.webp 1200w, assets/visit-2-1800.webp 1800w" sizes="(max-width: 980px) 92vw, 52vw" />
+                <img src="assets/visit-2-1200.jpg" srcset="assets/visit-2-800.jpg 800w, assets/visit-2-1200.jpg 1200w, assets/visit-2-1800.jpg 1800w" sizes="(max-width: 980px) 92vw, 52vw" width="2528" height="1696" alt="A glass of water, a jug and folded comfortable clothes next to an armchair." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source type="image/webp" srcset="assets/visit-3-800.webp 800w, assets/visit-3-1200.webp 1200w, assets/visit-3-1800.webp 1800w" sizes="(max-width: 980px) 92vw, 52vw" />
+                <img src="assets/visit-3-1200.jpg" srcset="assets/visit-3-800.jpg 800w, assets/visit-3-1200.jpg 1200w, assets/visit-3-1800.jpg 1800w" sizes="(max-width: 980px) 92vw, 52vw" width="2228" height="1696" alt="A clothed person lying under a blanket; the practitioner’s hands above their legs, without contact." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source type="image/webp" srcset="assets/visit-4-800.webp 800w, assets/visit-4-1200.webp 1200w, assets/visit-4-1800.webp 1800w" sizes="(max-width: 980px) 92vw, 52vw" />
+                <img src="assets/visit-4-1200.jpg" srcset="assets/visit-4-800.jpg 800w, assets/visit-4-1200.jpg 1200w, assets/visit-4-1800.jpg 1800w" sizes="(max-width: 980px) 92vw, 52vw" width="2528" height="1696" alt="A grassy path between meadows and a dry-stone wall at sunset, with the Salève behind." loading="lazy" />
+              </picture>
+            </figure>
+            <div class="visit-meter" aria-hidden="true"><span data-meter></span></div>
+          </div>
+          <div class="visit-copy">
+            <div class="visit-step" data-step>
+              <span class="step-n">01</span>
+              <strong>Getting in touch</strong>
+              <p>You call or write. A few minutes are enough to understand what you are going through and to choose a suitable session. No jargon, no pressure.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">02</span>
+              <strong>Preparing</strong>
+              <p>Before the session, drink water and avoid coffee and alcohol if you can. Wear comfortable clothes. At a distance, choose a quiet place where you will not be disturbed.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">03</span>
+              <strong>The session</strong>
+              <p>In person or remote, it lasts 30 to 60 minutes. Luc holds his hands above the area, speaks little, listens a lot. You stay dressed. You may close your eyes.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">04</span>
+              <strong>Afterwards</strong>
+              <p>A pleasant tiredness is common. Drink, walk, sleep early. Luc remains reachable in the following days if something shifts or if you have a question.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tarifs" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Fees</p>
+          <h2 data-split-in>Clear, with no surprise.</h2>
+          <p class="lede" style="margin-top:16px">Student fees on presentation of proof. A receipt is provided on request.</p>
+        </div>
+        <div class="table-wrap" data-reveal>
+          <table class="prices">
+            <caption class="sr-only">Session fees</caption>
+            <thead>
+              <tr>
+                <th scope="col">Session</th>
+                <th scope="col">Length</th>
+                <th scope="col">In person</th>
+                <th scope="col">Remote</th>
+                <th scope="col">Student, in person</th>
+                <th scope="col">Student, remote</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Fire cutter</th>
+                <td data-label="Length">20 to 60 min</td>
+                <td data-label="In person">€70</td>
+                <td data-label="Remote">€50</td>
+                <td data-label="Student, in person">€60</td>
+                <td data-label="Student, remote">€40</td>
+              </tr>
+              <tr>
+                <th scope="row">Energy healer</th>
+                <td data-label="Length">60 min</td>
+                <td data-label="In person">€80</td>
+                <td data-label="Remote">€50</td>
+                <td data-label="Student, in person">€60</td>
+                <td data-label="Student, remote">€40</td>
+              </tr>
+              <tr>
+                <th scope="row">Bone-setter</th>
+                <td data-label="Length">30 to 60 min</td>
+                <td data-label="In person">€80</td>
+                <td data-label="Remote">€50</td>
+                <td data-label="Student, in person">€60</td>
+                <td data-label="Student, remote">€40</td>
+              </tr>
+              <tr>
+                <th scope="row">Longer support</th>
+                <td data-label="Length">Over time</td>
+                <td class="span" data-label="Fee" colspan="4">Weekly package €50, in person or remote. Student fee on request.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Payment: cash, bank transfer, TWINT (Switzerland). No card for the moment. Beyond 30 km, travel is possible on request; travel costs then apply. The amount is not published here.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Book a session</a>
+          <a class="btn btn-ghost" href="tel:+33685757863">Call</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TODO testimonials: remove hidden only when real accounts exist, with consent. Do not invent any. -->
+    <section class="section" id="temoignages" style="padding-top:0" hidden>
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Testimonials</p>
+          <h2>Words from people who have come.</h2>
+        </div>
+        <div class="placeholder" data-reveal>
+          <p class="placeholder-kicker">To be added — no invented reviews</p>
+          <p>No testimonial is published yet. This space will hold real accounts, shared with each person’s agreement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="background:#F3EEE6">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Frequently asked</p>
+          <h2 data-split-in>What people ask before coming.</h2>
+        </div>
+        <p class="medical" data-reveal>Luc’s sessions complement medical care. They do not replace it, they are not a diagnosis, and they are not a treatment. For any illness, see a doctor first.</p>
+        <div class="faq-list" data-reveal>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="true" id="q1" aria-controls="a1"><span>01</span><span>Do Luc’s sessions replace medical treatment?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a1" role="region" aria-labelledby="q1" data-panel><p>No, never. They are a complement, not a substitute. They sit alongside medical care, not in its place. For any illness, see a doctor first.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q2" aria-controls="a2"><span>02</span><span>Does it hurt?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a2" role="region" aria-labelledby="q2" data-panel hidden><p>No. Hands are held without direct contact. Bone-setting is manual but gentle, without strain. You stay dressed, lying down or seated depending on the session. Many people feel warmth or a settling.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q3" aria-controls="a3"><span>03</span><span>How does a remote session work?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a3" role="region" aria-labelledby="q3" data-panel hidden><p>You book, you speak by phone for a few minutes about what you are going through, then you settle quietly at home at the agreed time. Luc works from his practice with you in mind. Many people feel warmth, tingling or a deep calming during the session.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q4" aria-controls="a4"><span>04</span><span>Are there contraindications?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a4" role="region" aria-labelledby="q4" data-panel hidden><p>None known. The sessions are compatible with medical treatments and with the conditions people come with. If you are unsure, speak with Luc before booking.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q5" aria-controls="a5"><span>05</span><span>How many sessions, on average?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a5" role="region" aria-labelledby="q5" data-panel hidden><p>For something acute (a burn, a sudden blockage): one to three sessions are often enough. For deeper work or ongoing support, the rhythm is decided together, usually once a week or every two weeks.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q6" aria-controls="a6"><span>06</span><span>What happens afterwards?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a6" role="region" aria-labelledby="q6" data-panel hidden><p>A pleasant tiredness is common in the hours that follow — the body is integrating. Drink water, walk if you can, sleep early. Effects often continue to settle over two or three days.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q7" aria-controls="a7"><span>07</span><span>How do I pay?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a7" role="region" aria-labelledby="q7" data-panel hidden><p>Cash, bank transfer, or TWINT in Switzerland. No card for the moment. A receipt is provided on request.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q8" aria-controls="a8"><span>08</span><span>Will insurance or social security reimburse this?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a8" role="region" aria-labelledby="q8" data-panel hidden><p>French social security does not reimburse complementary care. Some mutual insurers offer a complementary-medicine allowance — ask yours. A receipt is provided on request.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q9" aria-controls="a9"><span>09</span><span>How do I book?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a9" role="region" aria-labelledby="q9" data-panel hidden><p>By phone (France or Switzerland), WhatsApp, or the contact form. A reply within 24 hours on weekdays.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q10" aria-controls="a10"><span>10</span><span>What if it does nothing for me?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a10" role="region" aria-labelledby="q10" data-panel hidden><p>Bodies do not all respond the same way, and some sessions suit some people better than others. If after two or three sessions you feel nothing, we talk about it and redirect if needed.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Booking</p>
+          <h2 data-split-in>Write, or call.</h2>
+          <p class="lede" style="margin-top:16px">The form prepares a WhatsApp message. It sends nothing to this website. You can also call directly.</p>
+          <div class="channels">
+            <a class="channel" href="tel:+33685757863"><b>FR</b><span>+33 6 85 75 78 63</span><em>Call</em></a>
+            <a class="channel" href="tel:+41795950938"><b>CH</b><span>+41 79 595 09 38</span><em>Call</em></a>
+            <a class="channel" href="https://wa.me/33685757863" target="_blank" rel="noopener"><b>WA</b><span>WhatsApp</span><em>Message</em></a>
+          </div>
+          <div id="zone">
+            <p class="meta">Practice</p>
+            <p>Saint-Julien-en-Genevois (74160), France. The exact address is given when you book. Luc travels within 30 km, on both the French and Swiss sides of Geneva.</p>
+            <ul class="city-list">
+              <li>Geneva · Carouge · Versoix (CH)</li>
+              <li>Annemasse · Bonneville · Saint-Gervais (FR)</li>
+              <li>Annecy · Cluses · Chamonix (FR)</li>
+              <li>And the Franco-Swiss border area</li>
+            </ul>
+            <p style="margin-top:18px">The practice receives by appointment.</p>
+            <!-- TODO opening hours: remove hidden once the usual days and slots are confirmed. -->
+            <div class="placeholder" style="margin-top:18px" hidden>
+              <p class="placeholder-kicker">Hours to be confirmed</p>
+              <p>The practice receives by appointment. Usual days and time slots are not listed yet; they will be added once confirmed.</p>
+            </div>
+            <!-- TODO practice email: remove hidden when an address can be published. Do not invent one. -->
+            <p class="fine" hidden>Practice email: <span class="todo">to be added</span>. Not published yet.</p>
+            <div class="map-block">
+              <button class="btn btn-ghost" type="button" data-map-btn data-map-title="Map of Saint-Julien-en-Genevois">Show the map</button>
+              <div data-map-holder></div>
+              <p class="fine">The OpenStreetMap view of the town loads only if you ask. <a href="https://www.openstreetmap.org/?mlat=46.1444&amp;mlon=6.0811#map=14/46.1444/6.0811" target="_blank" rel="noopener">Open in OpenStreetMap</a>.</p>
+            </div>
+          </div>
+        </div>
+        <form class="form" data-booking novalidate>
+          <div class="form-row">
+            <label>Name <input name="name" autocomplete="name" required /></label>
+            <label>Phone <input name="phone" type="tel" autocomplete="tel" required /></label>
+          </div>
+          <label>Email <span style="letter-spacing:0;text-transform:none">(optional)</span>
+            <input name="email" type="email" autocomplete="email" />
+          </label>
+          <label>Session
+            <select name="care" required>
+              <option value="Fire cutter">Fire cutter</option>
+              <option value="Energy healer">Energy healer</option>
+              <option value="Bone-setter">Bone-setter</option>
+              <option value="Longer support">Longer support</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+          </label>
+          <label>Message
+            <textarea name="message" rows="4" placeholder="A few lines on what you are going through."></textarea>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I agree that my name, phone and message may be used by Luc Dacquin to reply. The message leaves via WhatsApp, at my initiative. See the <a href="confidentialite.html">privacy policy</a> (in French).</span>
+          </label>
+          <button class="btn" type="submit">Prepare the WhatsApp message</button>
+          <p class="form-foot">Reply within 24 hours on weekdays. Nothing is stored on this website.</p>
+        </form>
+        <div class="form done" data-booking-done hidden>
+          <h3>Your message is ready.</h3>
+          <p>WhatsApp should open in a new tab. If it does not, use the link below. Luc has received nothing until you send the message.</p>
+          <p><a class="btn" data-booking-link href="https://wa.me/33685757863" target="_blank" rel="noopener">Open WhatsApp</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="eyebrow" style="color:#E4D3B0">Reboot’eux</p>
+          <h2>Luc Dacquin</h2>
+          <p>Energy healer, bone-setter, fire cutter. Saint-Julien-en-Genevois — finding a steadier balance, without an excessive promise.</p>
+        </div>
+        <div class="col">
+          <strong>Sessions</strong>
+          <a href="#feu">Fire cutter</a>
+          <a href="#eau">Energy healer</a>
+          <a href="#terre">Bone-setter</a>
+          <a href="#souffle">Longer support</a>
+        </div>
+        <div class="col">
+          <strong>Practical</strong>
+          <a href="#seance">How it unfolds</a>
+          <a href="#tarifs">Fees</a>
+          <a href="#zone">Area</a>
+          <a href="#faq">Questions</a>
+        </div>
+        <div class="col">
+          <strong>Contact</strong>
+          <a href="tel:+33685757863">FR · +33 6 85 75 78 63</a>
+          <a href="tel:+41795950938">CH · +41 79 595 09 38</a>
+          <a href="https://wa.me/33685757863" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mentions-legales.html">Legal notice</a>
+          <a href="confidentialite.html">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <span>© 2026 Reboot’eux · Luc Dacquin</span>
+        <span>By appointment · 30 km around Geneva</span>
+      </div>
+      <p class="photo-note">The portrait is of Luc Dacquin. The other images are generated views of the setting: a stone house, forest and countryside in the Genevois.</p>
+    </div>
+  </footer>
+
+  <div class="dock" data-dock>
+    <a class="btn" href="#contact">Book a session</a>
+    <a class="dock-call" href="tel:+33685757863">Call</a>
+  </div>
+
+  <script src="assets/js/gsap.min.js" defer></script>
+  <script src="assets/js/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

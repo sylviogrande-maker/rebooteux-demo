@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mentions légales · Reboot'eux</title>
   <meta name="description" content="Mentions légales du site Reboot'eux — Luc Dacquin, énergéticien à St-Julien-en-Genevois." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    .legal-page { min-height: 100vh; padding: 140px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
+    .legal-page { min-height: 100vh; padding: 48px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
     .legal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
     .legal-back { color: var(--ink-2); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color .3s, gap .3s var(--ease); display: inline-flex; align-items: center; gap: 10px; }
     .legal-back:hover { color: var(--ink); gap: 14px; }
@@ -51,13 +49,15 @@
       <p>
         <strong>Reboot'eux</strong> — cabinet de soins énergétiques<br/>
         Responsable : <strong>Luc Dacquin</strong><br/>
-        Statut juridique : <span class="todo">[à compléter par Luc — ex. auto-entrepreneur, SARL, profession libérale]</span><br/>
-        Numéro SIRET : <span class="todo">[à compléter]</span><br/>
-        Code APE : <span class="todo">[à compléter — probablement 8690F « Activités de santé humaine non classées ailleurs »]</span><br/>
+        <!-- TODO statut juridique : réafficher quand Luc l’a confirmé. Ex. auto-entrepreneur, SARL, profession libérale. Ne pas inventer. -->
+        <span hidden>Statut juridique : <span class="todo">[à compléter par Luc — ex. auto-entrepreneur, SARL, profession libérale]</span><br/></span>
+        <!-- TODO SIRET : réafficher quand le numéro est connu. -->
+        <span hidden>Numéro SIRET : <span class="todo">[à compléter]</span><br/></span>
+        <!-- TODO code APE : réafficher quand il est confirmé. -->
+        <span hidden>Code APE : <span class="todo">[à compléter]</span><br/></span>
         Adresse : St-Julien-en-Genevois (74160), France · sur rendez-vous<br/>
         Téléphone (France) : <a href="tel:+33685757863">+33 6 85 75 78 63</a><br/>
-        Téléphone (Suisse) : <a href="tel:+41795950938">+41 79 595 09 38</a><br/>
-        Email : <span class="todo">[à compléter — ex. contact@reboot-eux.com]</span>
+        Téléphone (Suisse) : <a href="tel:+41795950938">+41 79 595 09 38</a>
       </p>
     </section>
 
@@ -118,9 +118,8 @@
     <section class="legal-section">
       <div class="legal-h">08 / Contact</div>
       <p>
-        Pour toute question relative aux présentes mentions légales, vous pouvez écrire à :<br/>
-        <span class="todo">[email à compléter]</span><br/>
-        ou téléphoner au <a href="tel:+33685757863">+33 6 85 75 78 63</a>.
+        Pour toute question relative aux présentes mentions légales, téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a> ou au <a href="tel:+41795950938">+41 79 595 09 38</a>.
+        <!-- TODO email : réafficher « écrire à [email] » quand une adresse de cabinet est publiable. -->
       </p>
     </section>
 
