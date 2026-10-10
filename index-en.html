@@ -53,7 +53,7 @@
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile">Menu</button>
     </div>
   </header>
-  <nav id="nav-mobile" class="nav-panel" data-nav-panel hidden>
+  <nav id="nav-mobile" class="nav-panel" data-nav-panel data-lenis-prevent hidden>
     <a href="#soins" data-spy>Sessions</a>
     <a href="#luc" data-spy>Luc</a>
     <a href="#seance" data-spy>A session</a>
@@ -67,9 +67,9 @@
     <section class="hero" id="top">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Saint-Julien-en-Genevois · 30 km from Geneva</p>
-          <h1>Finding comfort, with clarity.</h1>
-          <p class="lede">Luc Dacquin, energy healer, bone-setter and fire cutter. Sessions at the practice or at a distance, explained plainly — alongside medical care, never instead of it.</p>
+          <p class="eyebrow" data-rise>Saint-Julien-en-Genevois · 30 km from Geneva</p>
+          <h1 data-split>Finding comfort, with clarity.</h1>
+          <p class="lede" data-rise>Luc Dacquin, energy healer, bone-setter and fire cutter. Sessions at the practice or at a distance, explained plainly — alongside medical care, never instead of it.</p>
           <div class="hero-actions">
             <a class="btn" href="#contact">Book a session</a>
             <a class="btn btn-ghost" href="#soins">See the sessions</a>
@@ -77,13 +77,17 @@
           <p class="fine">In person or remote · 20 to 60 minutes · reply within 24 hours on weekdays.</p>
         </div>
         <figure class="hero-figure" data-hero-figure>
-          <div class="frame">
-            <picture>
-              <source srcset="assets/hero-room.webp" type="image/webp" />
-              <img src="assets/hero-room.jpg" width="864" height="1152" alt="Morning light on pale linen and light wood, in a quiet room." fetchpriority="high" />
-            </picture>
+          <div class="hero-photo" data-hero-photo>
+            <div class="frame">
+              <div class="hero-mask" data-hero-mask>
+                <picture>
+                  <source srcset="assets/hero-room.webp" type="image/webp" />
+                  <img data-hero-img src="assets/hero-room.jpg" width="864" height="1152" alt="Morning light on pale linen and light wood, in a quiet room." fetchpriority="high" />
+                </picture>
+              </div>
+            </div>
           </div>
-          <figcaption>Atmosphere · light, linen, wood</figcaption>
+          <figcaption data-hero-caption>Atmosphere · light, linen, wood</figcaption>
         </figure>
       </div>
       <div class="container">
@@ -96,34 +100,45 @@
       </div>
     </section>
 
-    <section class="section about" id="luc">
-      <div class="container about-grid">
-        <figure class="portrait-wrap" data-reveal>
-          <div class="frame">
-            <picture>
-              <source srcset="assets/luc-portrait.webp" type="image/webp" />
-              <img src="assets/luc-portrait.jpg" width="900" height="1216" alt="Portrait of Luc Dacquin, in a light shirt, in a bright interior." loading="lazy" />
-            </picture>
+    <section class="section about story" id="luc">
+      <div class="story-pin" data-pin="story">
+        <div class="container story-layout">
+          <figure class="portrait-wrap">
+            <div class="frame">
+              <div class="hero-mask" data-story-mask>
+                <picture>
+                  <source srcset="assets/luc-portrait.webp" type="image/webp" />
+                  <img data-story-img src="assets/luc-portrait.jpg" width="900" height="1216" alt="Portrait of Luc Dacquin, in a light shirt, in a bright interior." />
+                </picture>
+              </div>
+            </div>
+            <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
+          </figure>
+          <div class="story-stage">
+            <div class="beat" data-beat>
+              <p class="eyebrow">The practitioner</p>
+              <h2 data-split-in>Forty-two years of a profession, then this work.</h2>
+            </div>
+            <div class="beat" data-beat>
+              <div class="prose">
+                <p>Born into a family living close to nature, and an accomplished sportsman, Luc first spent forty-two years in engineering and project management. He then turned to the knowledge passed down by his great-grandmother and his grandfathers.</p>
+                <p>He practises magnetism and bone-setting. That path also includes training as a druid healer, stated here as a fact, without ceremony. He does not promise a result. He accompanies.</p>
+              </div>
+            </div>
+            <div class="beat" data-beat>
+              <blockquote class="quote">
+                “I cultivate the art of connecting my energies with those of nature, rich in healing power.”
+                <cite>Luc Dacquin</cite>
+              </blockquote>
+            </div>
           </div>
-          <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
-        </figure>
-        <div data-reveal>
-          <p class="eyebrow">The practitioner</p>
-          <h2>Forty-two years of a profession, then this work.</h2>
-          <div class="prose" style="margin-top:22px">
-            <p>Born into a family living close to nature, and an accomplished sportsman, Luc first spent forty-two years in engineering and project management. He then turned to the knowledge passed down by his great-grandmother and his grandfathers.</p>
-            <p>He practises magnetism and bone-setting. That path also includes training as a druid healer, stated here as a fact, without ceremony. He does not promise a result. He accompanies.</p>
-          </div>
-          <blockquote class="quote">
-            “I cultivate the art of connecting my energies with those of nature, rich in healing power.”
-            <cite>Luc Dacquin</cite>
-          </blockquote>
         </div>
+        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
     </section>
 
     <section class="band" id="manifeste" aria-label="The practice">
-      <div class="band-media">
+      <div class="band-media" data-band>
         <picture>
           <source srcset="assets/forest-light.webp" type="image/webp" />
           <img data-parallax src="assets/forest-light.jpg" width="1200" height="675" alt="Morning light through the trees." loading="lazy" />
@@ -138,7 +153,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Sessions</p>
-          <h2>Four kinds of care, in plain words.</h2>
+          <h2 data-split-in>Four kinds of care, in plain words.</h2>
           <p class="lede" style="margin-top:18px">Each session has a frame, a duration and a fee. None of this is presented as a diagnosis or a medical treatment.</p>
         </div>
         <div class="care-list">
@@ -220,56 +235,87 @@
         </div>
       </div>
       <div class="container">
-        <aside class="split-note" data-reveal>
+        <aside class="split-note" data-hands>
           <picture>
             <source srcset="assets/hands-linen.webp" type="image/webp" />
             <img src="assets/hands-linen.jpg" width="1100" height="825" alt="Two hands above pale linen, in soft light. An atmosphere photograph." loading="lazy" />
           </picture>
           <div>
             <p class="eyebrow">During a session</p>
-            <h2>You stay dressed.</h2>
+            <h2 data-split-in>You stay dressed.</h2>
             <p>Luc speaks little and listens a great deal. Hands are held above the area, without direct contact. Bone-setting is manual, gentle, without strain. You may close your eyes.</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="seance">
-      <div class="container">
-        <div class="section-head" data-reveal>
+    <section class="section visit" id="seance">
+      <div class="visit-pin" data-pin="visit">
+        <div class="container visit-head">
           <p class="eyebrow" id="deroule">How it unfolds</p>
-          <h2>A session, in four steps.</h2>
+          <h2 data-split-in>A session, in four steps.</h2>
         </div>
-        <ol class="steps">
-          <li data-reveal>
-            <span class="step-n">01</span>
-            <strong>Getting in touch</strong>
-            <p>You call or write. A few minutes are enough to understand what you are going through and to choose a suitable session. No jargon, no pressure.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">02</span>
-            <strong>Preparing</strong>
-            <p>Before the session, drink water and avoid coffee and alcohol if you can. Wear comfortable clothes. At a distance, choose a quiet place where you will not be disturbed.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">03</span>
-            <strong>The session</strong>
-            <p>In person or remote, it lasts 30 to 60 minutes. Luc holds his hands above the area, speaks little, listens a lot. You stay dressed. You may close your eyes.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">04</span>
-            <strong>Afterwards</strong>
-            <p>A pleasant tiredness is common. Drink, walk, sleep early. Luc remains reachable in the following days if something shifts or if you have a question.</p>
-          </li>
-        </ol>
+        <div class="container visit-stage">
+          <div class="visit-visual">
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-chair.webp" type="image/webp" />
+                <img src="assets/step-chair.jpg" width="1400" height="738" alt="Atmosphere image to replace: a pale chair in a bright room." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-water.webp" type="image/webp" />
+                <img src="assets/step-water.jpg" width="1200" height="1797" alt="Atmosphere image to replace: clear water in motion." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/hands-linen.webp" type="image/webp" />
+                <img src="assets/hands-linen.jpg" width="1100" height="825" alt="Atmosphere image: two hands above pale linen." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-path.webp" type="image/webp" />
+                <img src="assets/step-path.jpg" width="1200" height="799" alt="Atmosphere image to replace: a path under the trees." loading="lazy" />
+              </picture>
+            </figure>
+            <div class="visit-meter" aria-hidden="true"><span data-meter></span></div>
+          </div>
+          <div class="visit-copy">
+            <p class="visit-index" data-index>01</p>
+            <div class="visit-step" data-step>
+              <span class="step-n">01</span>
+              <strong>Getting in touch</strong>
+              <p>You call or write. A few minutes are enough to understand what you are going through and to choose a suitable session. No jargon, no pressure.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">02</span>
+              <strong>Preparing</strong>
+              <p>Before the session, drink water and avoid coffee and alcohol if you can. Wear comfortable clothes. At a distance, choose a quiet place where you will not be disturbed.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">03</span>
+              <strong>The session</strong>
+              <p>In person or remote, it lasts 30 to 60 minutes. Luc holds his hands above the area, speaks little, listens a lot. You stay dressed. You may close your eyes.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">04</span>
+              <strong>Afterwards</strong>
+              <p>A pleasant tiredness is common. Drink, walk, sleep early. Luc remains reachable in the following days if something shifts or if you have a question.</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <p class="container visit-credit">Atmosphere images to replace. Chair, water and path: Unsplash (photo-1618221195710, photo-1548839140, photo-1441974231531). The other atmosphere photos are mockup illustrations, not the practice.</p>
     </section>
 
     <section class="section" id="tarifs" style="padding-top:0">
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Fees</p>
-          <h2>Clear, with no surprise.</h2>
+          <h2 data-split-in>Clear, with no surprise.</h2>
           <p class="lede" style="margin-top:16px">Student fees on presentation of proof. A receipt is provided on request.</p>
         </div>
         <div class="table-wrap" data-reveal>
@@ -326,7 +372,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Testimonials</p>
-          <h2>Words from people who have come.</h2>
+          <h2 data-split-in>Words from people who have come.</h2>
         </div>
         <div class="placeholder" data-reveal>
           <p class="placeholder-kicker">To be added — no invented reviews</p>
@@ -339,7 +385,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Frequently asked</p>
-          <h2>What people ask before coming.</h2>
+          <h2 data-split-in>What people ask before coming.</h2>
         </div>
         <p class="medical" data-reveal>Luc’s sessions complement medical care. They do not replace it, they are not a diagnosis, and they are not a treatment. For any illness, see a doctor first.</p>
         <div class="faq-list" data-reveal>
@@ -391,7 +437,7 @@
       <div class="container contact-grid">
         <div>
           <p class="eyebrow">Booking</p>
-          <h2>Write, or call.</h2>
+          <h2 data-split-in>Write, or call.</h2>
           <p class="lede" style="margin-top:16px">The form prepares a WhatsApp message. It sends nothing to this website. You can also call directly.</p>
           <div class="channels">
             <a class="channel" href="tel:+33685757863"><b>FR</b><span>+33 6 85 75 78 63</span><em>Call</em></a>
@@ -490,7 +536,7 @@
         <span>© 2026 Reboot’eux · Luc Dacquin</span>
         <span>By appointment · 30 km around Geneva</span>
       </div>
-      <p class="photo-note">Photographs of a room, of hands and of trees are atmosphere images. They do not show the practice. The portrait is of Luc Dacquin.</p>
+      <p class="photo-note">The portrait is of Luc Dacquin. Other photographs are atmosphere images to replace: they do not show the practice. Unsplash license — chair photo-1618221195710, water photo-1548839140, path photo-1441974231531.</p>
     </div>
   </footer>
 

@@ -73,7 +73,7 @@
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile">Menu</button>
     </div>
   </header>
-  <nav id="nav-mobile" class="nav-panel" data-nav-panel hidden>
+  <nav id="nav-mobile" class="nav-panel" data-nav-panel data-lenis-prevent hidden>
     <a href="#soins" data-spy>Soins</a>
     <a href="#luc" data-spy>Luc</a>
     <a href="#seance" data-spy>La séance</a>
@@ -87,9 +87,9 @@
     <section class="hero" id="top">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Saint-Julien-en-Genevois · 30&nbsp;km de Genève</p>
-          <h1>Retrouver du confort, en toute clarté.</h1>
-          <p class="lede">Luc Dacquin, énergéticien, rebouteux et coupeur de feu. Des séances au cabinet ou à distance, décrites simplement — en complément du suivi médical, jamais à sa place.</p>
+          <p class="eyebrow" data-rise>Saint-Julien-en-Genevois · 30&nbsp;km de Genève</p>
+          <h1 data-split>Retrouver du confort, en toute clarté.</h1>
+          <p class="lede" data-rise>Luc Dacquin, énergéticien, rebouteux et coupeur de feu. Des séances au cabinet ou à distance, décrites simplement — en complément du suivi médical, jamais à sa place.</p>
           <div class="hero-actions">
             <a class="btn" href="#contact">Prendre rendez-vous</a>
             <a class="btn btn-ghost" href="#soins">Voir les soins</a>
@@ -97,13 +97,17 @@
           <p class="fine">Présentiel ou à distance · 20 à 60&nbsp;minutes · réponse sous 24&nbsp;h en semaine.</p>
         </div>
         <figure class="hero-figure" data-hero-figure>
-          <div class="frame">
-            <picture>
-              <source srcset="assets/hero-room.webp" type="image/webp" />
-              <img src="assets/hero-room.jpg" width="864" height="1152" alt="Lumière du matin sur du linge clair et du bois pâle, dans une pièce calme." fetchpriority="high" />
-            </picture>
+          <div class="hero-photo" data-hero-photo>
+            <div class="frame">
+              <div class="hero-mask" data-hero-mask>
+                <picture>
+                  <source srcset="assets/hero-room.webp" type="image/webp" />
+                  <img data-hero-img src="assets/hero-room.jpg" width="864" height="1152" alt="Lumière du matin sur du linge clair et du bois pâle, dans une pièce calme." fetchpriority="high" />
+                </picture>
+              </div>
+            </div>
           </div>
-          <figcaption>Image d’ambiance · lumière, lin, bois</figcaption>
+          <figcaption data-hero-caption>Image d’ambiance · lumière, lin, bois</figcaption>
         </figure>
       </div>
       <div class="container">
@@ -116,34 +120,45 @@
       </div>
     </section>
 
-    <section class="section about" id="luc">
-      <div class="container about-grid">
-        <figure class="portrait-wrap" data-reveal>
-          <div class="frame">
-            <picture>
-              <source srcset="assets/luc-portrait.webp" type="image/webp" />
-              <img src="assets/luc-portrait.jpg" width="900" height="1216" alt="Portrait de Luc Dacquin, en chemise claire, dans un intérieur lumineux." loading="lazy" />
-            </picture>
+    <section class="section about story" id="luc">
+      <div class="story-pin" data-pin="story">
+        <div class="container story-layout">
+          <figure class="portrait-wrap">
+            <div class="frame">
+              <div class="hero-mask" data-story-mask>
+                <picture>
+                  <source srcset="assets/luc-portrait.webp" type="image/webp" />
+                  <img data-story-img src="assets/luc-portrait.jpg" width="900" height="1216" alt="Portrait de Luc Dacquin, en chemise claire, dans un intérieur lumineux." />
+                </picture>
+              </div>
+            </div>
+            <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
+          </figure>
+          <div class="story-stage">
+            <div class="beat" data-beat>
+              <p class="eyebrow">Le praticien</p>
+              <h2 data-split-in>Quarante-deux années de métier, puis le soin.</h2>
+            </div>
+            <div class="beat" data-beat>
+              <div class="prose">
+                <p>Issu d’une famille proche de la nature, sportif, Luc a d’abord exercé l’ingénierie et le management de projet pendant quarante-deux ans. Il a ensuite choisi les savoirs transmis par son arrière-grand-mère et ses grands-pères.</p>
+                <p>Il pratique le magnétisme et le reboutement. Ce parcours comprend aussi un chemin de druide guérisseur, indiqué ici comme un fait, sans mise en scène. Il ne promet pas de résultat. Il accompagne.</p>
+              </div>
+            </div>
+            <div class="beat" data-beat>
+              <blockquote class="quote">
+                «&nbsp;Je cultive l’art de relier mes énergies à celles de la nature, riche en pouvoir de guérison.&nbsp;»
+                <cite>Luc Dacquin</cite>
+              </blockquote>
+            </div>
           </div>
-          <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
-        </figure>
-        <div data-reveal>
-          <p class="eyebrow">Le praticien</p>
-          <h2>Quarante-deux années de métier, puis le soin.</h2>
-          <div class="prose" style="margin-top:22px">
-            <p>Issu d’une famille proche de la nature, sportif, Luc a d’abord exercé l’ingénierie et le management de projet pendant quarante-deux ans. Il a ensuite choisi les savoirs transmis par son arrière-grand-mère et ses grands-pères.</p>
-            <p>Il pratique le magnétisme et le reboutement. Ce parcours comprend aussi un chemin de druide guérisseur, indiqué ici comme un fait, sans mise en scène. Il ne promet pas de résultat. Il accompagne.</p>
-          </div>
-          <blockquote class="quote">
-            «&nbsp;Je cultive l’art de relier mes énergies à celles de la nature, riche en pouvoir de guérison.&nbsp;»
-            <cite>Luc Dacquin</cite>
-          </blockquote>
         </div>
+        <div class="story-progress" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
     </section>
 
     <section class="band" id="manifeste" aria-label="Intention du cabinet">
-      <div class="band-media">
+      <div class="band-media" data-band>
         <picture>
           <source srcset="assets/forest-light.webp" type="image/webp" />
           <img data-parallax src="assets/forest-light.jpg" width="1200" height="675" alt="Lumière du matin entre les arbres." loading="lazy" />
@@ -158,7 +173,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Les soins</p>
-          <h2>Quatre accompagnements, en langage simple.</h2>
+          <h2 data-split-in>Quatre accompagnements, en langage simple.</h2>
           <p class="lede" style="margin-top:18px">Chaque soin a un cadre, une durée et un tarif. Rien n’est présenté comme un diagnostic ou un traitement médical.</p>
         </div>
         <div class="care-list">
@@ -240,56 +255,87 @@
         </div>
       </div>
       <div class="container">
-        <aside class="split-note" data-reveal>
+        <aside class="split-note" data-hands>
           <picture>
             <source srcset="assets/hands-linen.webp" type="image/webp" />
             <img src="assets/hands-linen.jpg" width="1100" height="825" alt="Deux mains au-dessus d’un linge clair, dans une lumière douce. Photographie d’ambiance." loading="lazy" />
           </picture>
           <div>
             <p class="eyebrow">Pendant la séance</p>
-            <h2>Vous restez habillé.</h2>
+            <h2 data-split-in>Vous restez habillé.</h2>
             <p>Luc parle peu et écoute beaucoup. L’imposition des mains se fait sans contact direct. Le travail de rebouteux est manuel, doux, sans crispation. Vous pouvez fermer les yeux.</p>
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="section" id="seance">
-      <div class="container">
-        <div class="section-head" data-reveal>
+    <section class="section visit" id="seance">
+      <div class="visit-pin" data-pin="visit">
+        <div class="container visit-head">
           <p class="eyebrow" id="deroule">Comment ça se passe</p>
-          <h2>Une séance, en quatre temps.</h2>
+          <h2 data-split-in>Une séance, en quatre temps.</h2>
         </div>
-        <ol class="steps">
-          <li data-reveal>
-            <span class="step-n">01</span>
-            <strong>La prise de contact</strong>
-            <p>Vous appelez ou écrivez. On échange en quelques minutes pour comprendre ce que vous traversez et choisir le soin le plus adapté. Pas de jargon, pas de pression.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">02</span>
-            <strong>La préparation</strong>
-            <p>Avant la séance, buvez de l’eau, évitez le café et l’alcool si possible. Habillez-vous confortablement. À distance, choisissez un endroit calme où vous ne serez pas dérangé.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">03</span>
-            <strong>La séance</strong>
-            <p>Présentielle ou à distance, elle dure 30 à 60&nbsp;minutes. Luc impose ses mains au-dessus de la zone, parle peu, écoute beaucoup. Vous restez habillé. Vous pouvez fermer les yeux.</p>
-          </li>
-          <li data-reveal>
-            <span class="step-n">04</span>
-            <strong>Après</strong>
-            <p>Une fatigue agréable est fréquente. Buvez, marchez, dormez tôt. Luc reste joignable dans les jours qui suivent si quelque chose bouge ou si vous avez une question.</p>
-          </li>
-        </ol>
+        <div class="container visit-stage">
+          <div class="visit-visual">
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-chair.webp" type="image/webp" />
+                <img src="assets/step-chair.jpg" width="1400" height="738" alt="Image d’ambiance à remplacer : un fauteuil clair dans une pièce lumineuse." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-water.webp" type="image/webp" />
+                <img src="assets/step-water.jpg" width="1200" height="1797" alt="Image d’ambiance à remplacer : de l’eau claire en mouvement." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/hands-linen.webp" type="image/webp" />
+                <img src="assets/hands-linen.jpg" width="1100" height="825" alt="Image d’ambiance : deux mains au-dessus d’un linge clair." loading="lazy" />
+              </picture>
+            </figure>
+            <figure class="visit-shot" data-shot>
+              <picture>
+                <source srcset="assets/step-path.webp" type="image/webp" />
+                <img src="assets/step-path.jpg" width="1200" height="799" alt="Image d’ambiance à remplacer : un sentier sous les arbres." loading="lazy" />
+              </picture>
+            </figure>
+            <div class="visit-meter" aria-hidden="true"><span data-meter></span></div>
+          </div>
+          <div class="visit-copy">
+            <p class="visit-index" data-index>01</p>
+            <div class="visit-step" data-step>
+              <span class="step-n">01</span>
+              <strong>La prise de contact</strong>
+              <p>Vous appelez ou écrivez. On échange en quelques minutes pour comprendre ce que vous traversez et choisir le soin le plus adapté. Pas de jargon, pas de pression.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">02</span>
+              <strong>La préparation</strong>
+              <p>Avant la séance, buvez de l’eau, évitez le café et l’alcool si possible. Habillez-vous confortablement. À distance, choisissez un endroit calme où vous ne serez pas dérangé.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">03</span>
+              <strong>La séance</strong>
+              <p>Présentielle ou à distance, elle dure 30 à 60&nbsp;minutes. Luc impose ses mains au-dessus de la zone, parle peu, écoute beaucoup. Vous restez habillé. Vous pouvez fermer les yeux.</p>
+            </div>
+            <div class="visit-step" data-step>
+              <span class="step-n">04</span>
+              <strong>Après</strong>
+              <p>Une fatigue agréable est fréquente. Buvez, marchez, dormez tôt. Luc reste joignable dans les jours qui suivent si quelque chose bouge ou si vous avez une question.</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <p class="container visit-credit">Images d’ambiance à remplacer. Fauteuil, eau et sentier : Unsplash (photo-1618221195710, photo-1548839140, photo-1441974231531). Les autres photos d’ambiance sont des illustrations de maquette, pas le cabinet.</p>
     </section>
 
     <section class="section" id="tarifs" style="padding-top:0">
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Tarifs</p>
-          <h2>Clairs, sans surprise.</h2>
+          <h2 data-split-in>Clairs, sans surprise.</h2>
           <p class="lede" style="margin-top:16px">Tarifs étudiants sur présentation d’un justificatif. Reçu fourni sur demande.</p>
         </div>
         <div class="table-wrap" data-reveal>
@@ -346,7 +392,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Témoignages</p>
-          <h2>La parole des personnes reçues.</h2>
+          <h2 data-split-in>La parole des personnes reçues.</h2>
         </div>
         <div class="placeholder" data-reveal>
           <p class="placeholder-kicker">À compléter — aucun avis inventé</p>
@@ -359,7 +405,7 @@
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Questions fréquentes</p>
-          <h2>Ce que l’on demande avant de venir.</h2>
+          <h2 data-split-in>Ce que l’on demande avant de venir.</h2>
         </div>
         <p class="medical" data-reveal>Les soins de Luc complètent un suivi médical. Ils ne le remplacent pas, ne posent pas de diagnostic et ne constituent pas un traitement. Pour toute pathologie, consultez d’abord un médecin.</p>
         <div class="faq-list" data-reveal>
@@ -411,7 +457,7 @@
       <div class="container contact-grid">
         <div>
           <p class="eyebrow">Rendez-vous</p>
-          <h2>Écrire, ou appeler.</h2>
+          <h2 data-split-in>Écrire, ou appeler.</h2>
           <p class="lede" style="margin-top:16px">Le formulaire prépare un message WhatsApp. Il n’envoie rien au site. Vous pouvez aussi appeler directement.</p>
           <div class="channels">
             <a class="channel" href="tel:+33685757863">
@@ -526,7 +572,7 @@
         <span>© 2026 Reboot’eux · Luc Dacquin</span>
         <span>Sur rendez-vous · 30&nbsp;km autour de Genève</span>
       </div>
-      <p class="photo-note">Les photographies de pièce, de mains et d’arbres sont des images d’ambiance. Elles ne montrent pas le cabinet. Le portrait est celui de Luc Dacquin.</p>
+      <p class="photo-note">Le portrait est celui de Luc Dacquin. Les autres photographies sont des images d’ambiance à remplacer : elles ne montrent pas le cabinet. Crédits Unsplash, licence Unsplash — fauteuil photo-1618221195710, eau photo-1548839140, sentier photo-1441974231531.</p>
     </div>
   </footer>
 
