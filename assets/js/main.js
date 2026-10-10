@@ -264,7 +264,7 @@
     var heroImg = document.querySelector("[data-hero-img]");
     var desktopBlur = window.matchMedia("(min-width: 981px)").matches;
     if (heroMask) {
-      gsap.fromTo(heroMask, { clipPath: "inset(11% 8% 13% 8%)" }, {
+      gsap.fromTo(heroMask, { clipPath: "inset(8% 6% 9% 6%)" }, {
         clipPath: "inset(0% 0% 0% 0%)",
         duration: 1.5,
         delay: 0.12,
@@ -273,7 +273,7 @@
     }
     if (heroImg) {
       gsap.fromTo(heroImg, {
-        scale: 1.16,
+        scale: 1.07,
         filter: desktopBlur ? "blur(8px)" : "blur(0px)"
       }, {
         scale: 1,
@@ -378,7 +378,7 @@
         scrollTrigger: { trigger: hands, start: "top 80%", once: true }
       });
       if (handsImg) {
-        gsap.fromTo(handsImg, { scale: 1.14 }, {
+        gsap.fromTo(handsImg, { scale: 1.06 }, {
           scale: 1,
           duration: 1.4,
           ease: "power3.out",
@@ -446,8 +446,8 @@
       shots.forEach(function (shot, i) {
         gsap.set(shot, { zIndex: i + 1, clipPath: i === 0 ? wipes[0] : wipes[i] || wipes[1] });
       });
-      gsap.set(imgs, { scale: 1.14 });
-      if (imgs[0]) gsap.set(imgs[0], { scale: 1.04 });
+      gsap.set(imgs, { scale: 1.08 });
+      if (imgs[0]) gsap.set(imgs[0], { scale: 1.02 });
       gsap.set(steps, { opacity: 0, y: 22, pointerEvents: "none" });
       gsap.set(steps[0], { opacity: 1, y: 0, pointerEvents: "auto" });
       if (meter) gsap.set(meter, { scaleX: 0.25, transformOrigin: "left center" });

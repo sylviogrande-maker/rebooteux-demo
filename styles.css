@@ -362,9 +362,10 @@ button.btn { width: auto; }
 }
 .hero-figure .frame img {
   width: 100%;
-  height: min(64vh, 680px);
+  height: auto;
+  aspect-ratio: 1792 / 2400;
   object-fit: cover;
-  object-position: center 42%;
+  object-position: center center;
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .frame {
@@ -498,7 +499,7 @@ button.btn { width: auto; }
   background: var(--forest);
   color: #F4EFE6;
 }
-.split-note img { width: 100%; height: 100%; max-height: 420px; object-fit: cover; }
+.split-note img { width: 100%; height: auto; aspect-ratio: 2400 / 1792; object-fit: cover; object-position: center; }
 .split-note div { padding: clamp(24px, 4vw, 48px); }
 .split-note h2 { color: #F7F3EC; font-size: clamp(32px, 3.4vw, 48px); }
 .split-note p { color: rgba(247, 243, 236, 0.82); margin: 14px 0 0; }
@@ -760,10 +761,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--forest); ou
   .dock-call { white-space: nowrap; }
   .dock[hidden], body.nav-open .dock { display: none; }
   .portrait-wrap { width: min(100%, 360px); }
-  .hero-figure .frame img { height: auto; max-height: none; aspect-ratio: 4/5; }
+  .hero-figure .frame img { aspect-ratio: 1792 / 2400; }
   .band { min-height: 70vh; }
   .form-row { grid-template-columns: 1fr; }
-  .split-note img { max-height: 240px; }
+  .split-note img { max-height: none; }
   .channel span { font-size: 22px; }
   .footer-grid { gap: 28px; }
 }
@@ -823,8 +824,10 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--forest); ou
 .visit-shot:nth-child(4) { grid-area: 4 / 1; }
 .visit-shot img {
   width: 100%;
-  height: min(46vh, 420px);
+  height: auto;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
+  object-position: center;
 }
 .visit-index, .visit-meter { display: none; }
 .visit-step:nth-child(2) { grid-area: 1 / 2; }
@@ -839,13 +842,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--forest); ou
   font-weight: 500;
 }
 .visit-step p { margin: 0; color: var(--ink-2); max-width: 36rem; }
-.visit-credit {
-  margin: 28px auto 0;
-  max-width: 46rem;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--ink-3);
-}
 
 @media (max-width: 980px) {
   .story-layout, .visit-stage { grid-template-columns: 1fr; }
@@ -857,7 +853,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--forest); ou
   .visit-step:nth-child(4) { grid-area: 6 / 1; }
   .visit-shot:nth-child(4) { grid-area: 7 / 1; }
   .visit-step:nth-child(5) { grid-area: 8 / 1; }
-  .visit-shot img { height: 220px; }
+  .visit-shot img { height: auto; aspect-ratio: 3 / 2; }
 }
 
 html.motion .story.section { padding: 0; }
@@ -920,13 +916,16 @@ html.motion .visit-stage {
   flex: 1 1 auto;
   min-height: 0;
   grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-  grid-template-rows: minmax(0, 1fr);
-  align-items: stretch;
+  grid-template-rows: auto;
+  align-items: center;
 }
 html.motion .visit-visual {
   position: relative;
-  height: 100%;
-  min-height: 0;
+  width: min(100%, calc(58vh * 3 / 2));
+  aspect-ratio: 3 / 2;
+  height: auto;
+  max-height: 58vh;
+  margin-inline: auto;
   overflow: hidden;
 }
 html.motion .visit-shot {
@@ -937,7 +936,9 @@ html.motion .visit-shot {
 html.motion .visit-shot img {
   width: 100%;
   height: 100%;
+  aspect-ratio: auto;
   object-fit: cover;
+  object-position: center;
   transform-origin: center center;
 }
 html.motion .visit-meter {
@@ -1011,13 +1012,16 @@ html.motion .split-note { overflow: hidden; }
   html.motion .visit-head h2 { font-size: clamp(32px, 9vw, 44px); }
   html.motion .visit-stage {
     grid-template-columns: 1fr;
-    grid-template-rows: minmax(0, 0.9fr) minmax(150px, 0.85fr);
+    grid-template-rows: auto minmax(150px, 1fr);
     gap: 14px;
   }
-  html.motion .visit-visual { height: 100%; min-height: 0; }
+  html.motion .visit-visual {
+    width: 100%;
+    max-height: none;
+    aspect-ratio: 3 / 2;
+  }
   html.motion .visit-copy { height: 100%; min-height: 0; align-self: stretch; }
   html.motion .visit-step p { font-size: 15px; }
-  html.motion .visit-credit { margin-top: 18px; }
 }
 @media (max-width: 520px) {
   html.motion .portrait-wrap { width: min(188px, 54vw); }
