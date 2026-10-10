@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .legal-page { min-height: 100vh; padding: 140px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
+    .legal-page { min-height: 100vh; padding: 48px var(--pad) 80px; max-width: 920px; margin: 0 auto; }
     .legal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 80px; }
     .legal-back { color: var(--ink-2); text-decoration: none; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; transition: color .3s, gap .3s var(--ease); display: inline-flex; align-items: center; gap: 10px; }
     .legal-back:hover { color: var(--ink); gap: 14px; }
@@ -71,7 +71,8 @@
       </p>
       <p>
         Adresse : St-Julien-en-Genevois (74160), France · sur rendez-vous<br/>
-        Email : <span class="todo">[email à compléter]</span><br/>
+        <!-- TODO email du responsable : réafficher quand une adresse est publiable. Ne pas en inventer. -->
+        <span hidden>Email : <span class="todo">[email à compléter]</span><br/></span>
         Téléphone : <a href="tel:+33685757863">+33 6 85 75 78 63</a> (FR) · <a href="tel:+41795950938">+41 79 595 09 38</a> (CH)
       </p>
       <p>
@@ -179,7 +180,8 @@
         <li><strong>Droit de retirer votre consentement</strong> à tout moment, sans que cela n'affecte la licéité des traitements antérieurs.</li>
       </ul>
       <p>
-        Pour exercer ces droits, écrivez à <span class="todo">[email à compléter]</span> ou téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a>. Une réponse vous sera apportée dans un délai maximum d'un mois (RGPD) ou de 30 jours (nLPD).
+        Pour exercer ces droits, téléphonez au <a href="tel:+33685757863">+33 6 85 75 78 63</a> ou au <a href="tel:+41795950938">+41 79 595 09 38</a>. Une réponse vous sera apportée dans un délai maximum d'un mois (RGPD) ou de 30 jours (nLPD).
+        <!-- TODO email : réafficher « écrivez à [email] » quand une adresse de cabinet est publiable. -->
       </p>
     </section>
 

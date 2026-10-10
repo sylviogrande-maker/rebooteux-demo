@@ -118,7 +118,7 @@
           <div class="story-stage">
             <div class="beat" data-beat>
               <p class="eyebrow">The practitioner</p>
-              <h2 data-split-in>Forty-two years of a profession, then this work.</h2>
+              <h2>Forty-two years of a profession, then this work.</h2>
             </div>
             <div class="beat" data-beat>
               <div class="prose">
@@ -289,7 +289,6 @@
             <div class="visit-meter" aria-hidden="true"><span data-meter></span></div>
           </div>
           <div class="visit-copy">
-            <p class="visit-index" data-index>01</p>
             <div class="visit-step" data-step>
               <span class="step-n">01</span>
               <strong>Getting in touch</strong>
@@ -363,7 +362,7 @@
               <tr>
                 <th scope="row">Longer support</th>
                 <td data-label="Length">Over time</td>
-                <td class="span" data-label="Fee" colspan="4">Weekly package €50 · student fee on request. The published fee does not split in-person and remote.</td>
+                <td class="span" data-label="Fee" colspan="4">Weekly package €50, in person or remote. Student fee on request.</td>
               </tr>
             </tbody>
           </table>
@@ -376,11 +375,12 @@
       </div>
     </section>
 
-    <section class="section" id="temoignages" style="padding-top:0">
+    <!-- TODO testimonials: remove hidden only when real accounts exist, with consent. Do not invent any. -->
+    <section class="section" id="temoignages" style="padding-top:0" hidden>
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Testimonials</p>
-          <h2 data-split-in>Words from people who have come.</h2>
+          <h2>Words from people who have come.</h2>
         </div>
         <div class="placeholder" data-reveal>
           <p class="placeholder-kicker">To be added — no invented reviews</p>
@@ -461,11 +461,14 @@
               <li>Annecy · Cluses · Chamonix (FR)</li>
               <li>And the Franco-Swiss border area</li>
             </ul>
-            <div class="placeholder" style="margin-top:18px">
+            <p style="margin-top:18px">The practice receives by appointment.</p>
+            <!-- TODO opening hours: remove hidden once the usual days and slots are confirmed. -->
+            <div class="placeholder" style="margin-top:18px" hidden>
               <p class="placeholder-kicker">Hours to be confirmed</p>
               <p>The practice receives by appointment. Usual days and time slots are not listed yet; they will be added once confirmed.</p>
             </div>
-            <p class="fine">Practice email: <span class="todo">to be added</span>. Not published yet.</p>
+            <!-- TODO practice email: remove hidden when an address can be published. Do not invent one. -->
+            <p class="fine" hidden>Practice email: <span class="todo">to be added</span>. Not published yet.</p>
             <div class="map-block">
               <button class="btn btn-ghost" type="button" data-map-btn data-map-title="Map of Saint-Julien-en-Genevois">Show the map</button>
               <div data-map-holder></div>

@@ -138,7 +138,7 @@
           <div class="story-stage">
             <div class="beat" data-beat>
               <p class="eyebrow">Le praticien</p>
-              <h2 data-split-in>Quarante-deux années de métier, puis le soin.</h2>
+              <h2>Quarante-deux années de métier, puis le soin.</h2>
             </div>
             <div class="beat" data-beat>
               <div class="prose">
@@ -309,7 +309,6 @@
             <div class="visit-meter" aria-hidden="true"><span data-meter></span></div>
           </div>
           <div class="visit-copy">
-            <p class="visit-index" data-index>01</p>
             <div class="visit-step" data-step>
               <span class="step-n">01</span>
               <strong>La prise de contact</strong>
@@ -383,7 +382,7 @@
               <tr>
                 <th scope="row">Accompagnement</th>
                 <td data-label="Durée">Sur la durée</td>
-                <td class="span" data-label="Tarif" colspan="4">Forfait hebdomadaire 50&nbsp;€ · étudiant sur demande. Le tarif d’origine ne distingue pas le présentiel de la distance.</td>
+                <td class="span" data-label="Tarif" colspan="4">Forfait hebdomadaire 50&nbsp;€, au cabinet ou à distance. Étudiant&nbsp;: sur demande.</td>
               </tr>
             </tbody>
           </table>
@@ -396,11 +395,12 @@
       </div>
     </section>
 
-    <section class="section" id="temoignages" style="padding-top:0">
+    <!-- TODO témoignages : retirer hidden quand de vrais avis, avec accord, existent. Ne rien inventer. -->
+    <section class="section" id="temoignages" style="padding-top:0" hidden>
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Témoignages</p>
-          <h2 data-split-in>La parole des personnes reçues.</h2>
+          <h2>La parole des personnes reçues.</h2>
         </div>
         <div class="placeholder" data-reveal>
           <p class="placeholder-kicker">À compléter — aucun avis inventé</p>
@@ -493,11 +493,14 @@
               <li>Annecy · Cluses · Chamonix (FR)</li>
               <li>Et la zone frontalière franco-suisse</li>
             </ul>
-            <div class="placeholder" style="margin-top:18px">
+            <p style="margin-top:18px">Le cabinet reçoit sur rendez-vous.</p>
+            <!-- TODO horaires détaillés : retirer hidden quand les jours et créneaux sont confirmés. -->
+            <div class="placeholder" style="margin-top:18px" hidden>
               <p class="placeholder-kicker">Horaires à compléter</p>
               <p>Le cabinet reçoit sur rendez-vous. Les jours et créneaux habituels ne figurent pas encore ici&nbsp;; ils seront ajoutés lorsqu’ils seront confirmés.</p>
             </div>
-            <p class="fine">Email du cabinet&nbsp;: <span class="todo">à compléter</span>. Non publié pour l’instant.</p>
+            <!-- TODO email du cabinet : retirer hidden quand une adresse est publiable. Ne pas en inventer. -->
+            <p class="fine" hidden>Email du cabinet&nbsp;: <span class="todo">à compléter</span>. Non publié pour l’instant.</p>
             <div class="map-block">
               <button class="btn btn-ghost" type="button" data-map-btn data-map-title="Carte de Saint-Julien-en-Genevois">Afficher la carte</button>
               <div data-map-holder></div>

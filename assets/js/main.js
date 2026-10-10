@@ -230,34 +230,16 @@
       });
     }
 
-    var heroTitle = document.querySelector("[data-split]");
-    if (heroTitle) {
-      gsap.fromTo(splitWords(heroTitle), { yPercent: 118 }, {
-        yPercent: 0,
-        duration: 1.25,
-        ease: "power4.out",
-        stagger: 0.05,
-        delay: 0.08
-      });
-    }
-    gsap.utils.toArray("[data-rise]").forEach(function (el, index) {
+    /* Hero copy stays at full opacity. A long fade left the first screen faint. */
+    gsap.utils.toArray("[data-rise]").forEach(function (el) {
+      if (el.closest(".hero")) return;
       gsap.fromTo(el, { y: 22, opacity: 0 }, {
         y: 0,
         opacity: 1,
         duration: 1.05,
-        delay: 0.45 + index * 0.08,
-        ease: "power3.out"
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 90%", once: true }
       });
-    });
-    var heroActions = document.querySelector(".hero-actions");
-    var heroFine = document.querySelector(".hero .fine");
-    gsap.fromTo([heroActions, heroFine].filter(Boolean), { y: 18, opacity: 0 }, {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      stagger: 0.08,
-      delay: 0.62,
-      ease: "power3.out"
     });
 
     var heroMask = document.querySelector("[data-hero-mask]");
@@ -304,6 +286,7 @@
     if (heroCopy) heroLayers.to(heroCopy, { yPercent: 8, ease: "none" }, 0);
 
     gsap.utils.toArray("[data-split-in]").forEach(function (el) {
+      if (el.closest("[data-pin]")) return;
       revealWords(el, { trigger: el, start: "top 84%", once: true });
     });
 
@@ -402,7 +385,7 @@
       var img = pin.querySelector("[data-story-img]");
       var dots = pin.querySelectorAll(".story-progress i");
       if (!beats.length) return;
-      gsap.set(beats, { opacity: 0, y: 28, pointerEvents: "none" });
+      gsap.set(beats, { opacity: 0, y: 0, pointerEvents: "none" });
       gsap.set(beats[0], { opacity: 1, y: 0, pointerEvents: "auto" });
       gsap.set(dots, { scaleX: 0.28, transformOrigin: "left center" });
       if (dots[0]) gsap.set(dots[0], { scaleX: 1 });
@@ -410,27 +393,28 @@
         scrollTrigger: {
           trigger: pin,
           start: "top top",
-          end: mobile ? "+=130%" : "+=190%",
+          end: mobile ? "+=72%" : "+=88%",
           pin: true,
-          scrub: 0.85,
+          scrub: 0.45,
           anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
       if (mask) gsap.set(mask, { clearProps: "clipPath" });
       if (img) gsap.set(img, { clearProps: "scale,transform,clipPath" });
-      tl.to({}, { duration: 0.22 });
+      tl.to({}, { duration: 0.34 });
       for (var i = 1; i < beats.length; i++) {
-        tl.to(beats[i - 1], { opacity: 0, y: -22, pointerEvents: "none", ease: "power2.in", duration: 0.22 });
-        tl.fromTo(beats[i], { opacity: 0, y: 32, pointerEvents: "none" }, {
+        tl.to(beats[i - 1], { opacity: 0, pointerEvents: "none", ease: "none", duration: 0.08 });
+        tl.set(beats[i - 1], { opacity: 0, pointerEvents: "none" });
+        tl.to({}, { duration: 0.06 });
+        tl.fromTo(beats[i], { opacity: 0, pointerEvents: "none" }, {
           opacity: 1,
-          y: 0,
           pointerEvents: "auto",
-          ease: "power3.out",
-          duration: 0.32
-        }, "<0.08");
-        if (dots[i]) tl.to(dots[i], { scaleX: 1, ease: "power2.out", duration: 0.24 }, "<");
-        tl.to({}, { duration: 0.24 });
+          ease: "none",
+          duration: 0.1
+        });
+        if (dots[i]) tl.to(dots[i], { scaleX: 1, ease: "none", duration: 0.1 }, "<");
+        tl.to({}, { duration: 0.36 });
       }
     }
 
@@ -441,47 +425,40 @@
       var steps = pin.querySelectorAll("[data-step]");
       var imgs = pin.querySelectorAll("[data-shot] img");
       var meter = pin.querySelector("[data-meter]");
-      var index = pin.querySelector("[data-index]");
       if (!shots.length || !steps.length) return;
       shots.forEach(function (shot, i) {
         gsap.set(shot, { zIndex: i + 1, clipPath: i === 0 ? wipes[0] : wipes[i] || wipes[1] });
       });
-      gsap.set(imgs, { scale: 1.08 });
-      if (imgs[0]) gsap.set(imgs[0], { scale: 1.02 });
-      gsap.set(steps, { opacity: 0, y: 22, pointerEvents: "none" });
+      gsap.set(imgs, { scale: 1.04 });
+      if (imgs[0]) gsap.set(imgs[0], { scale: 1 });
+      gsap.set(steps, { opacity: 0, y: 0, pointerEvents: "none" });
       gsap.set(steps[0], { opacity: 1, y: 0, pointerEvents: "auto" });
       if (meter) gsap.set(meter, { scaleX: 0.25, transformOrigin: "left center" });
       var tl = gsap.timeline({
         scrollTrigger: {
           trigger: pin,
           start: "top top",
-          end: mobile ? "+=190%" : "+=280%",
+          end: mobile ? "+=150%" : "+=200%",
           pin: true,
-          scrub: 0.8,
+          scrub: 0.45,
           anticipatePin: 1,
-          invalidateOnRefresh: true,
-          onUpdate: function (self) {
-            if (!index) return;
-            var step = Math.min(steps.length - 1, Math.floor(self.progress * steps.length));
-            var label = String(step + 1).padStart(2, "0");
-            if (index.textContent !== label) index.textContent = label;
-          }
+          invalidateOnRefresh: true
         }
       });
-      tl.to({}, { duration: 0.28 });
+      tl.to({}, { duration: 0.32 });
       for (var i = 1; i < shots.length; i++) {
-        tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", ease: "power3.inOut", duration: 0.46 });
-        if (imgs[i]) tl.to(imgs[i], { scale: 1, ease: "power2.out", duration: 0.46 }, "<");
-        tl.to(steps[i - 1], { opacity: 0, y: -16, pointerEvents: "none", ease: "power2.in", duration: 0.24 }, "<");
-        tl.fromTo(steps[i], { opacity: 0, y: 26, pointerEvents: "none" }, {
+        tl.to(steps[i - 1], { opacity: 0, pointerEvents: "none", ease: "none", duration: 0.08 });
+        tl.set(steps[i - 1], { opacity: 0, pointerEvents: "none" });
+        tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 0.28 });
+        if (imgs[i]) tl.to(imgs[i], { scale: 1, ease: "power2.out", duration: 0.28 }, "<");
+        tl.fromTo(steps[i], { opacity: 0, pointerEvents: "none" }, {
           opacity: 1,
-          y: 0,
           pointerEvents: "auto",
-          ease: "power3.out",
-          duration: 0.32
-        }, "<0.1");
-        if (meter) tl.to(meter, { scaleX: (i + 1) / shots.length, ease: "power2.out", duration: 0.32 }, "<");
-        tl.to({}, { duration: 0.22 });
+          ease: "none",
+          duration: 0.1
+        });
+        if (meter) tl.to(meter, { scaleX: (i + 1) / shots.length, ease: "none", duration: 0.1 }, "<");
+        tl.to({}, { duration: 0.34 });
       }
     }
 
