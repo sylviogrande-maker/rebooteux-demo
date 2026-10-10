@@ -3,7 +3,7 @@
 Site vitrine de Luc Dacquin, énergéticien, rebouteux et coupeur de feu.
 Cabinet à Saint-Julien-en-Genevois (France / Suisse romande), à environ 30 km de Genève.
 
-Le ton est celui d’un cabinet de soin : calme, concret, lisible. Les pratiques sont décrites en complément du suivi médical, jamais à sa place.
+Le ton est celui d’un cabinet de soin : calme, concret, lisible. L’avertissement médical — complément du suivi, sans diagnostic ni prescription — est dit une fois sur la page, et repris dans les mentions légales.
 
 ## Tech
 
