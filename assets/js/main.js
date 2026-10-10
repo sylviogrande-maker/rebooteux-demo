@@ -417,13 +417,8 @@
           invalidateOnRefresh: true
         }
       });
-      if (mask) {
-        tl.fromTo(mask, { clipPath: "inset(9% 7% 12% 7%)" }, {
-          clipPath: "inset(0% 0% 0% 0%)",
-          ease: "power3.inOut",
-          duration: 0.45
-        }, 0);
-      }
+      if (mask) gsap.set(mask, { clearProps: "clipPath" });
+      if (img) gsap.set(img, { clearProps: "scale,transform,clipPath" });
       tl.to({}, { duration: 0.22 });
       for (var i = 1; i < beats.length; i++) {
         tl.to(beats[i - 1], { opacity: 0, y: -22, pointerEvents: "none", ease: "power2.in", duration: 0.22 });
@@ -436,13 +431,6 @@
         }, "<0.08");
         if (dots[i]) tl.to(dots[i], { scaleX: 1, ease: "power2.out", duration: 0.24 }, "<");
         tl.to({}, { duration: 0.24 });
-      }
-      if (img) {
-        tl.fromTo(img, { scale: 1.08 }, {
-          scale: 1.02,
-          ease: "none",
-          duration: tl.duration()
-        }, 0);
       }
     }
 
@@ -512,6 +500,17 @@
 
   if (window.location.hash) {
     window.setTimeout(function () { scrollToHash(window.location.hash, true); }, 40);
+  }
+
+  var dock = document.querySelector("[data-dock]");
+  var contact = document.getElementById("contact");
+  if (dock && contact && "IntersectionObserver" in window) {
+    var dockWatch = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        dock.hidden = entry.isIntersecting;
+      });
+    }, { threshold: 0.12 });
+    dockWatch.observe(contact);
   }
 
   window.addEventListener("load", function () {
