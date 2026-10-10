@@ -890,10 +890,22 @@ html.motion .story-pin {
   overflow: hidden;
   background: #F6F1E8;
 }
-html.motion .story-layout { align-items: center; gap: clamp(24px, 4vw, 56px); }
+html.motion .story-layout {
+  align-items: center;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  column-gap: clamp(40px, 4.5vw, 80px);
+  width: min(var(--col), calc(100% - var(--pad) * 2));
+}
 html.motion .portrait-wrap {
-  width: min(42vw, calc((100svh - 220px) * 1200 / 1622));
-  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  justify-self: stretch;
+}
+html.motion .portrait-wrap .frame,
+html.motion .portrait-wrap .hero-mask {
+  max-width: 100%;
+  overflow: hidden;
 }
 html.motion .portrait-wrap .frame img {
   width: 100%;
@@ -905,8 +917,15 @@ html.motion .portrait-wrap .frame img {
 }
 html.motion .story-stage {
   display: grid;
+  min-width: 0;
   min-height: 0;
   align-content: start;
+  position: relative;
+  z-index: 1;
+  background: #F6F1E8;
+}
+@media (min-width: 1200px) {
+  html.motion .story-layout { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
 }
 html.motion .beat {
   grid-area: 1 / 1;
@@ -1028,7 +1047,12 @@ html.motion .split-note { overflow: hidden; }
     object-position: center center;
     filter: brightness(1.14) contrast(0.96);
   }
-  html.motion .story-layout { justify-items: center; }
+  html.motion .story-layout {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 20px;
+  }
+  html.motion .story-stage { background: transparent; }
   html.motion .story-stage { min-height: 0; }
   html.motion .beat .prose p { font-size: 15.5px; line-height: 1.5; }
   html.motion .quote { margin-top: 0; font-size: 24px; }

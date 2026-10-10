@@ -146,16 +146,42 @@
     });
   }
 
+  function layoutTop(el) {
+    var y = 0;
+    var node = el;
+    while (node && node !== document.body && node !== document.documentElement) {
+      y += node.offsetTop || 0;
+      node = node.offsetParent;
+    }
+    return y;
+  }
+
+  function scrollDestination(target) {
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    var pin = target.matches("[data-pin]") ? target : target.querySelector("[data-pin]");
+    var spacer = pin && pin.parentElement && pin.parentElement.classList.contains("pin-spacer")
+      ? pin.parentElement
+      : null;
+    var headerH = (header && header.offsetHeight) || 72;
+    var y = (spacer ? layoutTop(spacer) : layoutTop(target)) - headerH - 8;
+    return Math.max(0, Math.round(y));
+  }
+
   function scrollToHash(hash, immediate) {
     var id = (hash || "").replace("#", "");
     if (!id) return;
     var target = document.getElementById(id);
     if (!target) return;
-    var offset = -((header && header.offsetHeight) || 72) - 12;
+    var top = scrollDestination(target);
     if (!immediate && window.lenis && !reduce) {
-      window.lenis.scrollTo(target, { offset: offset, duration: 1.05 });
+      window.lenis.scrollTo(top, {
+        force: true,
+        lock: true,
+        duration: 0.6,
+        offset: 0,
+        easing: function (t) { return 1 - Math.pow(1 - t, 3); }
+      });
     } else {
-      var top = target.getBoundingClientRect().top + window.scrollY + offset;
       window.scrollTo({ top: top, behavior: immediate || reduce ? "auto" : "smooth" });
     }
   }
@@ -175,10 +201,11 @@
 
   if (!reduce && finePointer && window.Lenis) {
     var lenis = new Lenis({
-      duration: 1.05,
+      duration: 0.65,
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1
+      wheelMultiplier: 1.15,
+      touchMultiplier: 1.05,
+      easing: function (t) { return 1 - Math.pow(1 - t, 3); }
     });
     window.lenis = lenis;
     if (window.gsap && window.ScrollTrigger) {
@@ -445,20 +472,14 @@
           invalidateOnRefresh: true
         }
       });
-      tl.to({}, { duration: 0.32 });
+      tl.to({}, { duration: 0.3 });
       for (var i = 1; i < shots.length; i++) {
-        tl.to(steps[i - 1], { opacity: 0, pointerEvents: "none", ease: "none", duration: 0.08 });
-        tl.set(steps[i - 1], { opacity: 0, pointerEvents: "none" });
-        tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 0.28 });
-        if (imgs[i]) tl.to(imgs[i], { scale: 1, ease: "power2.out", duration: 0.28 }, "<");
-        tl.fromTo(steps[i], { opacity: 0, pointerEvents: "none" }, {
-          opacity: 1,
-          pointerEvents: "auto",
-          ease: "none",
-          duration: 0.1
-        });
-        if (meter) tl.to(meter, { scaleX: (i + 1) / shots.length, ease: "none", duration: 0.1 }, "<");
-        tl.to({}, { duration: 0.34 });
+        tl.to(shots[i], { clipPath: "inset(0% 0% 0% 0%)", ease: "power2.inOut", duration: 0.42 });
+        if (imgs[i]) tl.to(imgs[i], { scale: 1, ease: "power2.out", duration: 0.42 }, "<");
+        tl.set(steps[i - 1], { opacity: 0, pointerEvents: "none" }, "<0.21");
+        tl.set(steps[i], { opacity: 1, pointerEvents: "auto" }, "<");
+        if (meter) tl.to(meter, { scaleX: (i + 1) / shots.length, ease: "none", duration: 0.12 }, "<");
+        tl.to({}, { duration: 0.32 });
       }
     }
 
