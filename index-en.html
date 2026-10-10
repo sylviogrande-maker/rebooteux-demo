@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#F4EFE6" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/js/lenis.css" />
+  <link rel="preload" as="image" href="assets/hero-room.webp" type="image/webp" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     document.documentElement.classList.add("js");
@@ -78,7 +78,10 @@
         </div>
         <figure class="hero-figure" data-hero-figure>
           <div class="frame">
-            <img src="assets/hero-room.jpg" width="864" height="1152" alt="Morning light on pale linen and light wood, in a quiet room." fetchpriority="high" />
+            <picture>
+              <source srcset="assets/hero-room.webp" type="image/webp" />
+              <img src="assets/hero-room.jpg" width="864" height="1152" alt="Morning light on pale linen and light wood, in a quiet room." fetchpriority="high" />
+            </picture>
           </div>
           <figcaption>Atmosphere · light, linen, wood</figcaption>
         </figure>
@@ -97,7 +100,10 @@
       <div class="container about-grid">
         <figure class="portrait-wrap" data-reveal>
           <div class="frame">
-            <img src="assets/luc-portrait.jpg" width="1200" height="1622" alt="Portrait of Luc Dacquin, in a light shirt, in a bright interior." loading="lazy" />
+            <picture>
+              <source srcset="assets/luc-portrait.webp" type="image/webp" />
+              <img src="assets/luc-portrait.jpg" width="900" height="1216" alt="Portrait of Luc Dacquin, in a light shirt, in a bright interior." loading="lazy" />
+            </picture>
           </div>
           <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
         </figure>
@@ -118,7 +124,10 @@
 
     <section class="band" id="manifeste" aria-label="The practice">
       <div class="band-media">
-        <img data-parallax src="assets/forest-light.jpg" width="1280" height="720" alt="Morning light through the trees." loading="lazy" />
+        <picture>
+          <source srcset="assets/forest-light.webp" type="image/webp" />
+          <img data-parallax src="assets/forest-light.jpg" width="1200" height="675" alt="Morning light through the trees." loading="lazy" />
+        </picture>
       </div>
       <div class="band-card" data-reveal>
         <p>A quiet hour, at the practice or at home. Clear, calm, and always beside medical care.</p>
@@ -212,7 +221,10 @@
       </div>
       <div class="container">
         <aside class="split-note" data-reveal>
-          <img src="assets/hands-linen.jpg" width="1152" height="864" alt="Two hands above pale linen, in soft light. An atmosphere photograph." loading="lazy" />
+          <picture>
+            <source srcset="assets/hands-linen.webp" type="image/webp" />
+            <img src="assets/hands-linen.jpg" width="1100" height="825" alt="Two hands above pale linen, in soft light. An atmosphere photograph." loading="lazy" />
+          </picture>
           <div>
             <p class="eyebrow">During a session</p>
             <h2>You stay dressed.</h2>

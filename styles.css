@@ -137,6 +137,11 @@ body {
 }
 body.nav-open { overflow: hidden; }
 img { max-width: 100%; height: auto; display: block; }
+picture { display: contents; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: clip; }
 a { color: inherit; }
 ::selection { background: #E4D3B0; color: var(--ink); }
 
