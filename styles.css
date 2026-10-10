@@ -882,16 +882,17 @@ html.motion .visit-pin {
   overflow: hidden;
 }
 html.motion .story-pin {
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  padding: calc(var(--header) + 16px) 0 20px;
-  overflow: visible;
+  height: 100svh;
+  min-height: 100svh;
+  max-height: 100svh;
+  justify-content: center;
+  padding: calc(var(--header) + 8px) 0 20px;
+  overflow: hidden;
   background: #F6F1E8;
 }
-html.motion .story-layout { align-items: start; gap: clamp(24px, 4vw, 56px); }
+html.motion .story-layout { align-items: center; gap: clamp(24px, 4vw, 56px); }
 html.motion .portrait-wrap {
-  width: min(100%, 340px);
+  width: min(42vw, calc((100svh - 220px) * 1200 / 1622));
   flex: 0 0 auto;
 }
 html.motion .portrait-wrap .frame img {
@@ -1000,6 +1001,8 @@ html.motion .split-note { overflow: hidden; }
     height: auto;
     min-height: 0;
     max-height: none;
+    justify-content: flex-start;
+    overflow: visible;
     padding-top: calc(var(--header) + 12px);
     padding-bottom: 16px;
   }
