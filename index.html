@@ -3,21 +3,524 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reboot'eux — retrouver son juste équilibre</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200..600;1,9..144,200..600&family=Inter:wght@200..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=22" />
-
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <title>Luc Dacquin — énergéticien, rebouteux, coupeur de feu | Saint-Julien-en-Genevois</title>
+  <meta name="description" content="Luc Dacquin, énergéticien, rebouteux et coupeur de feu à Saint-Julien-en-Genevois. Séances au cabinet ou à distance, tarifs clairs, en complément du suivi médical." />
+  <link rel="canonical" href="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <link rel="alternate" hreflang="fr" href="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <link rel="alternate" hreflang="en" href="https://sylviogrande-maker.github.io/rebooteux-demo/index-en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Luc Dacquin" />
+  <meta property="og:title" content="Luc Dacquin — énergéticien, rebouteux, coupeur de feu" />
+  <meta property="og:description" content="Des séances calmes et expliquées simplement, au cabinet de Saint-Julien-en-Genevois ou à distance. En complément du suivi médical." />
+  <meta property="og:url" content="https://sylviogrande-maker.github.io/rebooteux-demo/" />
+  <meta property="og:image" content="https://sylviogrande-maker.github.io/rebooteux-demo/assets/forest-light.jpg" />
+  <meta property="og:image:alt" content="Lumière du matin entre les arbres." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#F4EFE6" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/js/lenis.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.add("js");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("reduce");
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Luc Dacquin — Reboot'eux",
+    "description": "Énergéticien, rebouteux et coupeur de feu. Séances au cabinet ou à distance, en complément du suivi médical.",
+    "url": "https://sylviogrande-maker.github.io/rebooteux-demo/",
+    "image": "https://sylviogrande-maker.github.io/rebooteux-demo/assets/luc-portrait.jpg",
+    "telephone": "+33685757863",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Saint-Julien-en-Genevois",
+      "postalCode": "74160",
+      "addressCountry": "FR"
+    },
+    "areaServed": "Bassin genevois, France et Suisse romande",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Bank transfer, TWINT"
+  }
+  </script>
 </head>
 <body>
-  <div id="root"></div>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">LD</span>
+      <span>
+        <span class="brand-name">Luc Dacquin</span>
+        <span class="brand-meta">Énergéticien · Rebouteux</span>
+      </span>
+    </a>
+    <nav class="nav-desk" aria-label="Navigation principale" data-nav>
+      <a href="#soins" data-spy>Soins</a>
+      <a href="#luc" data-spy>Luc</a>
+      <a href="#seance" data-spy>Séance</a>
+      <a href="#tarifs" data-spy>Tarifs</a>
+      <a href="#faq" data-spy>FAQ</a>
+      <a href="#contact" data-spy>Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="lang" href="index-en.html" hreflang="en" lang="en" data-lang-switch>EN</a>
+      <a class="btn btn-small header-cta" href="#contact">Rendez-vous</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile">Menu</button>
+    </div>
+  </header>
+  <nav id="nav-mobile" class="nav-panel" data-nav-panel hidden>
+    <a href="#soins" data-spy>Soins</a>
+    <a href="#luc" data-spy>Luc</a>
+    <a href="#seance" data-spy>La séance</a>
+    <a href="#tarifs" data-spy>Tarifs</a>
+    <a href="#faq" data-spy>Questions</a>
+    <a href="#contact" data-spy>Rendez-vous</a>
+    <a href="index-en.html" hreflang="en" lang="en" data-lang-switch>English</a>
+  </nav>
 
-  <script type="text/babel" src="tweaks-panel.jsx?v=22"></script>
-  <script type="text/babel" src="components.jsx?v=22"></script>
-  <script type="text/babel" src="app.jsx?v=22"></script>
+  <main id="contenu">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Saint-Julien-en-Genevois · 30&nbsp;km de Genève</p>
+          <h1>Retrouver du confort, en toute clarté.</h1>
+          <p class="lede">Luc Dacquin, énergéticien, rebouteux et coupeur de feu. Des séances au cabinet ou à distance, décrites simplement — en complément du suivi médical, jamais à sa place.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Prendre rendez-vous</a>
+            <a class="btn btn-ghost" href="#soins">Voir les soins</a>
+          </div>
+          <p class="fine">Présentiel ou à distance · 20 à 60&nbsp;minutes · réponse sous 24&nbsp;h en semaine.</p>
+        </div>
+        <figure class="hero-figure" data-hero-figure>
+          <div class="frame">
+            <img src="assets/hero-room.jpg" width="864" height="1152" alt="Lumière du matin sur du linge clair et du bois pâle, dans une pièce calme." fetchpriority="high" />
+          </div>
+          <figcaption>Image d’ambiance · lumière, lin, bois</figcaption>
+        </figure>
+      </div>
+      <div class="container">
+        <ul class="facts">
+          <li><span>Lieu</span> Saint-Julien-en-Genevois, France et Suisse romande</li>
+          <li><span>Durée</span> 20 à 60&nbsp;minutes selon le soin</li>
+          <li><span>Modalité</span> Au cabinet, ou à distance</li>
+          <li><span>Cadre</span> Complément du parcours médical</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section about" id="luc">
+      <div class="container about-grid">
+        <figure class="portrait-wrap" data-reveal>
+          <div class="frame">
+            <img src="assets/luc-portrait.jpg" width="1200" height="1622" alt="Portrait de Luc Dacquin, en chemise claire, dans un intérieur lumineux." loading="lazy" />
+          </div>
+          <figcaption class="caption">Luc Dacquin · Saint-Julien-en-Genevois</figcaption>
+        </figure>
+        <div data-reveal>
+          <p class="eyebrow">Le praticien</p>
+          <h2>Quarante-deux années de métier, puis le soin.</h2>
+          <div class="prose" style="margin-top:22px">
+            <p>Issu d’une famille proche de la nature, sportif, Luc a d’abord exercé l’ingénierie et le management de projet pendant quarante-deux ans. Il a ensuite choisi les savoirs transmis par son arrière-grand-mère et ses grands-pères.</p>
+            <p>Il pratique le magnétisme et le reboutement. Ce parcours comprend aussi un chemin de druide guérisseur, indiqué ici comme un fait, sans mise en scène. Il ne promet pas de résultat. Il accompagne.</p>
+          </div>
+          <blockquote class="quote">
+            «&nbsp;Je cultive l’art de relier mes énergies à celles de la nature, riche en pouvoir de guérison.&nbsp;»
+            <cite>Luc Dacquin</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="manifeste" aria-label="Intention du cabinet">
+      <div class="band-media">
+        <img data-parallax src="assets/forest-light.jpg" width="1280" height="720" alt="Lumière du matin entre les arbres." loading="lazy" />
+      </div>
+      <div class="band-card" data-reveal>
+        <p>Un temps posé, au cabinet ou chez vous. Clair, calme, et toujours à côté du suivi médical.</p>
+      </div>
+    </section>
+
+    <section class="section services" id="soins">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Les soins</p>
+          <h2>Quatre accompagnements, en langage simple.</h2>
+          <p class="lede" style="margin-top:18px">Chaque soin a un cadre, une durée et un tarif. Rien n’est présenté comme un diagnostic ou un traitement médical.</p>
+        </div>
+        <div class="care-list">
+          <article class="care" id="feu" data-reveal>
+            <div class="care-n">01</div>
+            <div>
+              <h3>Coupeur de feu</h3>
+              <p>Imposition des mains, au cabinet ou à distance, sans contact direct. Pour soulager les brûlures, le zona et les douleurs aiguës de peau. La séance dure de 20 à 60&nbsp;minutes.</p>
+              <ul class="chips">
+                <li>Brûlures du quotidien</li>
+                <li>Coups de soleil</li>
+                <li>Zona, herpès</li>
+                <li>Brûlures post-radiothérapie</li>
+                <li>Douleurs cutanées aiguës</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">20 à 60&nbsp;min</p>
+              <p class="price-mini">Présentiel <strong>70&nbsp;€</strong><br />À distance <strong>50&nbsp;€</strong><br />Étudiant <strong>60&nbsp;€ / 40&nbsp;€</strong></p>
+            </div>
+          </article>
+          <article class="care" id="eau" data-reveal>
+            <div class="care-n">02</div>
+            <div>
+              <h3>Énergéticien · magnétiseur</h3>
+              <p>Magnétisme pour les blocages qui durent, la fatigue persistante, et les états où «&nbsp;rien ne passe&nbsp;». Une séance de 60&nbsp;minutes, au cabinet ou à distance.</p>
+              <ul class="chips">
+                <li>Céphalées</li>
+                <li>Fatigue chronique</li>
+                <li>Insomnie</li>
+                <li>Stress, anxiété</li>
+                <li>Sciatique</li>
+                <li>Convalescence</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">60&nbsp;min</p>
+              <p class="price-mini">Présentiel <strong>80&nbsp;€</strong><br />À distance <strong>50&nbsp;€</strong><br />Étudiant <strong>60&nbsp;€ / 40&nbsp;€</strong></p>
+            </div>
+          </article>
+          <article class="care" id="terre" data-reveal>
+            <div class="care-n">03</div>
+            <div>
+              <h3>Rebouteux</h3>
+              <p>Travail manuel ostéo-articulaire pour les blocages mécaniques — nuque, dos, épaules, articulations. Précis, doux, sans crispation. Une séance dure de 30 à 60&nbsp;minutes. Un tarif à distance est aussi proposé.</p>
+              <ul class="chips">
+                <li>Nuque bloquée</li>
+                <li>Lombalgie</li>
+                <li>Tendinites</li>
+                <li>Entorses anciennes</li>
+                <li>Articulations raides</li>
+                <li>Contractures</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">30 à 60&nbsp;min</p>
+              <p class="price-mini">Présentiel <strong>80&nbsp;€</strong><br />À distance <strong>50&nbsp;€</strong><br />Étudiant <strong>60&nbsp;€ / 40&nbsp;€</strong></p>
+            </div>
+          </article>
+          <article class="care" id="souffle" data-reveal>
+            <div class="care-n">04</div>
+            <div>
+              <h3>Accompagnement longue durée</h3>
+              <p>Présence régulière auprès des personnes en traitement lourd — cancer, suite opératoire, maladie chronique — en complément du parcours médical. Le rythme se construit ensemble, souvent une fois par semaine.</p>
+              <ul class="chips">
+                <li>Effets secondaires de chimio</li>
+                <li>Post-opératoire</li>
+                <li>Cancer</li>
+                <li>Maladie chronique</li>
+                <li>Burn-out</li>
+                <li>Traversées difficiles</li>
+              </ul>
+            </div>
+            <div class="care-side">
+              <p class="meta">Sur la durée</p>
+              <p class="price-mini">Forfait hebdomadaire <strong>50&nbsp;€</strong><br />Étudiant <strong>sur demande</strong></p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="container">
+        <aside class="split-note" data-reveal>
+          <img src="assets/hands-linen.jpg" width="1152" height="864" alt="Deux mains au-dessus d’un linge clair, dans une lumière douce. Photographie d’ambiance." loading="lazy" />
+          <div>
+            <p class="eyebrow">Pendant la séance</p>
+            <h2>Vous restez habillé.</h2>
+            <p>Luc parle peu et écoute beaucoup. L’imposition des mains se fait sans contact direct. Le travail de rebouteux est manuel, doux, sans crispation. Vous pouvez fermer les yeux.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="seance">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow" id="deroule">Comment ça se passe</p>
+          <h2>Une séance, en quatre temps.</h2>
+        </div>
+        <ol class="steps">
+          <li data-reveal>
+            <span class="step-n">01</span>
+            <strong>La prise de contact</strong>
+            <p>Vous appelez ou écrivez. On échange en quelques minutes pour comprendre ce que vous traversez et choisir le soin le plus adapté. Pas de jargon, pas de pression.</p>
+          </li>
+          <li data-reveal>
+            <span class="step-n">02</span>
+            <strong>La préparation</strong>
+            <p>Avant la séance, buvez de l’eau, évitez le café et l’alcool si possible. Habillez-vous confortablement. À distance, choisissez un endroit calme où vous ne serez pas dérangé.</p>
+          </li>
+          <li data-reveal>
+            <span class="step-n">03</span>
+            <strong>La séance</strong>
+            <p>Présentielle ou à distance, elle dure 30 à 60&nbsp;minutes. Luc impose ses mains au-dessus de la zone, parle peu, écoute beaucoup. Vous restez habillé. Vous pouvez fermer les yeux.</p>
+          </li>
+          <li data-reveal>
+            <span class="step-n">04</span>
+            <strong>Après</strong>
+            <p>Une fatigue agréable est fréquente. Buvez, marchez, dormez tôt. Luc reste joignable dans les jours qui suivent si quelque chose bouge ou si vous avez une question.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="tarifs" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Tarifs</p>
+          <h2>Clairs, sans surprise.</h2>
+          <p class="lede" style="margin-top:16px">Tarifs étudiants sur présentation d’un justificatif. Reçu fourni sur demande.</p>
+        </div>
+        <div class="table-wrap" data-reveal>
+          <table class="prices">
+            <caption class="sr-only">Tarifs des séances de Luc Dacquin</caption>
+            <thead>
+              <tr>
+                <th scope="col">Soin</th>
+                <th scope="col">Durée</th>
+                <th scope="col">Présentiel</th>
+                <th scope="col">À distance</th>
+                <th scope="col">Étudiant, présentiel</th>
+                <th scope="col">Étudiant, distance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Coupeur de feu</th>
+                <td data-label="Durée">20 à 60&nbsp;min</td>
+                <td data-label="Présentiel">70&nbsp;€</td>
+                <td data-label="À distance">50&nbsp;€</td>
+                <td data-label="Étudiant, présentiel">60&nbsp;€</td>
+                <td data-label="Étudiant, distance">40&nbsp;€</td>
+              </tr>
+              <tr>
+                <th scope="row">Énergéticien</th>
+                <td data-label="Durée">60&nbsp;min</td>
+                <td data-label="Présentiel">80&nbsp;€</td>
+                <td data-label="À distance">50&nbsp;€</td>
+                <td data-label="Étudiant, présentiel">60&nbsp;€</td>
+                <td data-label="Étudiant, distance">40&nbsp;€</td>
+              </tr>
+              <tr>
+                <th scope="row">Rebouteux</th>
+                <td data-label="Durée">30 à 60&nbsp;min</td>
+                <td data-label="Présentiel">80&nbsp;€</td>
+                <td data-label="À distance">50&nbsp;€</td>
+                <td data-label="Étudiant, présentiel">60&nbsp;€</td>
+                <td data-label="Étudiant, distance">40&nbsp;€</td>
+              </tr>
+              <tr>
+                <th scope="row">Accompagnement</th>
+                <td data-label="Durée">Sur la durée</td>
+                <td class="span" data-label="Tarif" colspan="4">Forfait hebdomadaire 50&nbsp;€ · étudiant sur demande. Le tarif d’origine ne distingue pas le présentiel de la distance.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Paiement&nbsp;: espèces, virement, TWINT (Suisse). Pas de carte bancaire pour le moment. Au-delà de 30&nbsp;km, un déplacement est possible sur demande&nbsp;; des frais de déplacement sont alors appliqués. Leur montant n’est pas publié ici.</p>
+      </div>
+    </section>
+
+    <section class="section" id="temoignages" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Témoignages</p>
+          <h2>La parole des personnes reçues.</h2>
+        </div>
+        <div class="placeholder" data-reveal>
+          <p class="placeholder-kicker">À compléter — aucun avis inventé</p>
+          <p>Aucun témoignage n’est publié pour le moment. Cette place accueillera des retours réels, recueillis avec l’accord des personnes concernées.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="background:#F3EEE6">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Questions fréquentes</p>
+          <h2>Ce que l’on demande avant de venir.</h2>
+        </div>
+        <p class="medical" data-reveal>Les soins de Luc complètent un suivi médical. Ils ne le remplacent pas, ne posent pas de diagnostic et ne constituent pas un traitement. Pour toute pathologie, consultez d’abord un médecin.</p>
+        <div class="faq-list" data-reveal>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="true" id="q1" aria-controls="a1"><span>01</span><span>Est-ce que les soins de Luc remplacent un traitement médical&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a1" role="region" aria-labelledby="q1" data-panel><p>Non, jamais. Les soins de Luc sont des compléments, pas des substituts. Ils s’inscrivent en alliance avec le parcours médical, pas à sa place. Pour toute pathologie, consultez d’abord un médecin.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q2" aria-controls="a2"><span>02</span><span>Est-ce que les soins font mal&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a2" role="region" aria-labelledby="q2" data-panel hidden><p>Non. L’imposition des mains est sans contact direct. Le travail de rebouteux est manuel mais doux, sans crispation. Vous restez habillé, allongé ou assis selon le soin. Beaucoup de personnes ressentent une chaleur ou un apaisement.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q3" aria-controls="a3"><span>03</span><span>Comment se passe une séance à distance&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a3" role="region" aria-labelledby="q3" data-panel hidden><p>Vous prenez rendez-vous, on échange par téléphone quelques minutes pour comprendre ce que vous traversez, puis vous vous installez tranquillement chez vous au moment convenu. Luc travaille à son cabinet en pensant à vous. Beaucoup ressentent une chaleur, des picotements ou un grand apaisement pendant la séance.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q4" aria-controls="a4"><span>04</span><span>Y a-t-il des contre-indications&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a4" role="region" aria-labelledby="q4" data-panel hidden><p>Aucune contre-indication connue. Les soins sont compatibles avec tous les traitements médicaux et toutes les conditions. Si vous avez un doute, parlez-en à Luc avant de prendre rendez-vous.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q5" aria-controls="a5"><span>05</span><span>Combien de séances faut-il en moyenne&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a5" role="region" aria-labelledby="q5" data-panel hidden><p>Pour un soin ponctuel (brûlure, blocage aigu)&nbsp;: 1 à 3&nbsp;séances suffisent souvent. Pour un travail plus profond ou un accompagnement, le rythme se construit ensemble, généralement une fois par semaine ou par quinzaine.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q6" aria-controls="a6"><span>06</span><span>Que se passe-t-il après la séance&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a6" role="region" aria-labelledby="q6" data-panel hidden><p>Une fatigue agréable est fréquente dans les heures qui suivent — c’est le corps qui intègre. Buvez beaucoup d’eau, marchez si vous pouvez, dormez tôt. Les effets continuent de se déposer pendant 2 à 3&nbsp;jours.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q7" aria-controls="a7"><span>07</span><span>Comment payer&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a7" role="region" aria-labelledby="q7" data-panel hidden><p>Espèces, virement bancaire, ou TWINT en Suisse. Pas de carte bancaire pour le moment. Reçu fourni sur demande.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q8" aria-controls="a8"><span>08</span><span>Y a-t-il un remboursement par la mutuelle ou la sécu&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a8" role="region" aria-labelledby="q8" data-panel hidden><p>Pas de remboursement par la sécurité sociale (médecines complémentaires). Certaines mutuelles proposent un forfait médecines douces — renseignez-vous auprès de la vôtre. Reçu fourni sur demande.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q9" aria-controls="a9"><span>09</span><span>Comment réserver&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a9" role="region" aria-labelledby="q9" data-panel hidden><p>Par téléphone (France ou Suisse), WhatsApp, ou via le formulaire de contact. Réponse sous 24&nbsp;h en semaine.</p></div>
+          </div>
+          <div class="faq-item" data-accordion>
+            <button type="button" aria-expanded="false" id="q10" aria-controls="a10"><span>10</span><span>Et si ça ne marche pas pour moi&nbsp;?</span><span class="plus" aria-hidden="true">+</span></button>
+            <div id="a10" role="region" aria-labelledby="q10" data-panel hidden><p>Tous les corps ne réagissent pas pareil et certains soins fonctionnent mieux sur certaines personnes. Si après 2 ou 3&nbsp;séances vous ne ressentez aucun effet, on en discute ensemble et on réoriente si besoin.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Rendez-vous</p>
+          <h2>Écrire, ou appeler.</h2>
+          <p class="lede" style="margin-top:16px">Le formulaire prépare un message WhatsApp. Il n’envoie rien au site. Vous pouvez aussi appeler directement.</p>
+          <div class="channels">
+            <a class="channel" href="tel:+33685757863">
+              <b>FR</b>
+              <span>+33 6 85 75 78 63</span>
+              <em>Appeler</em>
+            </a>
+            <a class="channel" href="tel:+41795950938">
+              <b>CH</b>
+              <span>+41 79 595 09 38</span>
+              <em>Appeler</em>
+            </a>
+            <a class="channel" href="https://wa.me/33685757863" target="_blank" rel="noopener">
+              <b>WA</b>
+              <span>WhatsApp</span>
+              <em>Écrire</em>
+            </a>
+          </div>
+          <div id="zone">
+            <p class="meta">Cabinet</p>
+            <p>Saint-Julien-en-Genevois (74160), France. L’adresse exacte est communiquée au moment du rendez-vous. Luc se déplace dans un rayon de 30&nbsp;km, côté France et Suisse romande.</p>
+            <ul class="city-list">
+              <li>Genève · Carouge · Versoix (CH)</li>
+              <li>Annemasse · Bonneville · Saint-Gervais (FR)</li>
+              <li>Annecy · Cluses · Chamonix (FR)</li>
+              <li>Et la zone frontalière franco-suisse</li>
+            </ul>
+            <div class="placeholder" style="margin-top:18px">
+              <p class="placeholder-kicker">Horaires à compléter</p>
+              <p>Le cabinet reçoit sur rendez-vous. Les jours et créneaux habituels ne figurent pas encore ici&nbsp;; ils seront ajoutés lorsqu’ils seront confirmés.</p>
+            </div>
+            <p class="fine">Email du cabinet&nbsp;: <span class="todo">à compléter</span>. Non publié pour l’instant.</p>
+            <div class="map-block">
+              <button class="btn btn-ghost" type="button" data-map-btn data-map-title="Carte de Saint-Julien-en-Genevois">Afficher la carte</button>
+              <div data-map-holder></div>
+              <p class="fine">La carte OpenStreetMap de la commune se charge seulement si vous le demandez. <a href="https://www.openstreetmap.org/?mlat=46.1444&amp;mlon=6.0811#map=14/46.1444/6.0811" target="_blank" rel="noopener">Ouvrir dans OpenStreetMap</a>.</p>
+            </div>
+          </div>
+        </div>
+        <form class="form" data-booking novalidate>
+          <div class="form-row">
+            <label>Nom
+              <input name="name" autocomplete="name" required />
+            </label>
+            <label>Téléphone
+              <input name="phone" type="tel" autocomplete="tel" required />
+            </label>
+          </div>
+          <label>Email <span style="letter-spacing:0;text-transform:none">(facultatif)</span>
+            <input name="email" type="email" autocomplete="email" />
+          </label>
+          <label>Soin envisagé
+            <select name="care" required>
+              <option value="Coupeur de feu">Coupeur de feu</option>
+              <option value="Énergéticien · magnétiseur">Énergéticien · magnétiseur</option>
+              <option value="Rebouteux">Rebouteux</option>
+              <option value="Accompagnement longue durée">Accompagnement longue durée</option>
+              <option value="Je ne sais pas encore">Je ne sais pas encore</option>
+            </select>
+          </label>
+          <label>Message
+            <textarea name="message" rows="4" placeholder="Quelques lignes sur ce que vous traversez."></textarea>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>J’accepte que mon nom, mon téléphone et mon message soient utilisés par Luc Dacquin pour me recontacter. Le message part par WhatsApp, à mon initiative. Voir la <a href="confidentialite.html">politique de confidentialité</a>.</span>
+          </label>
+          <button class="btn" type="submit">Préparer le message WhatsApp</button>
+          <p class="form-foot">Réponse sous 24&nbsp;h en semaine. Aucune donnée n’est enregistrée sur ce site.</p>
+        </form>
+        <div class="form done" data-booking-done hidden>
+          <h3>Votre message est prêt.</h3>
+          <p>WhatsApp doit s’ouvrir dans un nouvel onglet. S’il ne s’ouvre pas, utilisez le lien ci-dessous. Luc n’a rien reçu tant que vous n’avez pas envoyé le message.</p>
+          <p><a class="btn" data-booking-link href="https://wa.me/33685757863" target="_blank" rel="noopener">Ouvrir WhatsApp</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="eyebrow" style="color:#E4D3B0">Reboot’eux</p>
+          <h2>Luc Dacquin</h2>
+          <p>Énergéticien, rebouteux, coupeur de feu. Saint-Julien-en-Genevois — retrouver son juste équilibre, sans promesse excessive.</p>
+        </div>
+        <div class="col">
+          <strong>Soins</strong>
+          <a href="#feu">Coupeur de feu</a>
+          <a href="#eau">Énergéticien</a>
+          <a href="#terre">Rebouteux</a>
+          <a href="#souffle">Accompagnement</a>
+        </div>
+        <div class="col">
+          <strong>Pratique</strong>
+          <a href="#seance">Déroulé</a>
+          <a href="#tarifs">Tarifs</a>
+          <a href="#zone">Zone</a>
+          <a href="#faq">Questions</a>
+        </div>
+        <div class="col">
+          <strong>Contact</strong>
+          <a href="tel:+33685757863">FR · +33 6 85 75 78 63</a>
+          <a href="tel:+41795950938">CH · +41 79 595 09 38</a>
+          <a href="https://wa.me/33685757863" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="confidentialite.html">Confidentialité</a>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <span>© 2026 Reboot’eux · Luc Dacquin</span>
+        <span>Sur rendez-vous · 30&nbsp;km autour de Genève</span>
+      </div>
+      <p class="photo-note">Les photographies de pièce, de mains et d’arbres sont des images d’ambiance. Elles ne montrent pas le cabinet. Le portrait est celui de Luc Dacquin.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/gsap.min.js" defer></script>
+  <script src="assets/js/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/lenis.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
